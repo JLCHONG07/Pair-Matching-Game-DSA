@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignment;
+package GameObject;
 
 //import java.util.Iterator;
 //import java.util.NoSuchElementException;
@@ -17,7 +17,8 @@ package assignment;
 
  */
 public class ArrayList<T> implements List<T>{
-    //private int size;
+
+   //private int size;
     public int length;
     private T[] array;
     private static int DEFAULT_CAPACITY=5;
@@ -36,6 +37,7 @@ public class ArrayList<T> implements List<T>{
     
 
     //add back
+        @Override
     public void add(T newObject){
         if(this.length== array.length){
             addArrayLength();
@@ -55,7 +57,15 @@ public class ArrayList<T> implements List<T>{
    
    }
 */
-    
+     public T getEntry(int givenPosition) {
+    T result = null;
+
+    if ((givenPosition >= 1) && (givenPosition <= length)) {
+      result = array[givenPosition - 1];
+    }
+
+    return result;
+  }
     private void addArrayLength(){
         T[] oldArray=array;
         int temArrayLength= array.length;
@@ -68,10 +78,17 @@ public class ArrayList<T> implements List<T>{
 
 
     //remove behide object
-    public T remove() {
-       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+  private void removeGap(int givenPosition) {
+    // move each entry to next lower position starting at entry after the
+    // one removed and continuing until end of array
+    int removedIndex = givenPosition - 1;
+    int lastIndex = length - 1;
+
+    for (int index = removedIndex; index < lastIndex; index++) {
+      array[index] = array[index + 1];
     }
-    
+  }
     /*
     public T remove(int position){
     
@@ -162,9 +179,29 @@ public class ArrayList<T> implements List<T>{
     }
 */
 
-    boolean getDisplayName() {
+
+    public T remove(int givenPosition) {
+   T result = null;
+
+    if ((givenPosition >= 1) && (givenPosition <= length)) {
+      result = array[givenPosition - 1];
+
+      if (givenPosition < length) {
+        removeGap(givenPosition);
+      }
+
+      length--;
+    }
+
+    return result;   //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public T remove() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+
 
   
         

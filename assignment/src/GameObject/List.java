@@ -1,4 +1,4 @@
-package assignment;
+package GameObject;
 
 import java.util.Iterator;
 
@@ -18,8 +18,10 @@ public interface List<T> {
  //   Iterator<T> getIterator() ;
     void add(T gameObjectName);
     T remove();
+    T getEntry(int givenPosition);
     boolean isEmpty();
     String findGameObject();
+    int length();
   //  int length();
 
    

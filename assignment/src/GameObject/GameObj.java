@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignment;
+package GameObject;
 
 /**
  *
@@ -11,44 +11,47 @@ package assignment;
  */
 public class GameObj {
 
-    private String name;
+    private String id;
     private String description;
-    private String displayName;
+    private String objName;
     private int temDisplayName = 0;
     private String zero = "0";
     //  int objectDisplayName=0;
 
     public GameObj() {
-
+                
     }
 
-    public GameObj(String name, String desc, int objName) {
-        this.name = name;
+    public GameObj(String id, String desc, int objName) {
+        this.id = id;
         this.description = desc;
         this.temDisplayName = objName;
         // objectDisplayName++;
         if (objName < 10) {
-            this.displayName = zero + Integer.toString(objName);
+            this.objName = zero + Integer.toString(objName);
 
         } else {
-            this.displayName = Integer.toString(objName);
+            this.objName = Integer.toString(objName);
         }
     }
 
     public void setDIsplayName(int displayNamePass) {
         if (displayNamePass < 10) {
-            this.displayName = zero + Integer.toString(displayNamePass);
+            this.objName = zero + Integer.toString(displayNamePass);
 
         } else {
-            this.displayName = Integer.toString(displayNamePass);
+            this.objName = Integer.toString(displayNamePass);
         }
     }
 
     public String getDisplayName() {
-        return this.displayName;
+        return this.objName;
     }
-    public String setDescription(){
+    public String getDescription(){
         return this.description;
+    }
+    public String getObjID(){
+        return this.id;
     }
 
     /*  
@@ -58,7 +61,7 @@ public class GameObj {
      */
     public String toString() {
     
-    return name +description+getDisplayName()+"\n";
+    return id +description+getDisplayName()+"\n";
     }
 
     // return name+description+"\n";
