@@ -5,6 +5,7 @@
  */
 package assignment;
 
+import static assignment.GameObject.noOfGameObject;
 import java.util.Scanner;
 
 /**
@@ -16,10 +17,13 @@ public class Assignment {
     /**
      * @param args the command line arguments
      */
+       static int noOfGameObject = 16;
     public static void main(String[] args) {
         //Display main menu
         //With three selections: Start , Leaderboard, Quit
-        
+        GameObject obj = new GameObject();
+      
+    //    game.randomObj(noOfGameObject);
         //Start Module
        Scanner selection= new Scanner(System.in);
        System.out.println("1. Start Game \n2.Leaderboard \n3. Quit");
@@ -29,7 +33,10 @@ public class Assignment {
        {
            case 1:
            {
+               obj.randomObj(noOfGameObject);
+            //   obj.gamePlay();
                System.out.println("In progress!");
+       
                break;
            }
            case 2:
