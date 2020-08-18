@@ -16,7 +16,6 @@ import java.util.Scanner;
  */
 public class GameObject {
 
-    
     int name = 0;
     static int max = 8;//base on level change
     static int min = 1;
@@ -27,7 +26,7 @@ public class GameObject {
     static boolean checkObj = true;
     String zero = "0";
     GamePlay gp = new GamePlay();
-     boolean gamePlayleft = true;//round finish will change to false;
+    boolean gamePlayleft = true;//round finish will change to false;
 
     // ArrayList<GameObj> gameObject = new ArrayList<GameObj>(10);
     //ArrayList<GameObj> go = new ArrayList<GameObj>();
@@ -101,8 +100,11 @@ public class GameObject {
         }
 
         //  go.display();
-     
+        displayObj(go);
 
+    }
+
+    public void displayObj(ArrayList<GameObj> go) {
         while (gamePlayleft == true && (countingPair != max)) {
             for (int i = 1; i <= objNo; i++) {
                 if (i < 17) {
@@ -118,7 +120,9 @@ public class GameObject {
                     //display game object in orderly
                     if (i == 8 || i == 16) {
                         System.out.print(convertName + "\t\n");//change to \n if done
-
+                        if (i == 16) {
+                            gp.gamePlay(go);
+                        }
                     } else {
                         System.out.print(convertName + "\t");
 
@@ -126,8 +130,7 @@ public class GameObject {
 
                 }
             }
-            gp.gamePlay(go);
         }
-    }
 
+    }
 }
