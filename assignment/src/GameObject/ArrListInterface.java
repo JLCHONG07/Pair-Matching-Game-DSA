@@ -12,7 +12,7 @@ import java.util.Iterator;
  * @author CHONGJL
  * @param <T>
  */
-public interface List<T> {
+public interface ArrListInterface<T> {
 
     //   Iterator<T> getIterator() ;
     void add(T gameObjectName);
@@ -24,6 +24,8 @@ public interface List<T> {
     boolean isEmpty();
 
     int length();
+    
+    void clear();
     //  int length();
 
 }
