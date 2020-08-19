@@ -26,28 +26,6 @@ public class Assignment {
         // With three selections: Start , Leaderboard, Quit
 
         // Start Module
-        Scanner selection = new Scanner(System.in);
-        System.out.println("1. Start Game \n2.Leaderboard \n3. Quit");
-        int select = selection.nextInt();
-
-        switch (select) {
-            case 1: {
-                System.out.println("In progress!!");
-                break;
-            }
-            case 2: {
-                System.out.println("In progress!!");
-                break;
-            }
-            case 3: {
-                return;
-            }
-            default: {
-                System.out.println("Invalid Selection. The game will now exit");
-                System.exit(0);
-
-            }
-        }
 
         // Display main menu
         // With three selections: Start , Leaderboard, Quit
