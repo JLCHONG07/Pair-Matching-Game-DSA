@@ -51,6 +51,7 @@ public class Assignment {
         Scanner selection = new Scanner(System.in);
         System.out.println("1. Start Game \n2.Leaderboard \n3. Quit");
         int select = selection.nextInt();
+        String currentId;
 
         switch (select) {
             case 1: {
@@ -136,8 +137,6 @@ public class Assignment {
         switch(playerSelect) {
             case 1:
                 player.NewPlayer();
-                obj.randomObj(noOfGameObject);
-                Again();
                 break;
             case 2:
                 player.ExistingPlayer();

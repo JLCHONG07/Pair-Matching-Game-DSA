@@ -10,6 +10,8 @@ import GameObject.GameObj;
 import GameObject.GameObject;
 import static GameObject.GameObject.again;
 import static GameObject.GameObject.*;
+import Player.Player;
+import collections.LinkedList;
 
 import java.util.Scanner;
 
@@ -30,6 +32,7 @@ public class GamePlay {
     int currentScore = 0;
     public static int rounds = 1;
     public static int countingPair = 0;
+    LinkedList<Player> player = new LinkedList<>();
 //   GameObject gameObject1=new GameObject();
 
     public void gamePlay(ArrayList<GameObj> go) {

@@ -35,12 +35,12 @@ public class LVL {
             case 2:
             {
                 noOfObject = 12;
-                data.enqueue(new Level("L02", "Easy" ,15 ,noOfObject ,3 ));
+                data.enqueue(new Level("L02", "Medium" ,15 ,noOfObject ,3 ));
             }
             case 3:
             {
                 noOfObject = 16;
-                data.enqueue(new Level("L03", "Easy" ,20 ,noOfObject ,4 ));
+                data.enqueue(new Level("L03", "Hard" ,20 ,noOfObject ,4 ));
             }
             default:
             {

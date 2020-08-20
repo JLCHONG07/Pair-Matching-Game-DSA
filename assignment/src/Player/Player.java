@@ -10,8 +10,13 @@ public class Player extends LinkedList<Player> {
     private int easylvlScore;
     private int mediumlvlScore;
     private int hardlvlScore;
+    private String currentID;
     
     public Player() {}
+    
+    public Player(String currentID) {
+        this.currentID = currentID;
+    }
     
     public Player(String playerId, String playerName, int easylvlScore, int mediumlvlScore, int hardlvlScore) {
         this.playerId = playerId;
