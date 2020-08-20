@@ -9,7 +9,6 @@ import GameObject.ArrayList;
 import GameObject.GameObj;
 import GameObject.GameObject;
 import static GameObject.GameObject.again;
-import static GameObject.GameObject.rounds;
 import static GameObject.GameObject.*;
 
 import java.util.Scanner;
@@ -25,8 +24,12 @@ public class GamePlay {
     String closeDot = "'";
     String TisObj = "This object is ";
     String objPaired = "";
-  public static  int totalRounds=2;
+    public static int totalRounds = 2;//changed base on level getRounds();
     int sum = 0;
+    int highestScore = 0;
+    int currentScore = 0;
+    public static int rounds = 1;
+    public static int countingPair = 0;
 //   GameObject gameObject1=new GameObject();
 
     public void gamePlay(ArrayList<GameObj> go) {
@@ -38,16 +41,16 @@ public class GamePlay {
         String obj2Choosed;
         char choice;
         int level;
-      //  int rounds=1;
-       
+
+        //  int rounds=1;
         System.out.println(go.toString());
 
         ScoreArrayStack score = new ScoreArrayStack();
 
         //  do{
-   //     Scanner input = new Scanner(System.in);
-       // System.out.println("Select Level Difficulty (1(Easy = 8 Rounds), 2(Normal = 6 Rounds), 3(Hard = 4 Rounds): ");
-    //    level = input.nextInt();
+        //     Scanner input = new Scanner(System.in);
+        // System.out.println("Select Level Difficulty (1(Easy = 8 Rounds), 2(Normal = 6 Rounds), 3(Hard = 4 Rounds): ");
+        //    level = input.nextInt();
         /*
             switch (level) {
                 case 1:
@@ -62,7 +65,9 @@ public class GamePlay {
                         System.out.println("01 02 03 04 05 06 07 08\n");
                         
          */
-        System.out.print("\nRound :"+rounds +"/"+totalRounds);
+        System.out.print("Your Highest Scores : " + highestScore + "\n");
+        System.out.print("Current Scores:" + currentScore + "\n");;
+        System.out.print("\nRound :" + rounds + "/" + totalRounds);
         System.out.print("\nObjects You Have Paired : " + objPaired);
         System.out.print("\nObj 1 :");
 
@@ -79,30 +84,42 @@ public class GamePlay {
 
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n");
         obj2Choosed = go.getEntry(decisionConvert).getObjID();
-
+        rounds++;
         if (obj1Choosed.equals(obj2Choosed)) {
 
             System.out.print("\nResults : Both object choosed are Pair!\n");
 
             objPaired += decision1 + "\t" + decision2 + "\t";
 
-            System.out.print("Objects That you have paired : " + objPaired + "\n");
+            //       System.out.print("Objects That you have paired : " + objPaired + "\n");//debug use oni
             countingPair++;
-            rounds++;
+
             score.push(10);
             while (score.size() > 0) {
                 sum += score.pop();
+                currentScore = sum;
             }
-            System.out.println("Score Updated : " + sum);
+            System.out.println("Current Score Updated : " + currentScore);
+            if (currentScore > highestScore) {
+                highestScore = currentScore;
+            }
+            System.out.println("Highest Score Updated : " + highestScore);
 
-        } else if (!obj1Choosed.equals(obj2Choosed)) {
-      //      System.out.print("Result: Both object choosed are not Pair!\n");//debug use oni
+        } else {
+            System.out.print("Result: Both object choosed are not Pair!\n");
 
             score.push(0);
             while (score.size() > 0) {
                 sum += score.pop();
+                currentScore = sum;
             }
-            System.out.println("Score Updated : " + sum);
+            System.out.println("Current Score Remainded : " + sum);
+
+        }
+        if (rounds > totalRounds) {
+            gamePlayleft = false;
+            sum = 0;
+
         }
 
         //       }            break;
@@ -211,25 +228,32 @@ public class GamePlay {
                     break;
             }
          */
-    /*
-        if (countingPair == 2|| rounds>totalRounds) {
+ /*
+        if (countingPair == 2 || rounds > totalRounds) {
             //  Scanner scan = new Scanner(System.in);
             System.out.println("Game Over\n");
             System.out.println("Play Again? (Y/N) : ");
             choice = scan.next().charAt(0);
             if (choice == 'Y' || choice == 'y') {
                 go.clear();
-           again = true;
-                rounds=0;
-           //      gameObject1. randomObj(countingPair);
-              //  countingPair=0;
-                
-                
+                again = true;
+                rounds = 0;
+                count1 = 1;
+                count2 = 1;
+                count3 = 1;
+                count4 = 1;
+                count5 = 1;
+                count6 = 1;
+                count7 = 1;
+                count8 = 1;
+                //      gameObject1. randomObj(countingPair);
+                //  countingPair=0;
 
             }
-*/
-     //   }
 
-        //   }while(choice == 'Y' || choice == 'y');
+            //   }
+            //   }while(choice == 'Y' || choice == 'y');
+        }
+         */
     }
 }
