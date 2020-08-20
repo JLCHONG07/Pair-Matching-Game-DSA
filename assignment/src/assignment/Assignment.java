@@ -5,9 +5,16 @@
  */
 package assignment;
 
+import GameObject.ArrayList;
+import GameObject.GameObj;
 import java.util.Comparator;
 
 import GameObject.GameObject;
+import static GameObject.GameObject.again;
+import static GameObject.GameObject.countingPair;
+import static GameObject.GameObject.rounds;
+import static GamePlay.GamePlay.totalRounds;
+import collections.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -19,14 +26,13 @@ public class Assignment {
     /**
      * @param args the command line arguments
      */
-    static int noOfGameObject = 16;// change base on level
+    static int noOfGameObject = 4;// change base on level
 
     public static void main(String[] args) {
         // Display main menu
         // With three selections: Start , Leaderboard, Quit
 
         // Start Module
-
         // Display main menu
         // With three selections: Start , Leaderboard, Quit
         GameObject obj = new GameObject();
@@ -39,8 +45,9 @@ public class Assignment {
 
         switch (select) {
             case 1: {
-                obj.randomObj(noOfGameObject);
 
+                obj.randomObj(noOfGameObject);
+                Again();
                 System.out.println("In progress!");
 
                 break;
@@ -86,5 +93,27 @@ public class Assignment {
 
         System.out.println(currentPlayer);
         System.out.println(currentScore);
+    }
+
+    public static void Again() {
+        GameObject obj = new GameObject();
+
+        ArrayList<GameObj> go = new ArrayList<GameObj>();
+        if (countingPair == 2 || rounds > totalRounds) {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Game Over\n");
+            System.out.println("Play Again? (Y/N) : ");
+            char choice = scan.next().charAt(0);
+            if (choice == 'Y' || choice == 'y') {
+                go.clear();
+                //    again = true;
+                   rounds = 0;
+                obj.randomObj(noOfGameObject);
+                //  countingPair=0;
+
+            }
+
+        }
+
     }
 }

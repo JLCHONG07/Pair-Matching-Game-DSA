@@ -6,7 +6,7 @@
 package GameObject;
 
 import GamePlay.GamePlay;
-import static GamePlay.GamePlay.countingPair;
+//mport static GamePlay.GamePlay.countingPair;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class GameObject {
 
     int name = 0;
-    static int max = 8;//base on level change
+    static int max = 2;//base on level change
     static int min = 1;
     static String descObj;
     static int objNo = 0;
@@ -26,86 +26,97 @@ public class GameObject {
     static boolean checkObj = true;
     String zero = "0";
     GamePlay gp = new GamePlay();
-    boolean gamePlayleft = true;//round finish will change to false;
-
+    public static boolean gamePlayleft = true;//round finish will change to false;
+    public static boolean again = true;
+    public static int rounds = 1;
+    public static int countingPair = 0;
     // ArrayList<GameObj> gameObject = new ArrayList<GameObj>(10);
     //ArrayList<GameObj> go = new ArrayList<GameObj>();
+
     public void randomObj(int randTime) {
-        Random rand = new Random();
+     //      while (again == true) {
         ArrayList<GameObj> go = new ArrayList<GameObj>();
-        for (int i = 0; i < randTime; i++) {
+  
+        Random rand = new Random();
+      
+            for (int i = 0; i < randTime; i++) {
 
-            int rand_object = rand.nextInt((max - min) + 1) + min;
-            //     System.out.print("\nDebug random: " + rand_object);
-            objNo++;
+                int rand_object = rand.nextInt((max - min) + 1) + min;
+                //     System.out.print("\nDebug random: " + rand_object);
+                objNo++;
 
-            //createObj(rand_object, randTime);//
-            //   ArrayList<GameObj> temGo = new ArrayList<GameObj>();
-            descObj = "";
-            if (rand_object == 1 && count1 <= 2) {
+                //createObj(rand_object, randTime);//
+                //   ArrayList<GameObj> temGo = new ArrayList<GameObj>();
+                descObj = "";
+                if (rand_object == 1 && count1 <= 2) {
 
-                count1++;
-                descObj = "Apple";
-                go.add(new GameObj("01", descObj, objNo));
+                    count1++;
+                    descObj = "Apple";
+                    go.add(new GameObj("01", descObj, objNo));
 
-            } else if (rand_object == 2 && count2 <= 2) {
+                } else if (rand_object == 2 && count2 <= 2) {
 
-                count2++;
-                descObj = "Orange";
-                go.add(new GameObj("02", descObj, objNo));
+                    count2++;
+                    descObj = "Orange";
+                    go.add(new GameObj("02", descObj, objNo));
 
-            } else if (rand_object == 3 && count3 <= 2) {
+                } else if (rand_object == 3 && count3 <= 2) {
 
-                count3++;
-                descObj = "Strawberry";
-                go.add(new GameObj("03", descObj, objNo));
+                    count3++;
+                    descObj = "Strawberry";
+                    go.add(new GameObj("03", descObj, objNo));
 
-            } else if (rand_object == 4 && count4 <= 2) {
+                } else if (rand_object == 4 && count4 <= 2) {
 
-                count4++;
-                descObj = "Mango";
-                go.add(new GameObj("04", descObj, objNo));
+                    count4++;
+                    descObj = "Mango";
+                    go.add(new GameObj("04", descObj, objNo));
 
-            } else if (rand_object == 5 && count5 <= 2) {
+                } else if (rand_object == 5 && count5 <= 2) {
 
-                count5++;
-                descObj = "Durian";
-                go.add(new GameObj("05", descObj, objNo));
+                    count5++;
+                    descObj = "Durian";
+                    go.add(new GameObj("05", descObj, objNo));
 
-            } else if (rand_object == 6 && count6 <= 2) {
+                } else if (rand_object == 6 && count6 <= 2) {
 
-                count6++;
-                descObj = "Papaya";
-                go.add(new GameObj("06", descObj, objNo));
+                    count6++;
+                    descObj = "Papaya";
+                    go.add(new GameObj("06", descObj, objNo));
 
-            } else if (rand_object == 7 && count7 <= 2) {
+                } else if (rand_object == 7 && count7 <= 2) {
 
-                count7++;
-                descObj = "Watermelon";
-                go.add(new GameObj("07", descObj, objNo));
+                    count7++;
+                    descObj = "Watermelon";
+                    go.add(new GameObj("07", descObj, objNo));
 
-            } else if (rand_object == 8 && count8 <= 2) {
+                } else if (rand_object == 8 && count8 <= 2) {
 
-                count8++;
-                descObj = "Blueberry";
-                go.add(new GameObj("08", descObj, objNo));
+                    count8++;
+                    descObj = "Blueberry";
+                    go.add(new GameObj("08", descObj, objNo));
 
-            } else {
+                } else {
 
-                randTime += 1;
-                objNo -= 1;
+                    randTime += 1;
+                    objNo -= 1;
+
+                }
 
             }
+        //    again = false;
 
-        }
-
-        //  go.display();
-        displayObj(go);
+            displayObj(go);
+     //   }
+   //  }
 
     }
 
     public void displayObj(ArrayList<GameObj> go) {
-        while (gamePlayleft == true && (countingPair != max)) {
+
+        while (countingPair != max) {
+            System.out.println("\tPair Matching Game (Here are your objects to pair)");
+            System.out.println("==================================================================");
             for (int i = 1; i <= objNo; i++) {
                 if (i < 17) {
 
@@ -118,16 +129,17 @@ public class GameObject {
                         convertName = Integer.toString(i);
                     }
                     //display game object in orderly
-                    if (i == 8 || i == 16) {
+                    if (i == 4 || i == 16) {
                         System.out.print(convertName + "\t\n");//change to \n if done
-                        if (i == 16) {
+                        if (i == 4) {
+                            System.out.println("==================================================================");
+
                             gp.gamePlay(go);
                         }
                     } else {
                         System.out.print(convertName + "\t");
 
                     }
-
                 }
             }
         }
