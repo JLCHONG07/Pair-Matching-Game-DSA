@@ -96,12 +96,12 @@ public class GamePlay {
             Scanner scan = new Scanner(System.in);
             decision2 = scan.nextLine();
 
-            if (!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2) && !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2) && !"08".equals(decision2)) {
+            if (!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2) && !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2) && !"08".equals(decision2) && decision1.equals(decision2)) {
                 System.out.print("Invalid Choice! Please enter again\n\n");
             }
             System.out.print("\nObj 2 : ");
 
-        } while (!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2) && !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2) && !"08".equals(decision2));
+        } while (!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2) && !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2) && !"08".equals(decision2) && !decision1.equals(decision2));
 
         decisionConvert = Integer.parseInt(decision2);
 
