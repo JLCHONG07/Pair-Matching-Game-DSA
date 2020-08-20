@@ -7,38 +7,58 @@ import java.util.Objects;
 public class Player extends LinkedList<Player> {
     private String playerId;
     private String playerName;
-    private int playerScore;
+    private int easylvlScore;
+    private int mediumlvlScore;
+    private int hardlvlScore;
     
     public Player() {}
     
-    public Player(String playerId, String playerName, int playerScore) {
+    public Player(String playerId, String playerName, int easylvlScore, int mediumlvlScore, int hardlvlScore) {
         this.playerId = playerId;
         this.playerName = playerName;
-        this.playerScore = playerScore;
+        this.easylvlScore = easylvlScore;
+        this.mediumlvlScore = mediumlvlScore;
+        this.hardlvlScore = hardlvlScore;
     }
     
     public String getPlayerName() {
         return playerName;
     }
-    
-    public int getPlayerScore() {
-        return playerScore;
-    }
 
     public String getPlayerId() {
         return playerId;
+    }
+
+    public int getEasylvlScore() {
+        return easylvlScore;
+    }
+
+    public int getMediumlvlScore() {
+        return mediumlvlScore;
+    }
+
+    public int getHardlvlScore() {
+        return hardlvlScore;
     }
     
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
-    
-    public void setPlayerScore(int playerScore) {
-        this.playerScore = playerScore;
-    }
 
     public void setPlayerId(String playerId) {
         this.playerId = playerId;
+    }
+
+    public void setEasylvlScore(int easylvlScore) {
+        this.easylvlScore = easylvlScore;
+    }
+
+    public void setMediumlvlScore(int mediumlvlScore) {
+        this.mediumlvlScore = mediumlvlScore;
+    }
+
+    public void setHardlvlScore(int hardlvlScore) {
+        this.hardlvlScore = hardlvlScore;
     }
     
     @Override
@@ -64,11 +84,12 @@ public class Player extends LinkedList<Player> {
             return false;
         }
         final Player other = (Player) obj;
+        if (!Objects.equals(this.playerId, other.playerId)) {
+            return false;
+        }
         if (!Objects.equals(this.playerName, other.playerName)) {
             return false;
         }
         return true;
     }
-    
-    
 }
