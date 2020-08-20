@@ -55,7 +55,7 @@ public class Assignment {
         switch (select) {
             case 1: {
                 PromptPlayerInput();
-                //obj.randomObj(noOfGameObject);
+                obj.randomObj(noOfGameObject);
                 //Again();
                 System.out.println("In progress!");
 
@@ -102,13 +102,12 @@ public class Assignment {
                 obj.randomObj(noOfGameObject);
                 // countingPair=0;
             }
-<<<<<<< HEAD
+
             else{
                 System.exit(0);
             }
 
-=======
->>>>>>> 4473e8013d78d1eee8c7299a97bbad1f5b6f475a
+
         }
     }
     
@@ -117,6 +116,7 @@ public class Assignment {
         
         PromptPlayer player = new PromptPlayer();
         Scanner playerInput = new Scanner(System.in);
+        GameObject obj = new GameObject();
         
         do {
             System.out.println("+----------------+");
@@ -136,6 +136,8 @@ public class Assignment {
         switch(playerSelect) {
             case 1:
                 player.NewPlayer();
+                obj.randomObj(noOfGameObject);
+                Again();
                 break;
             case 2:
                 player.ExistingPlayer();
