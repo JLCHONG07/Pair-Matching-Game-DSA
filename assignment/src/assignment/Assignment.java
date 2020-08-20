@@ -100,6 +100,9 @@ public class Assignment {
                 // countingPair=0;
 
             }
+            else{
+                System.exit(0);
+            }
 
         }
 

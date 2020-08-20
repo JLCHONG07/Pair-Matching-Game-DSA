@@ -26,6 +26,7 @@ public class ArrayQueue<T> implements Queue<T>{
         backIndex = -1;
     }
     
+    @Override
     public void enqueue(T newData){
         if (!isArrayFull()){
             backIndex++;
@@ -33,6 +34,11 @@ public class ArrayQueue<T> implements Queue<T>{
         }
     }
     
+    /**
+     *
+     * @return
+     */
+    @Override
     public T dequeue() {
         T front = null;
 
@@ -48,6 +54,7 @@ public class ArrayQueue<T> implements Queue<T>{
         return front;
     }
     
+    @Override
     public T getFront() {
         T front = null;
 
@@ -58,10 +65,15 @@ public class ArrayQueue<T> implements Queue<T>{
         return front;
     } 
 
+    @Override
     public boolean isEmpty() {
         return frontIndex > backIndex;
     } 
 
+    /**
+     *
+     */
+    @Override
     public void clear() {
         if (!isEmpty()) { // deallocates only the used portion
             for (int index = frontIndex; index <= backIndex; index++) {

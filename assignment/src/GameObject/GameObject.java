@@ -123,7 +123,7 @@ public class GameObject {
 
         while (countingPair != max) {
             if (gamePlayleft) {
-                System.out.print("Player ID : 001 \t\t\tPlayer Name: hard Code Name\n");
+                System.out.print("\n\nPlayer ID : 001 \t\t\tPlayer Name: hard Code Name\n\n");
                 System.out.println("\tPair Matching Game (Here are your objects to pair)");
                 System.out.println("==================================================================");
                 for (int i = 1; i <= objNo; i++) {
