@@ -29,12 +29,12 @@ public class PromptPlayer {
         
         currentId = id;
         
-        playerLinkedList.add(new Player(id, playerName, 0));
+        playerLinkedList.add(new Player(id, playerName, 0, 0, 0));
         
         for (int index = 0; index < playerLinkedList.length(); index++) {
             if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
                 currentPlayer = playerLinkedList.get(index).getPlayerName();
-                currentScore = playerLinkedList.get(index).getPlayerScore();
+                currentScore = playerLinkedList.get(index).getEasylvlScore();
             }
         }
         
@@ -64,7 +64,7 @@ public class PromptPlayer {
                     if(playerLinkedList.get(index).getPlayerId().equals(playerId)) {
                         currentId = playerLinkedList.get(index).getPlayerId();
                         currentPlayer = playerLinkedList.get(index).getPlayerName();
-                        currentScore = playerLinkedList.get(index).getPlayerScore();
+                        currentScore = playerLinkedList.get(index).getEasylvlScore();
                         proceed = true;
                     } else {
                         proceed = false;
@@ -87,7 +87,7 @@ public class PromptPlayer {
         currentScore += 4;
         for(int index = 0; index < playerLinkedList.length(); index++) {
             if(playerLinkedList.get(index).getPlayerId().equals(currentId)) {
-                playerLinkedList.replace(index, new Player(currentId, currentPlayer, currentScore));
+                playerLinkedList.replace(index, new Player(currentId, currentPlayer, currentScore,0 ,0));
             }
         }
         

@@ -63,7 +63,7 @@ public class Player extends LinkedList<Player> {
     
     @Override
     public String toString() {
-        return playerId + " " + playerName + " " + playerScore;
+        return playerId + " " + playerName + " " + easylvlScore + " " + mediumlvlScore + " " + hardlvlScore;
     }
 
     @Override
