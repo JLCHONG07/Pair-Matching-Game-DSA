@@ -41,12 +41,8 @@ public class PromptPlayer {
         System.out.println("+-----------------------+");
         System.out.println("|" + "Your current id is " + currentId + "|");
         System.out.println("+-----------------------+");
-        
-        /*
-            prompt player input on levels
-        */
-        
-        addScore();
+
+        playerLinkedList.add(new Player(currentId));
     }
     
     public void ExistingPlayer() {
@@ -77,10 +73,7 @@ public class PromptPlayer {
                 System.out.println("Valid player id");
             }
         }while(proceed == false);
-        
-        playerLinkedList.show();
-        
-        addScore();
+        playerLinkedList.add(new Player(currentId));
     }
     
     public void addScore() {
