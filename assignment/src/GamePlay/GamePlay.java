@@ -7,11 +7,17 @@ package GamePlay;
 
 import GameObject.ArrayList;
 import GameObject.GameObj;
+import GameObject.GameObject;
+import static GameObject.GameObject.again;
+import static GameObject.GameObject.rounds;
+import static GameObject.GameObject.*;
+
 import java.util.Scanner;
 
 /**
  *
- * @author CHONGJL
+ * @author Santhi
+ *
  */
 public class GamePlay {
 
@@ -19,7 +25,9 @@ public class GamePlay {
     String closeDot = "'";
     String TisObj = "This object is ";
     String objPaired = "";
-    public static int countingPair = 0;
+  public static  int totalRounds=2;
+    int sum = 0;
+//   GameObject gameObject1=new GameObject();
 
     public void gamePlay(ArrayList<GameObj> go) {
 
@@ -28,38 +36,200 @@ public class GamePlay {
         String decision2;
         String obj1Choosed;
         String obj2Choosed;
+        char choice;
+        int level;
+      //  int rounds=1;
+       
+        System.out.println(go.toString());
 
-        //   int temHoldObj1Pos = 0;
-        //  int temHoldObj2Pos = 0;
-        //   boolean firstTime = true;
-        System.out.println(go.toString());//coomand if done
+        ScoreArrayStack score = new ScoreArrayStack();
 
-        System.out.print("\nObject Get Pair:" + objPaired);
+        //  do{
+   //     Scanner input = new Scanner(System.in);
+       // System.out.println("Select Level Difficulty (1(Easy = 8 Rounds), 2(Normal = 6 Rounds), 3(Hard = 4 Rounds): ");
+    //    level = input.nextInt();
+        /*
+            switch (level) {
+                case 1:
+                    for(int i = 1; i <= 8; i++){
+         */
+        if (!score.isEmpty()) {
+            score.clear();
+        }
+        /*
+                        System.out.println("\tPair Matching Game (Here are your objects to pair)");
+                        System.out.println("==================================================================");
+                        System.out.println("01 02 03 04 05 06 07 08\n");
+                        
+         */
+        System.out.print("\nRound :"+rounds +"/"+totalRounds);
+        System.out.print("\nObjects You Have Paired : " + objPaired);
         System.out.print("\nObj 1 :");
+
         Scanner scan = new Scanner(System.in);
         decision1 = scan.nextLine();
         decisionConvert = Integer.parseInt(decision1);
+
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n");
         obj1Choosed = go.getEntry(decisionConvert).getObjID();
-        //    temHoldObj1Pos = decisionConvert;
-        System.out.print("Debug1" + obj1Choosed);
+
         System.out.print("\nObj 2 :");
-        //     Scanner scan = new Scanner(System.in);
         decision2 = scan.nextLine();
         decisionConvert = Integer.parseInt(decision2);
+
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n");
         obj2Choosed = go.getEntry(decisionConvert).getObjID();
-        // temHoldObj2Pos = decisionConvert;
-        System.out.print("Debug2" + obj2Choosed);
 
         if (obj1Choosed.equals(obj2Choosed)) {
-            System.out.print("\nResults : Both object choosed are Pair!\n");
-            objPaired += decision1 + "\t" + decision2 + "\t";
-            System.out.print("Debug object Added to pair" + objPaired + "\n");
-            countingPair++;
 
-        } else {
-            System.out.print("Result: Both object choosed are not Pair!\n");
+            System.out.print("\nResults : Both object choosed are Pair!\n");
+
+            objPaired += decision1 + "\t" + decision2 + "\t";
+
+            System.out.print("Objects That you have paired : " + objPaired + "\n");
+            countingPair++;
+            rounds++;
+            score.push(10);
+            while (score.size() > 0) {
+                sum += score.pop();
+            }
+            System.out.println("Score Updated : " + sum);
+
+        } else if (!obj1Choosed.equals(obj2Choosed)) {
+      //      System.out.print("Result: Both object choosed are not Pair!\n");//debug use oni
+
+            score.push(0);
+            while (score.size() > 0) {
+                sum += score.pop();
+            }
+            System.out.println("Score Updated : " + sum);
         }
+
+        //       }            break;
+        /*
+                case 2:
+                    for(int i = 1; i <= 6; i++){
+                        score.clear();
+                        System.out.println("\tPair Matching Game (Here are your objects to pair)");
+                        System.out.println("==================================================================");
+                        System.out.println("01 02 03 04 05 06 07 08\n");
+                        System.out.println("\t09 10 11 12\n");
+                        
+                        System.out.print("\nObjects You Have Paired : " + objPaired);
+                        System.out.print("\nObj 1 :");
+                        
+                        Scanner scan = new Scanner(System.in);
+                        decision1 = scan.nextLine();
+                        decisionConvert = Integer.parseInt(decision1);
+                        
+                        System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n");
+                        obj1Choosed = go.getEntry(decisionConvert).getObjID();
+                        
+                        
+                        System.out.print("\nObj 2 :");
+                        decision2 = scan.nextLine();
+                        decisionConvert = Integer.parseInt(decision2);
+                        
+                        System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n");
+                        obj2Choosed = go.getEntry(decisionConvert).getObjID();
+                        
+                        
+                        if (obj1Choosed.equals(obj2Choosed)) {
+                            
+                            System.out.print("\nResults : Both object choosed are Pair!\n");
+                            
+                            objPaired += decision1 + "\t" + decision2 + "\t";
+                            
+                            System.out.print("Objects That you have paired : " + objPaired + "\n");
+                            countingPair++;
+                            
+                            score.push(10);
+                            while(score.size() > 0) sum += score.pop();
+                            System.out.println("Score Updated : " + sum);
+                            
+                        } else if(!obj1Choosed.equals(obj2Choosed)) {
+                            System.out.print("Result: Both object choosed are not Pair!\n");
+                            
+                            score.push(0);
+                            while(score.size() > 0) sum += score.pop();
+                            System.out.println("Score Updated : " + sum);
+                        }
+                        
+                    }            break;
+                case 3:
+                    for(int i = 1; i <= 4; i++){
+                        if(score.isEmpty()){
+                            score.clear();
+                        }
+                        System.out.println("\tPair Matching Game (Here are your objects to pair)");
+                        System.out.println("==================================================================");
+                        System.out.println("01 02 03 04 05 06 07 08\n");
+                        System.out.println("09 10 11 12 13 14 15 16\n");
+                        
+                        System.out.print("\nObjects You Have Paired : " + objPaired);
+                        System.out.print("\nObj 1 :");
+                        
+                        Scanner scan = new Scanner(System.in);
+                        decision1 = scan.nextLine();
+                        decisionConvert = Integer.parseInt(decision1);
+                        
+                        System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n");
+                        obj1Choosed = go.getEntry(decisionConvert).getObjID();
+                        
+                        
+                        System.out.print("\nObj 2 :");
+                        decision2 = scan.nextLine();
+                        decisionConvert = Integer.parseInt(decision2);
+                        
+                        System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n");
+                        obj2Choosed = go.getEntry(decisionConvert).getObjID();
+                        
+                        
+                        if (obj1Choosed.equals(obj2Choosed)) {
+                            
+                            System.out.print("\nResults : Both object choosed are Pair!\n");
+                            
+                            objPaired += decision1 + "\t" + decision2 + "\t";
+                            
+                            System.out.print("Objects That you have paired : " + objPaired + "\n");
+                            countingPair++;
+                            
+                            score.push(10);
+                            while(score.size() > 0) sum += score.pop();
+                            System.out.println("Score Updated : " + sum);
+                            
+                        } else if(!obj1Choosed.equals(obj2Choosed)) {
+                            System.out.print("Result: Both object choosed are not Pair!\n");
+                            
+                            score.push(0);
+                            while(score.size() > 0) sum += score.pop();
+                            System.out.println("Score Updated : " + sum);
+                        }
+                        
+                    }            break;
+                default:
+                    break;
+            }
+         */
+    /*
+        if (countingPair == 2|| rounds>totalRounds) {
+            //  Scanner scan = new Scanner(System.in);
+            System.out.println("Game Over\n");
+            System.out.println("Play Again? (Y/N) : ");
+            choice = scan.next().charAt(0);
+            if (choice == 'Y' || choice == 'y') {
+                go.clear();
+           again = true;
+                rounds=0;
+           //      gameObject1. randomObj(countingPair);
+              //  countingPair=0;
+                
+                
+
+            }
+*/
+     //   }
+
+        //   }while(choice == 'Y' || choice == 'y');
     }
 }

@@ -16,7 +16,7 @@ package GameObject;
  *
  *
  */
-public class ArrayList<T> implements List<T> {
+public class ArrayList<T> implements ArrListInterface<T> {
 
     //private int size;
     public int length;
@@ -49,11 +49,11 @@ public class ArrayList<T> implements List<T> {
         return array.length;
     }
 
-    public T getEntry(int givenPosition) {
+    public T getEntry(int givenPos) {
         T result = null;
 
-        if ((givenPosition >= 1) && (givenPosition <= length)) {
-            result = array[givenPosition - 1];
+        if ((givenPos >= 1) && (givenPos <= length)) {
+            result = array[givenPos - 1];
         }
 
         return result;
@@ -70,14 +70,14 @@ public class ArrayList<T> implements List<T> {
     }
 
     @Override
-    public T remove(int givenPosition) {
+    public T remove(int givenPos) {
         T result = null;
 
-        if ((givenPosition >= 1) && (givenPosition <= length)) {
-            result = array[givenPosition - 1];
+        if ((givenPos >= 1) && (givenPos <= length)) {
+            result = array[givenPos - 1];
 
-            if (givenPosition < length) {
-                removeGap(givenPosition);
+            if (givenPos < length) {
+                removeGap(givenPos);
             }
 
             length--;
@@ -86,10 +86,10 @@ public class ArrayList<T> implements List<T> {
         return result;   //To cha//To change body of generated methods, choose Tools | Templates.
     }
 
-    private void removeGap(int givenPosition) {
+    private void removeGap(int givenPos) {
         // move each entry to next lower position starting at entry after the
         // one removed and continuing until end of array
-        int removedIndex = givenPosition - 1;
+        int removedIndex = givenPos - 1;
         int lastIndex = length - 1;
 
         for (int index = removedIndex; index < lastIndex; index++) {
@@ -110,5 +110,11 @@ public class ArrayList<T> implements List<T> {
         }
         return outPutGameObject;
     }
+    
+    @Override
+    public void clear() {
+    length = 0;
+  }
+
 
 }
