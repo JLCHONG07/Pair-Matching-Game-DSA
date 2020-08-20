@@ -10,6 +10,7 @@ import GameObject.GameObj;
 import GameObject.GameObject;
 import static GameObject.GameObject.again;
 import static GameObject.GameObject.*;
+import static assignment.Assignment.Again;
 
 import java.util.Scanner;
 
@@ -24,7 +25,7 @@ public class GamePlay {
     String closeDot = "'";
     String TisObj = "This object is ";
     String objPaired = "";
-    public static int totalRounds = 2;//changed base on level getRounds();
+    public static int totalRounds = 10;//changed base on level getRounds();
     int sum = 0;
     int highestScore = 0;
     int currentScore = 0;
@@ -41,6 +42,7 @@ public class GamePlay {
         String obj2Choosed;
         char choice;
         int level;
+        int totalScoresEarn = 0;
 
         //  int rounds=1;
         System.out.println(go.toString());
@@ -72,35 +74,35 @@ public class GamePlay {
         System.out.print("\n\nObj 1 :");
 
         //1st choice validation
-        do{
-        Scanner scan = new Scanner(System.in);
-        decision1 = scan.nextLine();
-        
-        if(!"01".equals(decision1)&&!"02".equals(decision1)&&!"03".equals(decision1)&&!"04".equals(decision1)&&!"05".equals(decision1)&&!"06".equals(decision1)&&!"07".equals(decision1)&&!"08".equals(decision1)){
-           System.out.print("Invalid Choice! Please enter again\n\n");
-        }
-        System.out.print("\nObj 1 : ");
-        
-        }while(!"01".equals(decision1)&&!"02".equals(decision1)&&!"03".equals(decision1)&&!"04".equals(decision1)&&!"05".equals(decision1)&&!"06".equals(decision1)&&!"07".equals(decision1)&&!"08".equals(decision1));
+        do {
+            Scanner scan = new Scanner(System.in);
+            decision1 = scan.nextLine();
+
+            if (!"01".equals(decision1) && !"02".equals(decision1) && !"03".equals(decision1) && !"04".equals(decision1) && !"05".equals(decision1) && !"06".equals(decision1) && !"07".equals(decision1) && !"08".equals(decision1)) {
+                System.out.print("Invalid Choice! Please enter again\n\n");
+            }
+            System.out.print("\nObj 1 : ");
+
+        } while (!"01".equals(decision1) && !"02".equals(decision1) && !"03".equals(decision1) && !"04".equals(decision1) && !"05".equals(decision1) && !"06".equals(decision1) && !"07".equals(decision1) && !"08".equals(decision1));
         decisionConvert = Integer.parseInt(decision1);
 
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n");
         obj1Choosed = go.getEntry(decisionConvert).getObjID();
-        
+
         System.out.print("\nObj 2 :");
-        
+
         //2nd choice validation
-        do{
-        Scanner scan = new Scanner(System.in);
-        decision2 = scan.nextLine();
-        
-        if(!"01".equals(decision2)&&!"02".equals(decision2)&&!"03".equals(decision2)&&!"04".equals(decision2)&&!"05".equals(decision2)&&!"06".equals(decision2)&&!"07".equals(decision2)&&!"08".equals(decision2)){
-           System.out.print("Invalid Choice! Please enter again\n\n");
-        }
-        System.out.print("\nObj 2 : ");
-        
-        }while(!"01".equals(decision2)&&!"02".equals(decision2)&&!"03".equals(decision2)&&!"04".equals(decision2)&&!"05".equals(decision2)&&!"06".equals(decision2)&&!"07".equals(decision2)&&!"08".equals(decision2));
-        
+        do {
+            Scanner scan = new Scanner(System.in);
+            decision2 = scan.nextLine();
+
+            if (!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2) && !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2) && !"08".equals(decision2)) {
+                System.out.print("Invalid Choice! Please enter again\n\n");
+            }
+            System.out.print("\nObj 2 : ");
+
+        } while (!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2) && !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2) && !"08".equals(decision2));
+
         decisionConvert = Integer.parseInt(decision2);
 
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n\n");
@@ -138,8 +140,26 @@ public class GamePlay {
 
         }
         if (rounds > totalRounds) {
+            totalScoresEarn = currentScore;
+            System.out.print("You have found " + countingPair + " pairs of objects\n");
+            System.out.print("Current Scores is:" + currentScore + "\n");
+            System.out.print("Your Bonus is :  0" + "\n");
+            System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
             sum = 0;
+            Again();
+
+        } else if (countingPair == max) {
+            int bonus = 0;
+            bonus = (totalRounds - rounds) * 10;
+            totalScoresEarn = bonus + currentScore;
+            System.out.print("Congratulation you have found all the pairs!\n");
+            System.out.print("Current Scores is:" + currentScore + "\n");
+            System.out.print("Your Bonus is :  " + bonus + "\n");
+            System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
+            gamePlayleft = false;
+            sum = 0;
+            Again();
 
         }
 

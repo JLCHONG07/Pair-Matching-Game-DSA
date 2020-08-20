@@ -32,11 +32,11 @@ public class GameObject {
     GamePlay gp = new GamePlay();
     public static boolean gamePlayleft = true;//round finish will change to false;
     public static boolean again = true;
-  
+    String convertName;
+
     // ArrayList<GameObj> gameObject = new ArrayList<GameObj>(10);
     //ArrayList<GameObj> go = new ArrayList<GameObj>();
     // private int noOfGameObject;
-
     public void randomObj(int randTime) {
         //     while (again == true) {
         ArrayList<GameObj> go = new ArrayList<GameObj>();
@@ -120,10 +120,10 @@ public class GameObject {
     }
 
     public void displayObj(ArrayList<GameObj> go) {
-
+        /*
         while (countingPair != max) {
             if (gamePlayleft) {
-                System.out.print("\n\nPlayer ID : 001 \t\t\tPlayer Name: hard Code Name\n\n");
+                System.out.print("Player ID : 001 \t\t\tPlayer Name: hard Code Name\n");
                 System.out.println("\tPair Matching Game (Here are your objects to pair)");
                 System.out.println("==================================================================");
                 for (int i = 1; i <= objNo; i++) {
@@ -187,6 +187,62 @@ public class GameObject {
 
             }
 
+        }
+         */
+        while (gamePlayleft) {// rounds> pairs so compare rounds first the check pairs
+
+            System.out.print("Player ID : 001 \t\t\tPlayer Name: hard Code Name\n\n");
+            System.out.println("\tPair Matching Game (Here are your objects to pair)");
+            System.out.println("==================================================================");
+            for (int i = 1; i <= objNo; i++) {
+                converter(i);
+                //display game object in orderly
+                // switch(level){
+                if (noOfGameObject == 16) {
+                    if (i == 8 || i == 16) {
+                        System.out.print(convertName + "\t\n");//change to \n if done
+
+                    } else {
+                        System.out.print(convertName + "\t");
+
+                    }
+                }
+                if (noOfGameObject == 12) {
+                    if (i == 6 || i == 12) {
+                        System.out.print("\t  " + convertName + "\n");//change to \n if done
+
+                    } else {
+                        System.out.print("\t  " + convertName);
+
+                    }
+                }
+                if (noOfGameObject == 8) {
+                    if (i == 4 || i == 8) {
+                        System.out.print("\t" + convertName + "\n");//change to \n if done
+
+                    } else {
+                        System.out.print("\t" + convertName + "\t");
+
+                    }
+                }
+            }
+            System.out.println("==================================================================");
+
+            gp.gamePlay(go);
+
+        }
+    }
+
+    public void converter(int gameObjects) {
+        if (gameObjects < 17) {
+
+            //convert int to string
+            if (gameObjects < 10) {
+                convertName = zero + Integer.toString(gameObjects);
+
+            } else {
+                convertName = Integer.toString(gameObjects);
+            }
         }
     }
 }

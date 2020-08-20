@@ -38,7 +38,7 @@ public class Assignment {
         // With three selections: Start , Leaderboard, Quit
         MainMenu();
     }
-    
+
     public static void MainMenu() {
         // Start Module
         // Display main menu
@@ -79,45 +79,41 @@ public class Assignment {
     public static void Again() {
         GameObject obj = new GameObject();
 
-        //      ArrayList<GameObj> go = new ArrayList<GameObj>();
-        if (countingPair == 4 || rounds > totalRounds) {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Game Over\n");
-            System.out.println("Play Again? (Y/N) : ");
-            char choice = scan.next().charAt(0);
-            if (choice == 'Y' || choice == 'y') {
-                //       go.clear();
-                // again = true;
-                objNo = 0;
-                rounds = 1;
-                count1 = 1;
-                count2 = 1;
-                count3 = 1;
-                count4 = 1;
-                count5 = 1;
-                count6 = 1;
-                count7 = 1;
-                count8 = 1;
-                gamePlayleft = true;
-                obj.randomObj(noOfGameObject);
-                // countingPair=0;
-            }
+        Scanner scan = new Scanner(System.in);
+        System.out.print("GAME OVER !\n");
+        System.out.println("Play Again? (Y/N) : ");
+        char choice = scan.next().charAt(0);
+        if (choice == 'Y' || choice == 'y') {
+            //       go.clear();
+            // again = true;
+            objNo = 0;
+            rounds = 1;
+            count1 = 1;
+            count2 = 1;
+            count3 = 1;
+            count4 = 1;
+            count5 = 1;
+            count6 = 1;
+            count7 = 1;
+            count8 = 1;
+            countingPair = 0;
+            gamePlayleft = true;
 
-            else{
-                System.exit(0);
-            }
-
-
+            obj.randomObj(noOfGameObject);
+            // countingPair=0;
+        } else {
+            System.exit(0);
         }
+
     }
-    
+
     public static void PromptPlayerInput() {
         int playerSelect;
-        
+
         PromptPlayer player = new PromptPlayer();
         Scanner playerInput = new Scanner(System.in);
         GameObject obj = new GameObject();
-        
+
         do {
             System.out.println("+----------------+");
             System.out.println("|1. New Game     |");
@@ -127,13 +123,13 @@ public class Assignment {
 
             System.out.println("Please enter your choice (1 ~ 3)");
             playerSelect = playerInput.nextInt();
-            
-            if(playerSelect >= 4) {
+
+            if (playerSelect >= 4) {
                 System.out.println("Invalid selection! Please select again.");
-            } 
-        }while(playerSelect >= 4);
-        
-        switch(playerSelect) {
+            }
+        } while (playerSelect >= 4);
+
+        switch (playerSelect) {
             case 1:
                 player.NewPlayer();
                 obj.randomObj(noOfGameObject);
