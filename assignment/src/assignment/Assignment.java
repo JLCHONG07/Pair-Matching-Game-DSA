@@ -11,8 +11,11 @@ import java.util.Comparator;
 
 import GameObject.GameObject;
 import static GameObject.GameObject.again;
-import static GameObject.GameObject.countingPair;
-import static GameObject.GameObject.rounds;
+
+import static GameObject.GameObject.*;
+import static GamePlay.GamePlay.countingPair;
+import static GamePlay.GamePlay.rounds;
+
 import static GamePlay.GamePlay.totalRounds;
 import Player.PromptPlayer;
 import collections.LinkedList;
@@ -27,7 +30,7 @@ public class Assignment {
     /**
      * @param args the command line arguments
      */
-    static int noOfGameObject = 4;// change base on level
+    public static int noOfGameObject = 8;// change base on level
 
     public static void main(String[] args) {
         // Display main menu
@@ -73,16 +76,26 @@ public class Assignment {
     public static void Again() {
         GameObject obj = new GameObject();
 
-        ArrayList<GameObj> go = new ArrayList<GameObj>();
-        if (countingPair == 2 || rounds > totalRounds) {
+        //      ArrayList<GameObj> go = new ArrayList<GameObj>();
+        if (countingPair == 4 || rounds > totalRounds) {
             Scanner scan = new Scanner(System.in);
             System.out.println("Game Over\n");
             System.out.println("Play Again? (Y/N) : ");
             char choice = scan.next().charAt(0);
             if (choice == 'Y' || choice == 'y') {
-                go.clear();
+                //       go.clear();
                 // again = true;
-                rounds = 0;
+                objNo = 0;
+                rounds = 1;
+                count1 = 1;
+                count2 = 1;
+                count3 = 1;
+                count4 = 1;
+                count5 = 1;
+                count6 = 1;
+                count7 = 1;
+                count8 = 1;
+                gamePlayleft = true;
                 obj.randomObj(noOfGameObject);
                 // countingPair=0;
 
@@ -90,14 +103,6 @@ public class Assignment {
 
         }
 
-    }}
+    }
 
-    
-
-    
-
-      
-
-    
-
-     
+}
