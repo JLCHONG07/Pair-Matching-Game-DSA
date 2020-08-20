@@ -7,7 +7,7 @@ package GamePlay;
 
 /**
  *
- * @author Santhi
+ * @author SHATHIS
  */
 public class PlayGame {
 

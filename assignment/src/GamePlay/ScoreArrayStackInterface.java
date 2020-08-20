@@ -7,7 +7,7 @@ package GamePlay;
 
 /**
  *
- * @author Santhi
+ * @author SHATHIS
  */
 public interface ScoreArrayStackInterface {
     int push(int value);

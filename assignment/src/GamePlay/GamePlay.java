@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Santhi
+ * @author SHATHIS
  *
  */
 public class GamePlay {
