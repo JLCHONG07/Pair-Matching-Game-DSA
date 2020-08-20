@@ -28,12 +28,16 @@ public class LinkedList<T> implements LinkedListInterface<T> {
         node.data = data;
         node.next = null;
         
-        Node n = head;
-        for(int i = 0; i < index; i++) {
-            n = n.next;
+        if(head == null) {
+            head = node;
+        } else {
+            Node n = head;
+            for(int i = 0; i < index; i++) {
+                n = n.next;
+            }
+            node.next = n.next;
+            n.next = node;
         }
-        node.next = n.next;
-        n.next = node;   
     }
     
     @Override

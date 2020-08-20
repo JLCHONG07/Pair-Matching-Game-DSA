@@ -1,16 +1,18 @@
 
-package assignment;
+package Player;
 
 import collections.LinkedList;
 import java.util.Objects;
 
 public class Player extends LinkedList<Player> {
+    private String playerId;
     private String playerName;
     private int playerScore;
     
     public Player() {}
     
-    public Player(String playerName, int playerScore) {
+    public Player(String playerId, String playerName, int playerScore) {
+        this.playerId = playerId;
         this.playerName = playerName;
         this.playerScore = playerScore;
     }
@@ -22,6 +24,10 @@ public class Player extends LinkedList<Player> {
     public int getPlayerScore() {
         return playerScore;
     }
+
+    public String getPlayerId() {
+        return playerId;
+    }
     
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
@@ -30,14 +36,14 @@ public class Player extends LinkedList<Player> {
     public void setPlayerScore(int playerScore) {
         this.playerScore = playerScore;
     }
-    
-    public void addPlayerInto() {
-        
+
+    public void setPlayerId(String playerId) {
+        this.playerId = playerId;
     }
     
     @Override
     public String toString() {
-        return playerName + " " + playerScore;
+        return playerId + " " + playerName + " " + playerScore;
     }
 
     @Override

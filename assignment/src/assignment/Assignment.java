@@ -5,9 +5,10 @@
  */
 package assignment;
 
-import java.util.Comparator;
-
+import Player.Player;
 import GameObject.GameObject;
+import Player.PromptPlayer;
+import collections.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -30,6 +31,7 @@ public class Assignment {
         // Display main menu
         // With three selections: Start , Leaderboard, Quit
         GameObject obj = new GameObject();
+        PromptPlayer ply = new PromptPlayer();
 
         // game.randomObj(noOfGameObject);
         // Start Module
@@ -39,10 +41,8 @@ public class Assignment {
 
         switch (select) {
             case 1: {
-                obj.randomObj(noOfGameObject);
-
-                System.out.println("In progress!");
-
+                ply.promptPlayerInput();
+                //obj.randomObj(noOfGameObject);
                 break;
             }
             case 2: {
@@ -59,32 +59,5 @@ public class Assignment {
             }
         }
 
-    }
-
-    public static void promptPlayerInput() {
-        int playerNo = 1;
-        Scanner playerInput = new Scanner(System.in);
-        LinkedList<Player> playerLinkedList = new LinkedList<>();
-        String currentPlayer = null;
-        int currentScore = 0;
-
-        playerLinkedList.add(new Player("John", 0));
-
-        System.out.println("Player " + playerNo);
-        System.out.print("Please enter your name :");
-        String playerName = playerInput.next();
-        playerLinkedList.add(new Player(playerName, 0));
-
-        playerLinkedList.show();
-
-        for (int index = 0; index < playerLinkedList.length(); index++) {
-            if (playerLinkedList.get(index).getPlayerName().equals(playerName)) {
-                currentPlayer = playerLinkedList.get(index).getPlayerName();
-                currentScore = playerLinkedList.get(index).getPlayerScore();
-            }
-        }
-
-        System.out.println(currentPlayer);
-        System.out.println(currentScore);
     }
 }
