@@ -17,6 +17,7 @@ import static GamePlay.GamePlay.countingPair;
 import static GamePlay.GamePlay.rounds;
 
 import static GamePlay.GamePlay.totalRounds;
+import Player.Player;
 import Player.PromptPlayer;
 import collections.LinkedList;
 import java.util.Scanner;
@@ -35,7 +36,10 @@ public class Assignment {
     public static void main(String[] args) {
         // Display main menu
         // With three selections: Start , Leaderboard, Quit
-
+        MainMenu();
+    }
+    
+    public static void MainMenu() {
         // Start Module
         // Display main menu
         // With three selections: Start , Leaderboard, Quit
@@ -50,9 +54,9 @@ public class Assignment {
 
         switch (select) {
             case 1: {
-
-                obj.randomObj(noOfGameObject);
-                Again();
+                PromptPlayerInput();
+                //obj.randomObj(noOfGameObject);
+                //Again();
                 System.out.println("In progress!");
 
                 break;
@@ -70,7 +74,6 @@ public class Assignment {
 
             }
         }
-
     }
 
     public static void Again() {
@@ -98,14 +101,48 @@ public class Assignment {
                 gamePlayleft = true;
                 obj.randomObj(noOfGameObject);
                 // countingPair=0;
-
             }
+<<<<<<< HEAD
             else{
                 System.exit(0);
             }
 
+=======
+>>>>>>> 4473e8013d78d1eee8c7299a97bbad1f5b6f475a
         }
-
     }
+    
+    public static void PromptPlayerInput() {
+        int playerSelect;
+        
+        PromptPlayer player = new PromptPlayer();
+        Scanner playerInput = new Scanner(System.in);
+        
+        do {
+            System.out.println("+----------------+");
+            System.out.println("|1. New Game     |");
+            System.out.println("|2. Load Game    |");
+            System.out.println("|3. Back         |");
+            System.out.println("+----------------+");
 
+            System.out.println("Please enter your choice (1 ~ 3)");
+            playerSelect = playerInput.nextInt();
+            
+            if(playerSelect >= 4) {
+                System.out.println("Invalid selection! Please select again.");
+            } 
+        }while(playerSelect >= 4);
+        
+        switch(playerSelect) {
+            case 1:
+                player.NewPlayer();
+                break;
+            case 2:
+                player.ExistingPlayer();
+                break;
+            case 3:
+                MainMenu();
+                break;
+        }
+    }
 }

@@ -13,39 +13,6 @@ public class PromptPlayer {
     int currentScore = 0;
     String id;
     
-    public void promptPlayerInput() {
-        int playerSelect;
-        
-        playerLinkedList.add(new Player("P001", "John", 0));
-        
-        do {
-            System.out.println("+----------------+");
-            System.out.println("|1. New Game     |");
-            System.out.println("|2. Load Game    |");
-            System.out.println("|3. Back         |");
-            System.out.println("+----------------+");
-
-            System.out.println("Please enter your choice (1 ~ 3)");
-            playerSelect = playerInput.nextInt();
-            
-            if(playerSelect >= 4) {
-                System.out.println("Invalid selection! Please select again.");
-            } 
-        }while(playerSelect >= 4);
-        
-        switch(playerSelect) {
-            case 1:
-                NewPlayer();
-                break;
-            case 2:
-                ExistingPlayer();
-                break;
-            case 3:
-                //back to main menu
-                break;
-        }
-    }
-    
     public void NewPlayer() {
         System.out.println("New Game");
         System.out.println("========");
@@ -62,12 +29,12 @@ public class PromptPlayer {
         
         currentId = id;
         
-        playerLinkedList.add(new Player(id, playerName, 0));
+        playerLinkedList.add(new Player(id, playerName, 0, 0, 0));
         
         for (int index = 0; index < playerLinkedList.length(); index++) {
             if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
                 currentPlayer = playerLinkedList.get(index).getPlayerName();
-                currentScore = playerLinkedList.get(index).getPlayerScore();
+                currentScore = playerLinkedList.get(index).getEasylvlScore();
             }
         }
         
@@ -79,7 +46,7 @@ public class PromptPlayer {
             prompt player input on levels
         */
         
-        
+        addScore();
     }
     
     public void ExistingPlayer() {
@@ -97,7 +64,7 @@ public class PromptPlayer {
                     if(playerLinkedList.get(index).getPlayerId().equals(playerId)) {
                         currentId = playerLinkedList.get(index).getPlayerId();
                         currentPlayer = playerLinkedList.get(index).getPlayerName();
-                        currentScore = playerLinkedList.get(index).getPlayerScore();
+                        currentScore = playerLinkedList.get(index).getEasylvlScore();
                         proceed = true;
                     } else {
                         proceed = false;
@@ -106,6 +73,8 @@ public class PromptPlayer {
             }
             if(proceed == false) {
                 System.out.println("Invalid player id");
+            } else {
+                System.out.println("Valid player id");
             }
         }while(proceed == false);
         
@@ -118,7 +87,7 @@ public class PromptPlayer {
         currentScore += 4;
         for(int index = 0; index < playerLinkedList.length(); index++) {
             if(playerLinkedList.get(index).getPlayerId().equals(currentId)) {
-                playerLinkedList.replace(index, new Player(currentId, currentPlayer, currentScore));
+                playerLinkedList.replace(index, new Player(currentId, currentPlayer, currentScore,0 ,0));
             }
         }
         
