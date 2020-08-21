@@ -93,15 +93,9 @@ public class Assignment {
             //       go.clear();
             // again = true;
             objNo = 0;
+            
             rounds = 1;
-            count1 = 1;
-            count2 = 1;
-            count3 = 1;
-            count4 = 1;
-            count5 = 1;
-            count6 = 1;
-            count7 = 1;
-            count8 = 1;
+          
             countingPair = 0;
             gamePlayleft = true;
 

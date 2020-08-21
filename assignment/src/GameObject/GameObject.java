@@ -25,8 +25,8 @@ public class GameObject {
     static int min = 1;
     static String descObj;
     public static int objNo = 0;
-    static int stopCreateObj = 0;
-    public static int count1 = 1, count2 = 1, count3 = 1, count4 = 1, count5 = 1, count6 = 1, count7 = 1, count8 = 1;// easy 4 pairs, normal 6 paurs, hard 8 pairs;
+   
+    int count1 = 1, count2 = 1, count3 = 1, count4 = 1, count5 = 1, count6 = 1, count7 = 1, count8 = 1;// easy 4 pairs, normal 6 paurs, hard 8 pairs;
     static boolean checkObj = true;
     String zero = "0";
     GamePlay gp = new GamePlay();
@@ -40,9 +40,9 @@ public class GameObject {
     public void randomObj(int randTime) {
         //     while (again == true) {
         ArrayList<GameObj> go = new ArrayList<GameObj>();
-        
+
         System.out.printf("%d", randTime);
-        
+
         if (!go.isEmpty()) {
             go.clear();
 
@@ -115,7 +115,14 @@ public class GameObject {
 
         }
         //    again = false;
-
+        count1 = 1;
+        count2 = 1;
+        count3 = 1;
+        count4 = 1;
+        count5 = 1;
+        count6 = 1;
+        count7 = 1;
+        count8 = 1;
         displayObj(go);
         //   }
         //  }
@@ -123,7 +130,7 @@ public class GameObject {
     }
 
     public void displayObj(ArrayList<GameObj> go) {
-    
+
         while (gamePlayleft) {// rounds> pairs so compare rounds first the check pairs
 
             System.out.print("Player ID : 001 \t\t\tPlayer Name: hard Code Name\n\n");
