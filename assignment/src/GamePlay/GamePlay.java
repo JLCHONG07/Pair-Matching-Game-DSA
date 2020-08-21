@@ -11,6 +11,7 @@ import GameObject.GameObject;
 import static GameObject.GameObject.again;
 import static GameObject.GameObject.*;
 import Player.Player;
+import Player.PromptPlayer;
 import collections.LinkedList;
 import static assignment.Assignment.Again;
 
@@ -33,7 +34,7 @@ public class GamePlay {
     int currentScore = 0;
     public static int rounds = 1;
     public static int countingPair = 0;
-    LinkedList<Player> player = new LinkedList<>();
+    PromptPlayer player = new PromptPlayer();
     // GameObject gameObject1=new GameObject();
 
     public void gamePlay(ArrayList<GameObj> go) {
@@ -70,11 +71,10 @@ public class GamePlay {
          * System.out.println("01 02 03 04 05 06 07 08\n");
          * 
          */
-        System.out.print("Your Highest Scores : " + highestScore + "\n\n");
-        System.out.print("Current Scores:" + currentScore + "\n\n");
+        System.out.println("Your Highest Scores : " + highestScore);
         
         System.out.print("Round :" + rounds + "/" + totalRounds);
-        System.out.print("\n\nObjects You Have Paired : " + objPaired);
+        System.out.print("\nObjects You Have Paired : " + objPaired);
         System.out.print("\n\nObj 1 :");
 
         // 1st choice validation if user input invalid input
@@ -144,6 +144,8 @@ public class GamePlay {
         obj2Choosed = go.getEntry(decisionConvert).getObjID();
         rounds++;
         if (obj1Choosed.equals(obj2Choosed)) {
+            
+            player.addScore();
 
             System.out.print("\nResults : Both object choosed are Pair!\n\n");
 
@@ -153,12 +155,13 @@ public class GamePlay {
             // "\n");//debug use oni
             countingPair++;
 
-            score.push(10);
+            /*score.push(10);
             while (score.size() > 0) {
                 sum += score.pop();
                 currentScore = sum;
-            }
-            System.out.println("Current Score Updated : " + currentScore);
+            }*/
+            
+            System.out.println("Current Score : " + player.displayScore());
             if (currentScore > highestScore) {
                 highestScore = currentScore;
             }

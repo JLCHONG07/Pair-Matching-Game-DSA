@@ -12,7 +12,8 @@ import java.util.Scanner;
  */
 public class LVL {
     
-    
+    public static int currentLvlScore;
+    public static String currentLevel;
     
     int noOfObject;
     
@@ -47,6 +48,9 @@ public class LVL {
                 System.out.println("Error");
             }
         }
+        
+        currentLevel = data.getFront().getLevelId();
+        currentLvlScore = data.getFront().getPairScore();
         return noOfObject;
     }
 }
