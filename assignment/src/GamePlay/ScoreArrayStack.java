@@ -8,41 +8,56 @@ package GamePlay;
 /**
  *
  * @author SHATHIS
+ * @param <E>
  */
-public class ScoreArrayStack implements ScoreArrayStackInterface{
+public class ScoreArrayStack<E> implements ScoreArrayStackInterface<E> {
     
     private static final int DEFAULT_CAPACITY = 17;
-    public int[] ScoreArrayStack;
+    private E[] ScoreArrayStack;
     private int size;
    
+   public ScoreArrayStack(){
+        this(DEFAULT_CAPACITY);
+    } 
     
-    public ScoreArrayStack(){
-        ScoreArrayStack = new int [DEFAULT_CAPACITY];
+    public ScoreArrayStack(int initialCapacity){
+        ScoreArrayStack = (E[]) new Object [DEFAULT_CAPACITY];
         size = 0;
     }
     
       
     @Override
-    public int push(int value) {
-    if(size == ScoreArrayStack.length){
-        doubleArray();
-    }
-    ScoreArrayStack[size] = value;
+    public void push(E value) {
     size++;
-    return value;
+    //if(size == ScoreArrayStack.length){
+      //  doubleArray();
+    //}
+    if(size < ScoreArrayStack.length){
+       // doubleArray();
+        //ScoreArrayStack[size] = value;
+        ScoreArrayStack[size] = value;
+    }
+   // ScoreArrayStack[size] = value;
+   
     }
 
     @Override
-    public int pop() {
+    public E pop() {
+        E top = null;
         if (size == 0){
         throw new ArrayIndexOutOfBoundsException();
         
         }
-        int result = ScoreArrayStack[size - 1];
-        //scoreStack[size - 1] = 0; //clear out old value
         
-        size--;
-        return result;
+        if(!isEmpty()){
+        top = ScoreArrayStack[size];
+        ScoreArrayStack[size - 1] = null;
+        }
+        //size--;
+       // int result = ScoreArrayStack[size - 1];
+       //scoreStack[size - 1] = 0; //clear out old value
+        
+        return top;
     }
     
 
@@ -51,15 +66,19 @@ public class ScoreArrayStack implements ScoreArrayStackInterface{
      * @return
      */
     @Override
-    public int peek() {
+    public E peek() {
+       E top = null;
        if (size == 0){
         throw new ArrayIndexOutOfBoundsException();
         
         }
-        int result = ScoreArrayStack[size - 1];
+        //int result = ScoreArrayStack[size - 1];
         //scoreStack[size - 1] = 0; //clear out old value
+        if(!isEmpty()){
+        top = ScoreArrayStack[size];
+        }
         
-        return result;
+        return top;
     }
 
    
@@ -70,36 +89,31 @@ public class ScoreArrayStack implements ScoreArrayStackInterface{
     }
     
     
-    public int capacity(){return ScoreArrayStack.length;}
+    
 
     @Override
     public void clear() {
-        for(int i = 0; i < ScoreArrayStack.length; i++){
-            ScoreArrayStack[i] = 0;
-        }
-        size = 0;
+        
+        size = -1;
     }
 
     @Override
     public boolean isEmpty() {
-        return size == 0;
-    }
-    
-    public void compressArray(){
-      if(size < ScoreArrayStack.length){
-       int newStack = size;
-    
-       int[] newArray = new int [newStack];
-    
-    for(int i = 0; i < ScoreArrayStack.length; i++){
-        newArray[i] = ScoreArrayStack[i];
-    }
-    ScoreArrayStack = newArray;
-       
-       }
+        return size < 0;
     }
     
     private void doubleArray(){
+    E[] oldArray = ScoreArrayStack;
+        int temArrayLength = ScoreArrayStack.length;
+        E[] temArray = (E[]) new Object[temArrayLength * 2];
+        for (int i = 0; i < oldArray.length; i++) {
+            temArray[i] = ScoreArrayStack[i];
+        }
+        ScoreArrayStack = temArray;
+    
+    }
+    
+    /*private void doubleArray(){
     int newStack = 2* ScoreArrayStack.length;
     
     int[] newArray = new int [newStack];
@@ -109,6 +123,6 @@ public class ScoreArrayStack implements ScoreArrayStackInterface{
     }
     ScoreArrayStack = newArray;
     
-    }
+    }*/
     
 }
