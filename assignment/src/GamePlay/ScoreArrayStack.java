@@ -13,7 +13,7 @@ package GamePlay;
 public class ScoreArrayStack<E> implements ScoreArrayStackInterface<E> {
     
     private static final int DEFAULT_CAPACITY = 17;
-    public E[] ScoreArrayStack;
+    private E[] ScoreArrayStack;
     private int size;
    
    public ScoreArrayStack(){
