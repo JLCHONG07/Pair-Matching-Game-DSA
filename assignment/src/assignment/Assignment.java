@@ -16,6 +16,8 @@ import static GameObject.GameObject.*;
 import static GamePlay.GamePlay.countingPair;
 import static GamePlay.GamePlay.rounds;
 
+import Level.LVL;
+
 import static GamePlay.GamePlay.totalRounds;
 import Level.Level;
 import Player.Player;
@@ -46,6 +48,7 @@ public class Assignment {
         // With three selections: Start , Leaderboard, Quit
         GameObject obj = new GameObject();
         PromptPlayer player = new PromptPlayer();
+        LVL difficulty = new LVL();
 
         // game.randomObj(noOfGameObject);
         // Start Module
@@ -57,6 +60,8 @@ public class Assignment {
         switch (select) {
             case 1: {
                 PromptPlayerInput();
+                
+                noOfGameObject = difficulty.noOfObj();
                 obj.randomObj(noOfGameObject);
                 //Again();
                 System.out.println("In progress!");

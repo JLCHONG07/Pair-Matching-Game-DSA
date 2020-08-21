@@ -13,7 +13,7 @@ public class Level {
     public String levelId;
     public String levelDescription;
     public int round;
-    public int numofobj;
+    public static int numofobj;
     public int pairScore;
     
 

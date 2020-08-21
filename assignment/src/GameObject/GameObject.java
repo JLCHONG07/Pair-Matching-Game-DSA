@@ -40,6 +40,9 @@ public class GameObject {
     public void randomObj(int randTime) {
         //     while (again == true) {
         ArrayList<GameObj> go = new ArrayList<GameObj>();
+        
+        System.out.printf("%d", randTime);
+        
         if (!go.isEmpty()) {
             go.clear();
 
