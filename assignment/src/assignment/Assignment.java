@@ -19,6 +19,7 @@ import static GamePlay.GamePlay.rounds;
 import Level.LVL;
 
 import static GamePlay.GamePlay.totalRounds;
+import Level.Level;
 import Player.Player;
 import Player.PromptPlayer;
 import collections.LinkedList;
@@ -59,10 +60,10 @@ public class Assignment {
         switch (select) {
             case 1: {
                 PromptPlayerInput();
-                //    difficulty.noOfObj();
-                //noOfGameObject =
+                // difficulty.noOfObj();
+                // noOfGameObject =
                 obj.randomObj(difficulty.noOfObj());
-                //Again();
+                // Again();
                 System.out.println("In progress!");
 
                 break;
@@ -90,7 +91,7 @@ public class Assignment {
         System.out.println("Play Again? (Y/N) : ");
         char choice = scan.next().charAt(0);
         if (choice == 'Y' || choice == 'y') {
-            //       go.clear();
+            // go.clear();
             // again = true;
             objNo = 0;
             rounds = 1;
@@ -107,10 +108,9 @@ public class Assignment {
 
     public static void PromptPlayerInput() {
         int playerSelect;
-
         PromptPlayer player = new PromptPlayer();
+
         Scanner playerInput = new Scanner(System.in);
-        GameObject obj = new GameObject();
 
         do {
             System.out.println("+----------------+");

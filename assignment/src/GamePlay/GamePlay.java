@@ -11,6 +11,7 @@ import GameObject.GameObject;
 import static GameObject.GameObject.again;
 import static GameObject.GameObject.*;
 import Player.Player;
+import Player.PromptPlayer;
 import collections.LinkedList;
 import static assignment.Assignment.Again;
 
@@ -33,7 +34,7 @@ public class GamePlay {
     int currentScore = 0;
     public static int rounds = 1;
     public static int countingPair = 0;
-    LinkedList<Player> player = new LinkedList<>();
+    PromptPlayer player = new PromptPlayer();
     // GameObject gameObject1=new GameObject();
 
     public void gamePlay(ArrayList<GameObj> go) {
@@ -61,7 +62,11 @@ public class GamePlay {
         System.out.print("Current Scores:" + currentScore + "\n\n");
 
         System.out.print("Round :" + rounds + "/" + totalRounds);
+
         System.out.print("\n\nObjects You Have Paired : " + objPaired);
+
+
+        System.out.print("\nObjects You Have Paired : " + objPaired);
 
         System.out.print("\n\nObj 1 :");
 
@@ -104,11 +109,14 @@ public class GamePlay {
         rounds++;
         if (obj1Choosed.equals(obj2Choosed)) {
 
+            player.addScore();
+
             System.out.print("\nResults : Both object choosed are Pair!\n\n");
 
             objPaired += decision1 + "\t" + decision2 + "\t";
 
             countingPair++;
+
             go.getEntry(decisionConvert1).setIsPairs(true);
             go.getEntry(decisionConvert2).setIsPairs(true);
             score.push(10);
@@ -117,6 +125,15 @@ public class GamePlay {
                 currentScore = sum;
             }
             System.out.println("Current Score Updated : " + currentScore);
+
+
+            /*
+             * score.push(10); while (score.size() > 0) { sum += score.pop(); currentScore =
+             * sum; }
+             */
+
+            System.out.println("Current Score : " + player.displayScore());
+
             if (currentScore > highestScore) {
                 highestScore = currentScore;
             }
@@ -156,6 +173,7 @@ public class GamePlay {
             Again();
 
         }
+
 
     }
 }

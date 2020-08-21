@@ -6,79 +6,74 @@
 package Level;
 
 import java.util.Scanner;
+
 /**
  *
  * @author SAM
  */
 public class LVL {
-    
-    
-    
-    public  static int noOfGameObject;
+
+    public static int currentLvlScore;
+    public static String currentLevel;
+
+    public static int noOfGameObject;
     int levelSelect;
     boolean valid = true;
-    
-    public int noOfObj(){
-        
+
+    public int noOfObj() {
+
         Level lvl = new Level();
         ArrayQueue<Level> data = new ArrayQueue<Level>();
-        
-        Scanner levelSelection = new Scanner (System.in);
-        
-        do{
-            if(!data.isEmpty()){
+
+        Scanner levelSelection = new Scanner(System.in);
+
+        do {
+            if (!data.isEmpty()) {
                 data.clear();
             }
-            
-            do{		        		
-                try{
-                    
+
+            do {
+                try {
+
                     System.out.println("Select Level\n1. Easy \n2. Normal \n3. Hard");
                     levelSelect = levelSelection.nextInt();
-		    valid = false;
-		}catch (Exception e) {
+                    valid = false;
+                } catch (Exception e) {
                     System.err.println("Please input number only!!!");
                     levelSelection.nextInt();
-		}
-                
-                
-                
-            }while (valid = false);
-            
-                
-                
-            switch (levelSelect)
-            {
-                case 1:
-                {
+                }
+
+            } while (valid = false);
+
+            switch (levelSelect) {
+                case 1: {
                     noOfGameObject = 8;
-                    data.enqueue(new Level("L01", "Easy" ,10 ,noOfGameObject ,2 ));
+                    data.enqueue(new Level("L01", "Easy", 10, noOfGameObject, 2));
                     valid = true;
                     break;
                 }
-                case 2:
-                {
+                case 2: {
                     noOfGameObject = 12;
-                    data.enqueue(new Level("L02", "Normal" ,15 ,noOfGameObject ,3 ));
+                    data.enqueue(new Level("L02", "Normal", 15, noOfGameObject, 3));
                     valid = true;
                     break;
                 }
-                case 3:
-                {
+                case 3: {
                     noOfGameObject = 16;
-                    data.enqueue(new Level("L03", "Hard" ,20 ,noOfGameObject ,4 ));
+                    data.enqueue(new Level("L03", "Hard", 20, noOfGameObject, 4));
                     valid = true;
                     break;
                 }
-                default:
-                {
+                default: {
                     System.out.println("Invalid Input!!! Please Enter Again.");
                     valid = false;
                 }
             }
-        }while(valid != true);
-        
-        //}
+        } while (valid != true);
+
+        currentLevel = data.getFront().getLevelId();
+        currentLvlScore = data.getFront().getPairScore();
+        // }
         return noOfGameObject;
     }
 }
