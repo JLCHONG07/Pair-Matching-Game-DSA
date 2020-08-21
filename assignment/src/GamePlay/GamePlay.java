@@ -120,10 +120,14 @@ public class GamePlay {
             go.getEntry(decisionConvert1).setIsPairs(true);
             go.getEntry(decisionConvert2).setIsPairs(true);
             score.push(10);
-            while (score.size() > 0) {
+           /* while (score.size() > 0) {
                 sum += score.pop();
                 currentScore = sum;
-            }
+            }*/
+           for(int i = 0; i < score.size(); i++){
+            sum += score.pop();
+            currentScore = sum;
+         }
             System.out.println("Current Score Updated : " + currentScore);
 
 
@@ -143,10 +147,15 @@ public class GamePlay {
             System.out.print("Result: Both object choosed are not Pair!\n\n");
 
             score.push(0);
-            while (score.size() > 0) {
+           /* while (score.size() > 0) {
                 sum += score.pop();
                 currentScore = sum;
-            }
+            }*/
+           
+           for(int i = 0; i < score.size(); i++){
+            sum += score.pop();
+            currentScore = sum;
+         }
             System.out.println("\nCurrent Score Remainded : " + sum + "\n\n");
 
         }
