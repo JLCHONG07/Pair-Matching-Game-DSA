@@ -33,7 +33,7 @@ public class Assignment {
     /**
      * @param args the command line arguments
      */
-    public static int noOfGameObject = 8;// change base on level
+    public static int noOfGameObject = 0;// change base on level
 
     public static void main(String[] args) {
         // Display main menu
@@ -59,9 +59,9 @@ public class Assignment {
         switch (select) {
             case 1: {
                 PromptPlayerInput();
-                
-                noOfGameObject = difficulty.noOfObj();
-                obj.randomObj(noOfGameObject);
+                //    difficulty.noOfObj();
+                //noOfGameObject =
+                obj.randomObj(difficulty.noOfObj());
                 //Again();
                 System.out.println("In progress!");
 
@@ -84,7 +84,7 @@ public class Assignment {
 
     public static void Again() {
         GameObject obj = new GameObject();
-
+        LVL difficulty = new LVL();
         Scanner scan = new Scanner(System.in);
         System.out.print("GAME OVER !\n");
         System.out.println("Play Again? (Y/N) : ");
@@ -93,13 +93,11 @@ public class Assignment {
             //       go.clear();
             // again = true;
             objNo = 0;
-            
             rounds = 1;
-          
             countingPair = 0;
             gamePlayleft = true;
 
-            obj.randomObj(noOfGameObject);
+            obj.randomObj(difficulty.noOfObj());
             // countingPair=0;
         } else {
             System.exit(0);

@@ -8,8 +8,10 @@ package GameObject;
 import GamePlay.GamePlay;
 import static GamePlay.GamePlay.countingPair;
 
+
 import static assignment.Assignment.Again;
 import static assignment.Assignment.noOfGameObject;
+
 //mport static GamePlay.GamePlay.countingPair;
 import java.util.Random;
 import java.util.Scanner;
@@ -21,11 +23,11 @@ import java.util.Scanner;
 public class GameObject {
 
     int name = 0;
-    public static int max = noOfGameObject / 2;//base on level change
+    public static int max;//base on level change
     static int min = 1;
     static String descObj;
     public static int objNo = 0;
-   
+   int noOfObj=0;
     int count1 = 1, count2 = 1, count3 = 1, count4 = 1, count5 = 1, count6 = 1, count7 = 1, count8 = 1;// easy 4 pairs, normal 6 paurs, hard 8 pairs;
     static boolean checkObj = true;
     String zero = "0";
@@ -38,10 +40,12 @@ public class GameObject {
     //ArrayList<GameObj> go = new ArrayList<GameObj>();
     // private int noOfGameObject;
     public void randomObj(int randTime) {
+        noOfObj=randTime;
+        max=noOfObj/2;
         //     while (again == true) {
         ArrayList<GameObj> go = new ArrayList<GameObj>();
 
-        System.out.printf("%d", randTime);
+   //     System.out.printf("%d", randTime);
 
         if (!go.isEmpty()) {
             go.clear();
@@ -140,7 +144,7 @@ public class GameObject {
                 converter(i);
                 //display game object in orderly
                 // switch(level){
-                if (noOfGameObject == 16) {
+                if (noOfObj == 16) {
                     if (i == 8 || i == 16) {
                         System.out.print(convertName + "\t\n");//change to \n if done
 
@@ -149,7 +153,7 @@ public class GameObject {
 
                     }
                 }
-                if (noOfGameObject == 12) {
+                if (noOfObj == 12) {
                     if (i == 6 || i == 12) {
                         System.out.print("\t  " + convertName + "\n");//change to \n if done
 
@@ -158,7 +162,7 @@ public class GameObject {
 
                     }
                 }
-                if (noOfGameObject == 8) {
+                if (noOfObj == 8) {
                     if (i == 4 || i == 8) {
                         System.out.print("\t" + convertName + "\n");//change to \n if done
 

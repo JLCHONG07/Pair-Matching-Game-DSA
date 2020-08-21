@@ -40,7 +40,7 @@ public class Level {
         return round;
     }
 
-    public int getNumofobj() {
+    public static int getNumofobj() {
         return numofobj;
     }
 
