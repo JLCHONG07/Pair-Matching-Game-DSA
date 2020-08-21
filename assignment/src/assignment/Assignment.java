@@ -17,6 +17,7 @@ import static GamePlay.GamePlay.countingPair;
 import static GamePlay.GamePlay.rounds;
 
 import static GamePlay.GamePlay.totalRounds;
+import Level.Level;
 import Player.Player;
 import Player.PromptPlayer;
 import collections.LinkedList;
@@ -113,7 +114,6 @@ public class Assignment {
 
         PromptPlayer player = new PromptPlayer();
         Scanner playerInput = new Scanner(System.in);
-        GameObject obj = new GameObject();
 
         do {
             System.out.println("+----------------+");

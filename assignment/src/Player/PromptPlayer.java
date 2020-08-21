@@ -1,6 +1,8 @@
 
 package Player;
 
+import static Level.LVL.currentLevel;
+import static Level.LVL.currentLvlScore;
 import collections.LinkedList;
 import java.util.Scanner;
 
@@ -77,13 +79,49 @@ public class PromptPlayer {
     }
     
     public void addScore() {
-        currentScore += 4;
-        for(int index = 0; index < playerLinkedList.length(); index++) {
-            if(playerLinkedList.get(index).getPlayerId().equals(currentId)) {
-                playerLinkedList.replace(index, new Player(currentId, currentPlayer, currentScore,0 ,0));
+        currentScore += currentLvlScore;
+    }
+    
+    public void saveTotalResults() {
+        if(currentLevel != null) {
+            switch(currentLevel) {
+                case "L01":
+                    for(int index = 0; index < playerLinkedList.length(); index++) {
+                        if(playerLinkedList.get(index).getPlayerId().equals(currentId) 
+                                && playerLinkedList.get(index).getEasylvlScore() < currentScore){
+                            playerLinkedList.get(index).setEasylvlScore(currentScore);
+                        }
+                    }
+                    break;
+                case "L02":
+                    for(int index = 0; index < playerLinkedList.length(); index++) {
+                        if(playerLinkedList.get(index).getPlayerId().equals(currentId)
+                                && playerLinkedList.get(index).getMediumlvlScore() < currentScore){
+                            playerLinkedList.get(index).setMediumlvlScore(currentLvlScore);
+                        }
+                    }
+                    break;
+                case "L03":
+                    for(int index = 0; index < playerLinkedList.length(); index++) {
+                        if(playerLinkedList.get(index).getPlayerId().equals(currentId)
+                                && playerLinkedList.get(index).getHardlvlScore() < currentScore){
+                            playerLinkedList.get(index).setHardlvlScore(currentScore);
+                        }
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid level");
+                    break;
             }
         }
+    }
+    
         
-        playerLinkedList.show();
+    public int displayScore() {
+        return currentScore;
+    }
+    
+    public String displayPlayerName() {
+        return currentPlayer;
     }
 }
