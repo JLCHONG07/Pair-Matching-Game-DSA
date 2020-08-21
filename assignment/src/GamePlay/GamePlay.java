@@ -38,7 +38,8 @@ public class GamePlay {
 
     public void gamePlay(ArrayList<GameObj> go) {
 
-        int decisionConvert;
+        int decisionConvert1 = 0;
+        int decisionConvert2 = 0;
         String decision1;
         String decision2;
         String obj1Choosed;
@@ -61,24 +62,45 @@ public class GamePlay {
 
         System.out.print("Round :" + rounds + "/" + totalRounds);
         System.out.print("\n\nObjects You Have Paired : " + objPaired);
+
         System.out.print("\n\nObj 1 :");
 
         Scanner scan = new Scanner(System.in);
         decision1 = scan.nextLine();
 
-        decisionConvert = Integer.parseInt(decision1);
+        decisionConvert1 = Integer.parseInt(decision1);
+        while (go.getEntry(decisionConvert1).getIsPairs() == true) {
+            System.out.print("\n\nThis object has been added before! :");
+            System.out.print("\n\nPlease Enter Obj 1 Again :");
+            // Scanner scan = new Scanner(System.in);
+            decision1 = scan.nextLine();
 
-        System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n");
-        obj1Choosed = go.getEntry(decisionConvert).getObjID();
+            decisionConvert1 = Integer.parseInt(decision1);
+        }
+        System.out.print(openDot + TisObj + go.getEntry(decisionConvert1).getDescription() + closeDot + "\n");
+        obj1Choosed = go.getEntry(decisionConvert1).getObjID();
 
         System.out.print("\nObj 2 :");
 
         decision2 = scan.nextLine();
 
-        decisionConvert = Integer.parseInt(decision2);
+        decisionConvert2 = Integer.parseInt(decision2);
+        while (go.getEntry(decisionConvert2).getIsPairs() == true || decision2.equals(decision1)) {
+            if (go.getEntry(decisionConvert2).getIsPairs() == true) {
+                System.out.print("\n\nThis object has been added before! :");
+                System.out.print("\n\nPlease Enter Obj 2 Again :");
+            } else {
+                System.out.print("\n\nThis object is choosed in obj1 ! :");
+                System.out.print("\n\nPlease Enter Obj 2 Again :");
+            }
+            // Scanner scan = new Scanner(System.in);
+            decision2 = scan.nextLine();
 
-        System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n\n");
-        obj2Choosed = go.getEntry(decisionConvert).getObjID();
+            decisionConvert2 = Integer.parseInt(decision2);
+        }
+
+        System.out.print(openDot + TisObj + go.getEntry(decisionConvert2).getDescription() + closeDot + "\n\n");
+        obj2Choosed = go.getEntry(decisionConvert2).getObjID();
         rounds++;
         if (obj1Choosed.equals(obj2Choosed)) {
 
@@ -87,7 +109,8 @@ public class GamePlay {
             objPaired += decision1 + "\t" + decision2 + "\t";
 
             countingPair++;
-
+            go.getEntry(decisionConvert1).setIsPairs(true);
+            go.getEntry(decisionConvert2).setIsPairs(true);
             score.push(10);
             while (score.size() > 0) {
                 sum += score.pop();
@@ -134,111 +157,5 @@ public class GamePlay {
 
         }
 
-        // } break;
-        /*
-         * case 2: for(int i = 1; i <= 6; i++){ score.clear();
-         * System.out.println("\tPair Matching Game (Here are your objects to pair)");
-         * System.out.println(
-         * "==================================================================");
-         * System.out.println("01 02 03 04 05 06 07 08\n");
-         * System.out.println("\t09 10 11 12\n");
-         * 
-         * System.out.print("\nObjects You Have Paired : " + objPaired);
-         * System.out.print("\nObj 1 :");
-         * 
-         * Scanner scan = new Scanner(System.in); decision1 = scan.nextLine();
-         * decisionConvert = Integer.parseInt(decision1);
-         * 
-         * System.out.print(openDot + TisObj +
-         * go.getEntry(decisionConvert).getDescription() + closeDot + "\n"); obj1Choosed
-         * = go.getEntry(decisionConvert).getObjID();
-         * 
-         * 
-         * System.out.print("\nObj 2 :"); decision2 = scan.nextLine(); decisionConvert =
-         * Integer.parseInt(decision2);
-         * 
-         * System.out.print(openDot + TisObj +
-         * go.getEntry(decisionConvert).getDescription() + closeDot + "\n"); obj2Choosed
-         * = go.getEntry(decisionConvert).getObjID();
-         * 
-         * 
-         * if (obj1Choosed.equals(obj2Choosed)) {
-         * 
-         * System.out.print("\nResults : Both object choosed are Pair!\n");
-         * 
-         * objPaired += decision1 + "\t" + decision2 + "\t";
-         * 
-         * System.out.print("Objects That you have paired : " + objPaired + "\n");
-         * countingPair++;
-         * 
-         * score.push(10); while(score.size() > 0) sum += score.pop();
-         * System.out.println("Score Updated : " + sum);
-         * 
-         * } else if(!obj1Choosed.equals(obj2Choosed)) {
-         * System.out.print("Result: Both object choosed are not Pair!\n");
-         * 
-         * score.push(0); while(score.size() > 0) sum += score.pop();
-         * System.out.println("Score Updated : " + sum); }
-         * 
-         * } break; case 3: for(int i = 1; i <= 4; i++){ if(score.isEmpty()){
-         * score.clear(); }
-         * System.out.println("\tPair Matching Game (Here are your objects to pair)");
-         * System.out.println(
-         * "==================================================================");
-         * System.out.println("01 02 03 04 05 06 07 08\n");
-         * System.out.println("09 10 11 12 13 14 15 16\n");
-         * 
-         * System.out.print("\nObjects You Have Paired : " + objPaired);
-         * System.out.print("\nObj 1 :");
-         * 
-         * Scanner scan = new Scanner(System.in); decision1 = scan.nextLine();
-         * decisionConvert = Integer.parseInt(decision1);
-         * 
-         * System.out.print(openDot + TisObj +
-         * go.getEntry(decisionConvert).getDescription() + closeDot + "\n"); obj1Choosed
-         * = go.getEntry(decisionConvert).getObjID();
-         * 
-         * 
-         * System.out.print("\nObj 2 :"); decision2 = scan.nextLine(); decisionConvert =
-         * Integer.parseInt(decision2);
-         * 
-         * System.out.print(openDot + TisObj +
-         * go.getEntry(decisionConvert).getDescription() + closeDot + "\n"); obj2Choosed
-         * = go.getEntry(decisionConvert).getObjID();
-         * 
-         * 
-         * if (obj1Choosed.equals(obj2Choosed)) {
-         * 
-         * System.out.print("\nResults : Both object choosed are Pair!\n");
-         * 
-         * objPaired += decision1 + "\t" + decision2 + "\t";
-         * 
-         * System.out.print("Objects That you have paired : " + objPaired + "\n");
-         * countingPair++;
-         * 
-         * score.push(10); while(score.size() > 0) sum += score.pop();
-         * System.out.println("Score Updated : " + sum);
-         * 
-         * } else if(!obj1Choosed.equals(obj2Choosed)) {
-         * System.out.print("Result: Both object choosed are not Pair!\n");
-         * 
-         * score.push(0); while(score.size() > 0) sum += score.pop();
-         * System.out.println("Score Updated : " + sum); }
-         * 
-         * } break; default: break; }
-         */
- /*
-         * if (countingPair == 2 || rounds > totalRounds) { // Scanner scan = new
-         * Scanner(System.in); System.out.println("Game Over\n");
-         * System.out.println("Play Again? (Y/N) : "); choice = scan.next().charAt(0);
-         * if (choice == 'Y' || choice == 'y') { go.clear(); again = true; rounds = 0;
-         * count1 = 1; count2 = 1; count3 = 1; count4 = 1; count5 = 1; count6 = 1;
-         * count7 = 1; count8 = 1; // gameObject1. randomObj(countingPair); //
-         * countingPair=0;
-         * 
-         * }
-         * 
-         * // } // }while(choice == 'Y' || choice == 'y'); }
-         */
     }
 }
