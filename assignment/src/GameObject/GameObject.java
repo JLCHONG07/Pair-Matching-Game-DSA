@@ -25,7 +25,7 @@ public class GameObject {
     int name = 0;
     public static int max;// base on level change
     static int min = 1;
-    static String descObj;
+     String descObj;
     public static int objNo = 0;
     int noOfObj = 0;
     int count1 = 1, count2 = 1, count3 = 1, count4 = 1, count5 = 1, count6 = 1, count7 = 1, count8 = 1;// easy 4 pairs,
@@ -44,9 +44,16 @@ public class GameObject {
     // ArrayList<GameObj> go = new ArrayList<GameObj>();
     // private int noOfGameObject;
     public void randomObj(int randTime) {
+
+        noOfObj=randTime;
+        max=noOfObj/2;
+        boolean isPairs=false;
+        //     while (again == true) {
+
         noOfObj = randTime;
         max = noOfObj / 2;
         // while (again == true) {
+
         ArrayList<GameObj> go = new ArrayList<GameObj>();
 
         // System.out.printf("%d", randTime);
@@ -70,49 +77,49 @@ public class GameObject {
 
                 count1++;
                 descObj = "Apple";
-                go.add(new GameObj("01", descObj, objNo));
+                go.add(new GameObj("01", descObj, objNo,isPairs));
 
             } else if (rand_object == 2 && count2 <= 2) {
 
                 count2++;
                 descObj = "Orange";
-                go.add(new GameObj("02", descObj, objNo));
+                go.add(new GameObj("02", descObj, objNo,isPairs));
 
             } else if (rand_object == 3 && count3 <= 2) {
 
                 count3++;
                 descObj = "Strawberry";
-                go.add(new GameObj("03", descObj, objNo));
+                go.add(new GameObj("03", descObj, objNo,isPairs));
 
             } else if (rand_object == 4 && count4 <= 2) {
 
                 count4++;
                 descObj = "Mango";
-                go.add(new GameObj("04", descObj, objNo));
+                go.add(new GameObj("04", descObj, objNo,isPairs));
 
             } else if (rand_object == 5 && count5 <= 2) {
 
                 count5++;
                 descObj = "Durian";
-                go.add(new GameObj("05", descObj, objNo));
+                go.add(new GameObj("05", descObj, objNo,isPairs));
 
             } else if (rand_object == 6 && count6 <= 2) {
 
                 count6++;
                 descObj = "Papaya";
-                go.add(new GameObj("06", descObj, objNo));
+                go.add(new GameObj("06", descObj, objNo,isPairs));
 
             } else if (rand_object == 7 && count7 <= 2) {
 
                 count7++;
                 descObj = "Watermelon";
-                go.add(new GameObj("07", descObj, objNo));
+                go.add(new GameObj("07", descObj, objNo,isPairs));
 
             } else if (rand_object == 8 && count8 <= 2) {
 
                 count8++;
                 descObj = "Blueberry";
-                go.add(new GameObj("08", descObj, objNo));
+                go.add(new GameObj("08", descObj, objNo,isPairs));
 
             } else {
 
