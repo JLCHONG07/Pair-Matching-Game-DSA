@@ -72,12 +72,12 @@ public class GamePlay {
          */
         System.out.print("Your Highest Scores : " + highestScore + "\n\n");
         System.out.print("Current Scores:" + currentScore + "\n\n");
-        ;
+        
         System.out.print("Round :" + rounds + "/" + totalRounds);
         System.out.print("\n\nObjects You Have Paired : " + objPaired);
         System.out.print("\n\nObj 1 :");
 
-        // 1st choice validation
+        // 1st choice validation if user input invalid input
         do {
             Scanner scan = new Scanner(System.in);
             decision1 = scan.nextLine();
@@ -92,6 +92,7 @@ public class GamePlay {
         } while (!"01".equals(decision1) && !"02".equals(decision1) && !"03".equals(decision1)
                 && !"04".equals(decision1) && !"05".equals(decision1) && !"06".equals(decision1)
                 && !"07".equals(decision1) && !"08".equals(decision1));
+        
         decisionConvert = Integer.parseInt(decision1);
 
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n");
@@ -99,30 +100,44 @@ public class GamePlay {
 
         System.out.print("\nObj 2 :");
 
-        // 2nd choice validation
+        // 2nd choice validation if user input same object with object 1
         do {
             Scanner scan = new Scanner(System.in);
             decision2 = scan.nextLine();
-
-<<<<<<< HEAD
-            if (!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2) && !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2) && !"08".equals(decision2) && decision1.equals(decision2)) {
-=======
-            if (!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2)
-                    && !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2)
-                    && !"08".equals(decision2)) {
->>>>>>> 2b09cd0fc1128a7b8f56d072b0281adeb0876a89
-                System.out.print("Invalid Choice! Please enter again\n\n");
-            }
+            
+            if(decision2.equals(decision1)){
+            System.out.println("Same Object Detected! Input again");
+            
             System.out.print("\nObj 2 : ");
-
-<<<<<<< HEAD
-        } while (!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2) && !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2) && !"08".equals(decision2) && !decision1.equals(decision2));
-=======
-        } while (!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2)
-                && !"04".equals(decision2) && !"05".equals(decision2) && !"06".equals(decision2)
-                && !"07".equals(decision2) && !"08".equals(decision2));
->>>>>>> 2b09cd0fc1128a7b8f56d072b0281adeb0876a89
-
+            }
+            do {
+            //System.out.print("\nInput Again Obj 2 : ");
+            //Scanner scan = new Scanner(System.in);
+            decision2 = scan.nextLine();
+            
+            if(!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2)&& !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2)&& !"08".equals(decision2)){
+            System.out.println("Invalid input! Enter again");
+           }
+            
+            //System.out.print("\nObj 2 : ");
+            
+        }while(!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2)&& !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2)&& !"08".equals(decision2));
+        }while(decision2.equals(decision1));
+        
+        //2nd validation if user input invalid input
+        /* do {
+            System.out.print("\nInput Again Obj 2 : ");
+            Scanner scan = new Scanner(System.in);
+            decision2 = scan.nextLine();
+            
+            if(!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2)&& !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2)&& !"08".equals(decision2)){
+            System.out.println("Invalid input! Enter again");
+           }
+            
+            //System.out.print("\nObj 2 : ");
+            
+        }while(!"01".equals(decision2) && !"02".equals(decision2) && !"03".equals(decision2) && !"04".equals(decision2)&& !"05".equals(decision2) && !"06".equals(decision2) && !"07".equals(decision2)&& !"08".equals(decision2));
+         */
         decisionConvert = Integer.parseInt(decision2);
 
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert).getDescription() + closeDot + "\n\n");

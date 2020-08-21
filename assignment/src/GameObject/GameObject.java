@@ -120,75 +120,7 @@ public class GameObject {
     }
 
     public void displayObj(ArrayList<GameObj> go) {
-        /*
-        while (countingPair != max) {
-            if (gamePlayleft) {
-                System.out.print("Player ID : 001 \t\t\tPlayer Name: hard Code Name\n");
-                System.out.println("\tPair Matching Game (Here are your objects to pair)");
-                System.out.println("==================================================================");
-                for (int i = 1; i <= objNo; i++) {
-                    if (i < 17) {
-
-                        String convertName;
-                        //convert int to string
-                        if (i < 10) {
-                            convertName = zero + Integer.toString(i);
-
-                        } else {
-                            convertName = Integer.toString(i);
-                        }
-                        //display game object in orderly
-                        // switch(level){
-                        if (noOfGameObject == 16) {
-                            if (i == 8 || i == 16) {// change based on level 8,12,16
-                                System.out.print(convertName + "\t\n");//change to \n if done
-                                if (i == 16) {//changed based on level
-                                    System.out.println("==================================================================");
-
-                                    gp.gamePlay(go);
-                                }
-                            } else {
-                                System.out.print(convertName + "\t");
-
-                            }
-                        }
-                        if (noOfGameObject == 12) {
-                            if (i == 6 || i == 12) {// change based on level 8,12,16
-                                System.out.print("\t  " + convertName + "\n");//change to \n if done
-                                if (i == 12) {//changed based on level
-                                    System.out.println("==================================================================");
-
-                                    gp.gamePlay(go);
-                                }
-                            } else {
-                                System.out.print("\t  " + convertName);
-
-                            }
-                        }
-                        if (noOfGameObject == 8) {
-                            if (i == 4 || i == 8) {// change based on level 8,12,16
-                                System.out.print("\t" + convertName + "\n");//change to \n if done
-                                if (i == 8) {//changed based on level
-                                    System.out.println("==================================================================");
-
-                                    gp.gamePlay(go);
-                                }
-                            } else {
-                                System.out.print("\t" + convertName + "\t");
-
-                            }
-                        }
-                    }
-                }
-
-            } else {
-
-                Again();
-
-            }
-
-        }
-         */
+    
         while (gamePlayleft) {// rounds> pairs so compare rounds first the check pairs
 
             System.out.print("Player ID : 001 \t\t\tPlayer Name: hard Code Name\n\n");
