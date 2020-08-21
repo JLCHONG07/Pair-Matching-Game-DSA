@@ -71,7 +71,7 @@ public class GamePlay {
          * System.out.println("01 02 03 04 05 06 07 08\n");
          * 
          */
-        System.out.println("Your Highest Scores : " + highestScore);
+        //System.out.println("Your Highest Scores : " + highestScore);
         
         System.out.print("Round :" + rounds + "/" + totalRounds);
         System.out.print("\nObjects You Have Paired : " + objPaired);

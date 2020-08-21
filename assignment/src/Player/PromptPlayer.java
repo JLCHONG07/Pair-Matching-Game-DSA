@@ -10,15 +10,15 @@ public class PromptPlayer {
     int playerNo = 1;
     Scanner playerInput = new Scanner(System.in);
     LinkedList<Player> playerLinkedList = new LinkedList<>();
-    String currentPlayer = null;
-    String currentId = null;
+    public static String currentPlayer;
+    public static String currentId;
     int currentScore = 0;
     String id;
     
     public void NewPlayer() {
         System.out.println("New Game");
         System.out.println("========");
-        System.out.print("Please enetr your username : ");
+        System.out.print("Please enter your username : ");
         String playerName = playerInput.next();
         
         if(playerNo > 99) {
@@ -40,11 +40,11 @@ public class PromptPlayer {
             }
         }
         
+        System.out.println(currentPlayer);
+        
         System.out.println("+-----------------------+");
         System.out.println("|" + "Your current id is " + currentId + "|");
         System.out.println("+-----------------------+");
-
-        playerLinkedList.add(new Player(currentId));
     }
     
     public void ExistingPlayer() {
@@ -75,7 +75,18 @@ public class PromptPlayer {
                 System.out.println("Valid player id");
             }
         }while(proceed == false);
-        playerLinkedList.add(new Player(currentId));
+    }
+    
+    public int displayScore() {
+        return currentScore;
+    }
+    
+    public String displayName() {
+        return currentPlayer;
+    }
+    
+    public String displayCurrentID() {
+        return currentId;
     }
     
     public void addScore() {
@@ -114,14 +125,5 @@ public class PromptPlayer {
                     break;
             }
         }
-    }
-    
-        
-    public int displayScore() {
-        return currentScore;
-    }
-    
-    public String displayPlayerName() {
-        return currentPlayer;
     }
 }

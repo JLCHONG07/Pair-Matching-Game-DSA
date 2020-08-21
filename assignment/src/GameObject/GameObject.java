@@ -7,6 +7,7 @@ package GameObject;
 
 import GamePlay.GamePlay;
 import static GamePlay.GamePlay.countingPair;
+import Player.PromptPlayer;
 
 import static assignment.Assignment.Again;
 import static assignment.Assignment.noOfGameObject;
@@ -21,7 +22,7 @@ import java.util.Scanner;
 public class GameObject {
 
     int name = 0;
-    public static int max = noOfGameObject / 2;//base on level change
+    public static int max = noOfGameObject;//base on level change
     static int min = 1;
     static String descObj;
     public static int objNo = 0;
@@ -33,15 +34,18 @@ public class GameObject {
     public static boolean gamePlayleft = true;//round finish will change to false;
     public static boolean again = true;
     String convertName;
+    
+    PromptPlayer player = new PromptPlayer();
 
     // ArrayList<GameObj> gameObject = new ArrayList<GameObj>(10);
     //ArrayList<GameObj> go = new ArrayList<GameObj>();
     // private int noOfGameObject;
     public void randomObj(int randTime) {
+       
         //     while (again == true) {
         ArrayList<GameObj> go = new ArrayList<GameObj>();
         
-        System.out.printf("%d", randTime);
+        System.out.println(randTime);
         
         if (!go.isEmpty()) {
             go.clear();
@@ -123,10 +127,9 @@ public class GameObject {
     }
 
     public void displayObj(ArrayList<GameObj> go) {
-    
         while (gamePlayleft) {// rounds> pairs so compare rounds first the check pairs
 
-            System.out.print("Player ID : 001 \t\t\tPlayer Name: hard Code Name\n\n");
+            System.out.println("Player ID : " + player.displayCurrentID() + "\t\t\tPlayer Name: " + player.displayName() + "\n\n");
             System.out.println("\tPair Matching Game (Here are your objects to pair)");
             System.out.println("==================================================================");
             for (int i = 1; i <= objNo; i++) {

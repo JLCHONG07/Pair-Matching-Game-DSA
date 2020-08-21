@@ -62,6 +62,7 @@ public class Assignment {
                 PromptPlayerInput();
                 
                 noOfGameObject = difficulty.noOfObj();
+                System.out.println(noOfGameObject);
                 obj.randomObj(noOfGameObject);
                 //Again();
                 System.out.println("In progress!");
@@ -116,8 +117,8 @@ public class Assignment {
 
     public static void PromptPlayerInput() {
         int playerSelect;
-
         PromptPlayer player = new PromptPlayer();
+        
         Scanner playerInput = new Scanner(System.in);
 
         do {
