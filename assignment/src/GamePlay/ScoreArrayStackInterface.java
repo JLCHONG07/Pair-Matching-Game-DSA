@@ -8,17 +8,25 @@ package GamePlay;
 /**
  *
  * @author SHATHIS
+ * @param <E>
  */
-public interface ScoreArrayStackInterface {
-    int push(int value);
-    int pop();
+public interface ScoreArrayStackInterface<E> {
+
+     void push(E value);
     
-    int peek();
+     E pop();
+    
+    /**
+     *
+     * @return
+     */
+     E peek();
     
     
-    int size();
-    void clear();
+     int size();
+   
+      void clear();
     
-    boolean isEmpty();
+      boolean isEmpty();
      
 }
