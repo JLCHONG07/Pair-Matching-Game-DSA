@@ -14,7 +14,9 @@ public class LVL {
     
     
     
-    int noOfObject;
+    public  static int noOfGameObject;
+    int levelSelect;
+    boolean valid = true;
     
     public int noOfObj(){
         
@@ -22,31 +24,61 @@ public class LVL {
         ArrayQueue<Level> data = new ArrayQueue<Level>();
         
         Scanner levelSelection = new Scanner (System.in);
-        System.out.println("Select Level\n1. Easy \n2. Normal \n3. Hard");
-        int levelSelect = levelSelection.nextInt();
-
-        switch (levelSelect)
-        {
-            case 1:
-            {
-                noOfObject = 8;
-                data.enqueue(new Level("L01", "Easy" ,10 ,noOfObject ,2 ));
+        
+        do{
+            if(!data.isEmpty()){
+                data.clear();
             }
-            case 2:
+            
+            do{		        		
+                try{
+                    
+                    System.out.println("Select Level\n1. Easy \n2. Normal \n3. Hard");
+                    levelSelect = levelSelection.nextInt();
+		    valid = false;
+		}catch (Exception e) {
+                    System.err.println("Please input number only!!!");
+                    levelSelection.nextInt();
+		}
+                
+                
+                
+            }while (valid = false);
+            
+                
+                
+            switch (levelSelect)
             {
-                noOfObject = 12;
-                data.enqueue(new Level("L02", "Medium" ,15 ,noOfObject ,3 ));
+                case 1:
+                {
+                    noOfGameObject = 8;
+                    data.enqueue(new Level("L01", "Easy" ,10 ,noOfGameObject ,2 ));
+                    valid = true;
+                    break;
+                }
+                case 2:
+                {
+                    noOfGameObject = 12;
+                    data.enqueue(new Level("L02", "Normal" ,15 ,noOfGameObject ,3 ));
+                    valid = true;
+                    break;
+                }
+                case 3:
+                {
+                    noOfGameObject = 16;
+                    data.enqueue(new Level("L03", "Hard" ,20 ,noOfGameObject ,4 ));
+                    valid = true;
+                    break;
+                }
+                default:
+                {
+                    System.out.println("Invalid Input!!! Please Enter Again.");
+                    valid = false;
+                }
             }
-            case 3:
-            {
-                noOfObject = 16;
-                data.enqueue(new Level("L03", "Hard" ,20 ,noOfObject ,4 ));
-            }
-            default:
-            {
-                System.out.println("Error");
-            }
-        }
-        return noOfObject;
+        }while(valid != true);
+        
+        //}
+        return noOfGameObject;
     }
 }

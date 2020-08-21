@@ -11,11 +11,11 @@ package Level;
  * @param <T>
  */
 public class ArrayQueue<T> implements Queue<T>{
-    
+
     private T[] array;
     private static int frontIndex = 0;
     private int backIndex;
-    private static int DEFAULT_CAPACITY = 3;
+    private static int DEFAULT_CAPACITY = 1;
     
     public ArrayQueue(){
         this(DEFAULT_CAPACITY);
@@ -26,7 +26,6 @@ public class ArrayQueue<T> implements Queue<T>{
         backIndex = -1;
     }
     
-    @Override
     public void enqueue(T newData){
         if (!isArrayFull()){
             backIndex++;
@@ -34,11 +33,6 @@ public class ArrayQueue<T> implements Queue<T>{
         }
     }
     
-    /**
-     *
-     * @return
-     */
-    @Override
     public T dequeue() {
         T front = null;
 
@@ -54,7 +48,6 @@ public class ArrayQueue<T> implements Queue<T>{
         return front;
     }
     
-    @Override
     public T getFront() {
         T front = null;
 
@@ -65,15 +58,10 @@ public class ArrayQueue<T> implements Queue<T>{
         return front;
     } 
 
-    @Override
     public boolean isEmpty() {
         return frontIndex > backIndex;
     } 
 
-    /**
-     *
-     */
-    @Override
     public void clear() {
         if (!isEmpty()) { // deallocates only the used portion
             for (int index = frontIndex; index <= backIndex; index++) {
