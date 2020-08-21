@@ -57,8 +57,7 @@ public class GamePlay {
             score.clear();
         }
 
-        System.out.print("Your Highest Scores : " + highestScore + "\n\n");
-        System.out.print("Current Scores:" + currentScore + "\n\n");
+        System.out.println("Your Highest Scores : " + highestScore + "\n");
 
         System.out.print("Round :" + rounds + "/" + totalRounds);
         System.out.print("\nObjects You Have Paired : " + objPaired);
@@ -83,8 +82,6 @@ public class GamePlay {
         rounds++;
         if (obj1Choosed.equals(obj2Choosed)) {
 
-            player.addScore();
-
             System.out.print("\nResults : Both object choosed are Pair!\n\n");
 
             objPaired += decision1 + "\t" + decision2 + "\t";
@@ -96,11 +93,11 @@ public class GamePlay {
              * sum; }
              */
 
-            System.out.println("Current Score : " + player.displayScore());
+            System.out.println("Current Score : " + currentScore);
             if (currentScore > highestScore) {
                 highestScore = currentScore;
             }
-            System.out.println("Highest Score Updated : " + highestScore);
+            System.out.println("Highest Score Updated : " + player.highestScore());
 
         } else {
             System.out.print("Result: Both object choosed are not Pair!\n\n");
@@ -120,6 +117,7 @@ public class GamePlay {
             System.out.print("Your Bonus is :  0" + "\n");
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
+            player.saveTotalResults(totalScoresEarn);
             sum = 0;
             Again();
 
@@ -128,10 +126,11 @@ public class GamePlay {
             bonus = (totalRounds - rounds) * 10;
             totalScoresEarn = bonus + currentScore;
             System.out.print("Congratulation you have found all the pairs!\n");
-            System.out.print("Current Scores is:" + currentScore + "\n");
+            System.out.print("Current Scores is : " + currentScore + "\n");
             System.out.print("Your Bonus is :  " + bonus + "\n");
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
+            player.saveTotalResults(totalScoresEarn);
             sum = 0;
             Again();
 

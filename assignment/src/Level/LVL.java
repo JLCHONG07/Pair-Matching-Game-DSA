@@ -5,6 +5,7 @@
  */
 package Level;
 
+import Player.PromptPlayer;
 import java.util.Scanner;
 
 /**
@@ -19,6 +20,7 @@ public class LVL {
     public static int noOfGameObject;
     int levelSelect;
     boolean valid = true;
+    PromptPlayer player = new PromptPlayer();
 
     public int noOfObj() {
 
@@ -73,6 +75,7 @@ public class LVL {
 
         currentLevel = data.getFront().getLevelId();
         currentLvlScore = data.getFront().getPairScore();
+        player.assignHighestScore();
         // }
         return noOfGameObject;
     }

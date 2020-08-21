@@ -60,8 +60,7 @@ public class Assignment {
         switch (select) {
             case 1: {
                 PromptPlayerInput();
-                // difficulty.noOfObj();
-                // noOfGameObject =
+                
                 obj.randomObj(difficulty.noOfObj());
                 // Again();
                 System.out.println("In progress!");

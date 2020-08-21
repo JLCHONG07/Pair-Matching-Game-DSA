@@ -30,8 +30,7 @@ public class GameObject {
     int noOfObj = 0;
     int count1 = 1, count2 = 1, count3 = 1, count4 = 1, count5 = 1, count6 = 1, count7 = 1, count8 = 1;// easy 4 pairs,
                                                                                                        // normal 6
-                                                                                                       // paurs, hard 8
-                                                                                                       // pairs;
+                                                                                                       // paurs, hard                                                                                                    // pairs;
     static boolean checkObj = true;
     String zero = "0";
     GamePlay gp = new GamePlay();
