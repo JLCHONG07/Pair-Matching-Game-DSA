@@ -34,7 +34,7 @@ public class Assignment {
     /**
      * @param args the command line arguments
      */
-    public static int noOfGameObject = 8;// change base on level
+    public static int noOfGameObject = 0;// change base on level
 
     public static void main(String[] args) {
         // Display main menu
@@ -60,11 +60,10 @@ public class Assignment {
         switch (select) {
             case 1: {
                 PromptPlayerInput();
-                
-                noOfGameObject = difficulty.noOfObj();
-                System.out.println(noOfGameObject);
-                obj.randomObj(noOfGameObject);
-                //Again();
+                // difficulty.noOfObj();
+                // noOfGameObject =
+                obj.randomObj(difficulty.noOfObj());
+                // Again();
                 System.out.println("In progress!");
 
                 break;
@@ -86,28 +85,20 @@ public class Assignment {
 
     public static void Again() {
         GameObject obj = new GameObject();
-
+        LVL difficulty = new LVL();
         Scanner scan = new Scanner(System.in);
         System.out.print("GAME OVER !\n");
         System.out.println("Play Again? (Y/N) : ");
         char choice = scan.next().charAt(0);
         if (choice == 'Y' || choice == 'y') {
-            //       go.clear();
+            // go.clear();
             // again = true;
             objNo = 0;
             rounds = 1;
-            count1 = 1;
-            count2 = 1;
-            count3 = 1;
-            count4 = 1;
-            count5 = 1;
-            count6 = 1;
-            count7 = 1;
-            count8 = 1;
             countingPair = 0;
             gamePlayleft = true;
 
-            obj.randomObj(noOfGameObject);
+            obj.randomObj(difficulty.noOfObj());
             // countingPair=0;
         } else {
             System.exit(0);
@@ -118,7 +109,7 @@ public class Assignment {
     public static void PromptPlayerInput() {
         int playerSelect;
         PromptPlayer player = new PromptPlayer();
-        
+
         Scanner playerInput = new Scanner(System.in);
 
         do {

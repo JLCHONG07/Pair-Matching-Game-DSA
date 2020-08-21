@@ -11,6 +11,7 @@ import Player.PromptPlayer;
 
 import static assignment.Assignment.Again;
 import static assignment.Assignment.noOfGameObject;
+
 //mport static GamePlay.GamePlay.countingPair;
 import java.util.Random;
 import java.util.Scanner;
@@ -22,31 +23,35 @@ import java.util.Scanner;
 public class GameObject {
 
     int name = 0;
-    public static int max = noOfGameObject;//base on level change
+    public static int max;// base on level change
     static int min = 1;
     static String descObj;
     public static int objNo = 0;
-    static int stopCreateObj = 0;
-    public static int count1 = 1, count2 = 1, count3 = 1, count4 = 1, count5 = 1, count6 = 1, count7 = 1, count8 = 1;// easy 4 pairs, normal 6 paurs, hard 8 pairs;
+    int noOfObj = 0;
+    int count1 = 1, count2 = 1, count3 = 1, count4 = 1, count5 = 1, count6 = 1, count7 = 1, count8 = 1;// easy 4 pairs,
+                                                                                                       // normal 6
+                                                                                                       // paurs, hard 8
+                                                                                                       // pairs;
     static boolean checkObj = true;
     String zero = "0";
     GamePlay gp = new GamePlay();
-    public static boolean gamePlayleft = true;//round finish will change to false;
+    public static boolean gamePlayleft = true;// round finish will change to false;
     public static boolean again = true;
     String convertName;
-    
+
     PromptPlayer player = new PromptPlayer();
 
     // ArrayList<GameObj> gameObject = new ArrayList<GameObj>(10);
-    //ArrayList<GameObj> go = new ArrayList<GameObj>();
+    // ArrayList<GameObj> go = new ArrayList<GameObj>();
     // private int noOfGameObject;
     public void randomObj(int randTime) {
-       
-        //     while (again == true) {
+        noOfObj = randTime;
+        max = noOfObj / 2;
+        // while (again == true) {
         ArrayList<GameObj> go = new ArrayList<GameObj>();
-        
-        System.out.println(randTime);
-        
+
+        // System.out.printf("%d", randTime);
+
         if (!go.isEmpty()) {
             go.clear();
 
@@ -56,11 +61,11 @@ public class GameObject {
         for (int i = 0; i < randTime; i++) {
 
             int rand_object = rand.nextInt((max - min) + 1) + min;
-            //     System.out.print("\nDebug random: " + rand_object);
+            // System.out.print("\nDebug random: " + rand_object);
             objNo++;
 
-            //createObj(rand_object, randTime);//
-            //   ArrayList<GameObj> temGo = new ArrayList<GameObj>();
+            // createObj(rand_object, randTime);//
+            // ArrayList<GameObj> temGo = new ArrayList<GameObj>();
             descObj = "";
             if (rand_object == 1 && count1 <= 2) {
 
@@ -118,45 +123,53 @@ public class GameObject {
             }
 
         }
-        //    again = false;
-
+        // again = false;
+        count1 = 1;
+        count2 = 1;
+        count3 = 1;
+        count4 = 1;
+        count5 = 1;
+        count6 = 1;
+        count7 = 1;
+        count8 = 1;
         displayObj(go);
-        //   }
-        //  }
+        // }
+        // }
 
     }
 
     public void displayObj(ArrayList<GameObj> go) {
         while (gamePlayleft) {// rounds> pairs so compare rounds first the check pairs
 
-            System.out.println("Player ID : " + player.displayCurrentID() + "\t\t\tPlayer Name: " + player.displayName() + "\n\n");
+            System.out.println(
+                    "Player ID : " + player.displayCurrentID() + "\t\t\tPlayer Name: " + player.displayName() + "\n\n");
             System.out.println("\tPair Matching Game (Here are your objects to pair)");
             System.out.println("==================================================================");
             for (int i = 1; i <= objNo; i++) {
                 converter(i);
-                //display game object in orderly
+                // display game object in orderly
                 // switch(level){
-                if (noOfGameObject == 16) {
+                if (noOfObj == 16) {
                     if (i == 8 || i == 16) {
-                        System.out.print(convertName + "\t\n");//change to \n if done
+                        System.out.print(convertName + "\t\n");// change to \n if done
 
                     } else {
                         System.out.print(convertName + "\t");
 
                     }
                 }
-                if (noOfGameObject == 12) {
+                if (noOfObj == 12) {
                     if (i == 6 || i == 12) {
-                        System.out.print("\t  " + convertName + "\n");//change to \n if done
+                        System.out.print("\t  " + convertName + "\n");// change to \n if done
 
                     } else {
                         System.out.print("\t  " + convertName);
 
                     }
                 }
-                if (noOfGameObject == 8) {
+                if (noOfObj == 8) {
                     if (i == 4 || i == 8) {
-                        System.out.print("\t" + convertName + "\n");//change to \n if done
+                        System.out.print("\t" + convertName + "\n");// change to \n if done
 
                     } else {
                         System.out.print("\t" + convertName + "\t");
@@ -174,7 +187,7 @@ public class GameObject {
     public void converter(int gameObjects) {
         if (gameObjects < 17) {
 
-            //convert int to string
+            // convert int to string
             if (gameObjects < 10) {
                 convertName = zero + Integer.toString(gameObjects);
 
