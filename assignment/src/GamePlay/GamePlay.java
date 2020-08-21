@@ -52,7 +52,7 @@ public class GamePlay {
         // int rounds=1;
         System.out.println(go.toString());
 
-        ScoreArrayStack score = new ScoreArrayStack();
+        ScoreArrayStack<Integer> score = new ScoreArrayStack<Integer>();
 
         if (!score.isEmpty()) {
             score.clear();
