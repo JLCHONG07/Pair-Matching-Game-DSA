@@ -75,7 +75,6 @@ public class LVL {
 
         currentLevel = data.getFront().getLevelId();
         currentLvlScore = data.getFront().getPairScore();
-        player.assignHighestScore();
         // }
         return noOfGameObject;
     }

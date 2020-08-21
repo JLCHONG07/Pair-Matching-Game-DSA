@@ -57,14 +57,16 @@ public class GamePlay {
         if (!score.isEmpty()) {
             score.clear();
         }
+        
+        player.assignHighestScore();
 
-        System.out.println("Your Highest Scores : " + highestScore + "\n");
+        System.out.println("Your Highest Scores : " + player.highestScore() + "\n");
 
         System.out.print("Round :" + rounds + "/" + totalRounds);
 
         System.out.print("\n\nObjects You Have Paired : " + objPaired);
 
-        System.out.print("\nObjects You Have Paired : " + objPaired);
+        //System.out.print("\nObjects You Have Paired : " + objPaired);
 
         System.out.print("\n\nObj 1 :");
 
@@ -151,9 +153,8 @@ public class GamePlay {
             System.out.print("Your Bonus is :  0" + "\n");
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
-            player.saveTotalResults(totalScoresEarn);
             sum = 0;
-            Again();
+            Again(totalScoresEarn);
 
         } else if (countingPair == max) {
             int bonus = 0;
@@ -164,9 +165,8 @@ public class GamePlay {
             System.out.print("Your Bonus is :  " + bonus + "\n");
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
-            player.saveTotalResults(totalScoresEarn);
             sum = 0;
-            Again();
+            Again(totalScoresEarn);
 
         }
 

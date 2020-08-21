@@ -82,10 +82,12 @@ public class Assignment {
         }
     }
 
-    public static void Again() {
+    public static void Again(int score) {
         GameObject obj = new GameObject();
         LVL difficulty = new LVL();
         Scanner scan = new Scanner(System.in);
+        PromptPlayer player = new PromptPlayer();
+        player.saveTotalResults(score);
         System.out.print("GAME OVER !\n");
         System.out.println("Play Again? (Y/N) : ");
         char choice = scan.next().charAt(0);

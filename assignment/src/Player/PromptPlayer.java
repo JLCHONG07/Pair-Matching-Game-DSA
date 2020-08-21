@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class PromptPlayer {
     int playerNo = 1;
     Scanner playerInput = new Scanner(System.in);
-    LinkedList<Player> playerLinkedList = new LinkedList<>();
+    public static LinkedList<Player> playerLinkedList = new LinkedList<>();
     public static String currentPlayer;
     public static String currentId;
     public static int highestScore = 0;
@@ -114,35 +114,47 @@ public class PromptPlayer {
     }
     
     public void saveTotalResults(int score) {
+        System.out.println(currentLevel);
         if(currentLevel != null) {
             switch(currentLevel) {
                 case "L01":
                     for(int index = 0; index < playerLinkedList.length(); index++) {
-                        if(playerLinkedList.get(index).getPlayerId().equals(currentId) 
-                                && playerLinkedList.get(index).getEasylvlScore() < highestScore){
-                            playerLinkedList.get(index).setEasylvlScore(score);
+                        if(playerLinkedList.get(index).getPlayerId().equals(currentId)){
+                            if(playerLinkedList.get(index).getEasylvlScore() < score) {
+                                playerLinkedList.get(index).setEasylvlScore(score);
+                                System.out.println(playerLinkedList.get(0).getEasylvlScore());
+                            } else {
+                                System.out.println("The previous score " + highestScore + " is more higher than current score " + score);
+                            }
                         } else {
-                            System.out.println("The previous score " + highestScore + "is more higher than current score");
+                            System.out.println("Invalid ID !");
                         }
                     }
+                    
                     break;
                 case "L02":
                     for(int index = 0; index < playerLinkedList.length(); index++) {
-                        if(playerLinkedList.get(index).getPlayerId().equals(currentId)
-                                && playerLinkedList.get(index).getMediumlvlScore() < highestScore){
-                            playerLinkedList.get(index).setMediumlvlScore(score);
+                        if(playerLinkedList.get(index).getPlayerId().equals(currentId)){
+                            if(playerLinkedList.get(index).getEasylvlScore() < score) {
+                                playerLinkedList.get(index).setMediumlvlScore(score);
+                            } else {
+                                System.out.println("The previous score " + highestScore + " is more higher than current score " + score);
+                            }
                         } else {
-                            System.out.println("The previous score " + highestScore + "is more higher than current score");
+                            System.out.println("Invalid ID !");
                         }
                     }
                     break;
                 case "L03":
                     for(int index = 0; index < playerLinkedList.length(); index++) {
-                        if(playerLinkedList.get(index).getPlayerId().equals(currentId)
-                                && playerLinkedList.get(index).getHardlvlScore() < highestScore){
-                            playerLinkedList.get(index).setHardlvlScore(score);
+                        if(playerLinkedList.get(index).getPlayerId().equals(currentId)){
+                            if(playerLinkedList.get(index).getEasylvlScore() < score) {
+                                playerLinkedList.get(index).setHardlvlScore(score);
+                            } else {
+                                System.out.println("The previous score " + highestScore + " is more higher than current " + score);
+                            }
                         } else {
-                            System.out.println("The previous score " + highestScore + "is more higher than current score");
+                            System.out.println("Invalid ID !");
                         }
                     }
                     break;
