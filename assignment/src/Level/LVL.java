@@ -23,7 +23,7 @@ public class LVL {
     boolean valid = true;
     PromptPlayer player = new PromptPlayer();
 
-    public int noOfObj() {
+    public void noOfObj() {
 
         Level lvl = new Level();
         ArrayQueue<Level> data = new ArrayQueue<>();
@@ -50,20 +50,20 @@ public class LVL {
 
             switch (levelSelect) {
                 case 1: {
-                    noOfGameObject = 8;
-                    data.enqueue(new Level("L01", "Easy", 10, noOfGameObject, 2));
+                // noOfGameObject = 8;
+                    data.enqueue(new Level("L01", "Easy", 10, 8, 2));
                     valid = true;
                     break;
                 }
                 case 2: {
-                    noOfGameObject = 12;
-                    data.enqueue(new Level("L02", "Normal", 15, noOfGameObject, 3));
+              //noOfGameObject = 12;
+                    data.enqueue(new Level("L02", "Normal", 15, 12, 3));
                     valid = true;
                     break;
                 }
                 case 3: {
-                    noOfGameObject = 16;
-                    data.enqueue(new Level("L03", "Hard", 20, noOfGameObject, 4));
+                   // noOfGameObject = 16;
+                    data.enqueue(new Level("L03", "Hard", 20, 16, 4));
                     valid = true;
                     break;
                 }
@@ -78,9 +78,9 @@ public class LVL {
         currentLevel = data.getFront().getLevelId();
         currentRounds = data.getFront().getRound();
         currentLvlScore = data.getFront().getPairScore();
-        
+        noOfGameObject=data.getFront().getNumofobj();
         System.out.printf("%d", noOfGameObject);
         // }
-        return noOfGameObject;
+  
     }
 }

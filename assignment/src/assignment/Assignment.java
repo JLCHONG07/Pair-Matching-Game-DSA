@@ -20,6 +20,7 @@ import Level.LVL;
 
 import static GamePlay.GamePlay.totalRounds;
 import Leaderboard.PromptBoard;
+import static Level.LVL.noOfGameObject;
 import Level.Level;
 import Player.Player;
 import Player.PromptPlayer;
@@ -35,7 +36,7 @@ public class Assignment {
     /**
      * @param args the command line arguments
      */
-    public static int noOfGameObject = 0;// change base on level
+ //   public static int noOfGameObject = 0;// change base on level
 
     public static void main(String[] args) {
         // Display main menu
@@ -67,7 +68,8 @@ public class Assignment {
         switch (select) {
             case 1: {
                 PromptPlayerInput();
-                obj.randomObj(difficulty.noOfObj());
+                    difficulty.noOfObj();
+                obj.randomObj(noOfGameObject);
                 break;
             }
             case 2: {
@@ -99,8 +101,8 @@ public class Assignment {
             // go.clear();
             // again = true;
             
-
-            obj.randomObj(difficulty.noOfObj());
+                 difficulty.noOfObj();
+               obj.randomObj(noOfGameObject);
             // countingPair=0;
         } else {
             MainMenu();
