@@ -54,7 +54,7 @@ public class GameObject {
         max = noOfObj / 2;
         // while (again == true) {
 
-        ArrayList<GameObj> go = new ArrayList<GameObj>();
+        ArrayList<GameObj> go = new ArrayList<>();
 
         // System.out.printf("%d", randTime);
 

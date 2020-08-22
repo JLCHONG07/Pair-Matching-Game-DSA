@@ -7,12 +7,9 @@ package GamePlay;
 
 import GameObject.ArrayList;
 import GameObject.GameObj;
-import GameObject.GameObject;
-import static GameObject.GameObject.again;
 import static GameObject.GameObject.*;
-import Player.Player;
+import static Level.LVL.*;
 import Player.PromptPlayer;
-import collections.LinkedList;
 import static assignment.Assignment.Again;
 
 import java.util.Scanner;
@@ -35,6 +32,7 @@ public class GamePlay {
     public static int rounds = 1;
     public static int countingPair = 0;
     PromptPlayer player = new PromptPlayer();
+    Scanner scan = new Scanner(System.in);
     // GameObject gameObject1=new GameObject();
 
     public void gamePlay(ArrayList<GameObj> go) {
@@ -42,7 +40,7 @@ public class GamePlay {
         int decisionConvert1 = 0;
         int decisionConvert2 = 0;
         String decision1;
-        String decision2;
+        String decision2 = null;
         String obj1Choosed;
         String obj2Choosed;
         char choice;
@@ -52,26 +50,35 @@ public class GamePlay {
         // int rounds=1;
         System.out.println(go.toString());
 
-        ScoreArrayStack<Integer> score = new ScoreArrayStack<Integer>();
+        ScoreArrayStack<PlayGame> score = new ScoreArrayStack<>();
 
         if (!score.isEmpty()) {
             score.clear();
         }
         
         player.assignHighestScore();
+        
+        System.out.println(currentLvlScore);
+        
+        score.push(new PlayGame(currentRounds, currentLvlScore));
 
         System.out.println("Your Highest Scores : " + player.highestScore() + "\n");
 
-        System.out.print("Round :" + rounds + "/" + totalRounds);
+        System.out.print("Round :" + rounds + "/" + score.pop().getRound());
 
         System.out.print("\n\nObjects You Have Paired : " + objPaired);
 
         //System.out.print("\nObjects You Have Paired : " + objPaired);
 
         System.out.print("\n\nObj 1 :");
-
-        Scanner scan = new Scanner(System.in);
-        decision1 = scan.nextLine();
+        
+        do{
+            decision1 = scan.nextLine();
+            if(decision1.isEmpty()) {
+               System.out.print("\n\nPlease enter a number ! ");
+               System.out.print("\n\nPlease Enter Obj 1 Again :");
+            }
+        }while(decision1.isEmpty());
 
         decisionConvert1 = Integer.parseInt(decision1);
         while (go.getEntry(decisionConvert1).getIsPairs() == true) {
@@ -84,12 +91,19 @@ public class GamePlay {
         }
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert1).getDescription() + closeDot + "\n");
         obj1Choosed = go.getEntry(decisionConvert1).getObjID();
-
-        System.out.print("\nObj 2 :");
-
-        decision2 = scan.nextLine();
-
+        
+        System.out.print("\n\nObj 2 :");
+        
+        do{
+            decision2 = scan.nextLine();
+            if(decision2.isEmpty()) {
+               System.out.print("\n\nPlease enter a number ! ");
+               System.out.print("\n\nPlease Enter Obj 2 Again :");
+            }
+        }while(decision2.isEmpty());
+        
         decisionConvert2 = Integer.parseInt(decision2);
+        
         while (go.getEntry(decisionConvert2).getIsPairs() == true || decision2.equals(decision1)) {
             if (go.getEntry(decisionConvert2).getIsPairs() == true) {
                 System.out.print("\n\nThis object has been added before! :");
@@ -117,15 +131,13 @@ public class GamePlay {
 
             go.getEntry(decisionConvert1).setIsPairs(true);
             go.getEntry(decisionConvert2).setIsPairs(true);
-            score.push(10);
-           /* while (score.size() > 0) {
-                sum += score.pop();
+            
+            score.push(new PlayGame(currentRounds, currentLvlScore));
+            while (!score.isEmpty()) {
+                sum += score.pop().getScore();
+                System.out.println(sum);
                 currentScore = sum;
-            }*/
-           for(int i = 0; i < score.size(); i++){
-            sum += score.pop();
-            currentScore = sum;
-         }
+            }
             System.out.println("Current Score Updated : " + currentScore);
 
             /*
@@ -141,17 +153,13 @@ public class GamePlay {
 
         } else {
             System.out.print("Result: Both object choosed are not Pair!\n\n");
-
-            score.push(0);
-           /* while (score.size() > 0) {
-                sum += score.pop();
+            score.push(new PlayGame(currentRounds, currentLvlScore));
+            while (!score.isEmpty()) {
+                sum += score.pop().getScore();
+                System.out.println(sum);
                 currentScore = sum;
-            }*/
+            }
            
-           for(int i = 0; i < score.size(); i++){
-            sum += score.pop();
-            currentScore = sum;
-         }
             System.out.println("\nCurrent Score Remainded : " + sum + "\n\n");
 
         }

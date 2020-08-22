@@ -22,7 +22,6 @@ public class ScoreArrayStack<E> implements ScoreArrayStackInterface<E> {
     
     public ScoreArrayStack(int initialCapacity){
         ScoreArrayStack = (E[]) new Object [DEFAULT_CAPACITY];
-        size = 0;
     }
     
       
@@ -44,14 +43,15 @@ public class ScoreArrayStack<E> implements ScoreArrayStackInterface<E> {
     @Override
     public E pop() {
         E top = null;
-        if (size == 0){
-        throw new ArrayIndexOutOfBoundsException();
-        
-        }
+        /*if(!isEmpty()){
+            top = ScoreArrayStack[size];
+            ScoreArrayStack[size - 1] = null;
+        }*/
         
         if(!isEmpty()){
-        top = ScoreArrayStack[size];
-        ScoreArrayStack[size - 1] = null;
+            top = ScoreArrayStack[size];
+            ScoreArrayStack[size] = null;
+            size--;
         }
         //size--;
        // int result = ScoreArrayStack[size - 1];
@@ -80,22 +80,7 @@ public class ScoreArrayStack<E> implements ScoreArrayStackInterface<E> {
         
         return top;
     }
-
-   
-
-    @Override
-    public int size() {
-        return size;
-    }
     
-    
-    
-
-    @Override
-    public void clear() {
-        
-        size = -1;
-    }
 
     @Override
     public boolean isEmpty() {
@@ -124,5 +109,10 @@ public class ScoreArrayStack<E> implements ScoreArrayStackInterface<E> {
     ScoreArrayStack = newArray;
     
     }*/
+
+    @Override
+    public void clear() {
+        size = -1;
+    }
     
 }

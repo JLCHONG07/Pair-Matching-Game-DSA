@@ -60,11 +60,7 @@ public class Assignment {
         switch (select) {
             case 1: {
                 PromptPlayerInput();
-                
                 obj.randomObj(difficulty.noOfObj());
-                // Again();
-                System.out.println("In progress!");
-
                 break;
             }
             case 2: {
@@ -102,7 +98,7 @@ public class Assignment {
             obj.randomObj(difficulty.noOfObj());
             // countingPair=0;
         } else {
-            System.exit(0);
+            MainMenu();
         }
 
     }

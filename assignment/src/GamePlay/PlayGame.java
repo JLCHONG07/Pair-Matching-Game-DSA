@@ -11,23 +11,17 @@ package GamePlay;
  */
 public class PlayGame {
 
-int round;
-int level;
-int score;
+    private int round;
+    private int score;
 
-    public PlayGame(int round, int level, int score) {
+    public PlayGame(int round, int score) {
         this.round = round;
-        this.level = level;
         this.score = score;
     }
 
    
     public void setRound(int round) {
         this.round = round;
-    }
-    
-    public void setLevel(int level) {
-        this.level = level;
     }
     
     public void setScore(int score) {
@@ -37,10 +31,6 @@ int score;
      public int getRound() {
         return round;
     }
-
-    public int getLevel() {
-        return level;
-    }
     
     public int getScore() {
         return score;
@@ -48,7 +38,7 @@ int score;
 
     @Override
     public String toString() {
-        return "PlayGame{" + "score=" + score + '}';
+        return round + " " + score;
     }
     
     

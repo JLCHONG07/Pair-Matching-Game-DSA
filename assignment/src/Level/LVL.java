@@ -16,6 +16,7 @@ public class LVL {
 
     public static int currentLvlScore;
     public static String currentLevel;
+    public static int currentRounds;
 
     public static int noOfGameObject;
     int levelSelect;
@@ -25,7 +26,7 @@ public class LVL {
     public int noOfObj() {
 
         Level lvl = new Level();
-        ArrayQueue<Level> data = new ArrayQueue<Level>();
+        ArrayQueue<Level> data = new ArrayQueue<>();
 
         Scanner levelSelection = new Scanner(System.in);
 
@@ -69,11 +70,13 @@ public class LVL {
                 default: {
                     System.out.println("Invalid Input!!! Please Enter Again.");
                     valid = false;
+                    break;
                 }
             }
         } while (valid != true);
 
         currentLevel = data.getFront().getLevelId();
+        currentRounds = data.getFront().getRound();
         currentLvlScore = data.getFront().getPairScore();
         // }
         return noOfGameObject;

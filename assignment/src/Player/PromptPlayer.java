@@ -114,7 +114,6 @@ public class PromptPlayer {
     }
     
     public void saveTotalResults(int score) {
-        System.out.println(currentLevel);
         if(currentLevel != null) {
             switch(currentLevel) {
                 case "L01":
@@ -124,7 +123,7 @@ public class PromptPlayer {
                                 playerLinkedList.get(index).setEasylvlScore(score);
                                 System.out.println(playerLinkedList.get(0).getEasylvlScore());
                             } else {
-                                System.out.println("The previous score " + highestScore + " is more higher than current score " + score);
+                                System.out.println("The previous score " + highestScore + " is higher than current score " + score);
                             }
                         } else {
                             System.out.println("Invalid ID !");
@@ -138,7 +137,7 @@ public class PromptPlayer {
                             if(playerLinkedList.get(index).getEasylvlScore() < score) {
                                 playerLinkedList.get(index).setMediumlvlScore(score);
                             } else {
-                                System.out.println("The previous score " + highestScore + " is more higher than current score " + score);
+                                System.out.println("The previous score " + highestScore + " is higher than current score " + score);
                             }
                         } else {
                             System.out.println("Invalid ID !");
@@ -151,7 +150,7 @@ public class PromptPlayer {
                             if(playerLinkedList.get(index).getEasylvlScore() < score) {
                                 playerLinkedList.get(index).setHardlvlScore(score);
                             } else {
-                                System.out.println("The previous score " + highestScore + " is more higher than current " + score);
+                                System.out.println("The previous score " + highestScore + " is higher than current " + score);
                             }
                         } else {
                             System.out.println("Invalid ID !");

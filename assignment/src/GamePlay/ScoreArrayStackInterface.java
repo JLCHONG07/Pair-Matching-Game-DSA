@@ -12,21 +12,14 @@ package GamePlay;
  */
 public interface ScoreArrayStackInterface<E> {
 
-     void push(E value);
+    void push(E value);
     
-     E pop();
+    E pop();
     
-    /**
-     *
-     * @return
-     */
-     E peek();
-    
-    
-     int size();
+    E peek();
    
-      void clear();
+    public void clear();
     
-      boolean isEmpty();
+    public boolean isEmpty();
      
 }
