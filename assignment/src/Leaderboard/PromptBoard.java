@@ -5,7 +5,7 @@
  */
 package Leaderboard;
 
-import Player.PromptPlayer;
+import static Level.LVL.currentLevel;
 import static Player.PromptPlayer.*;
 
 /**
@@ -15,17 +15,46 @@ import static Player.PromptPlayer.*;
 public class PromptBoard {
     String winnerName;
     int winnerScore;
-    int winnerId;
+    String levelType;
     
     public void displayBoard()
     {
         //display the board with players and scores
-        SortedArrayListInterface <Ranking> recordList = new SortedArrayList<Ranking>();
-        
+         SortedArrayListInterface <Ranking> recordList = new SortedArrayList<Ranking>();
+        SortedArrayListInterface <Ranking> easyBoard = new SortedArrayList<Ranking>();
+         SortedArrayListInterface <Ranking> mediumBoard = new SortedArrayList<Ranking>();
+          SortedArrayListInterface <Ranking> hardBoard = new SortedArrayList<Ranking>();
+          
+
+          
         //get user name and scores
-        winnerName=currentPlayer;
-        recordList.add(new Ranking(winnerName,50,2));
+        switch(currentLevel)
+        {
+            case "L01":
+            {
+                    levelType="Easy";
+                    break;
+            }
+            case "L02":
+            {
+                levelType="Medium";
+                break;
+            }
+            case "L03":
+            {
+                levelType="Hard";
+                break;
+            }
+        }
+  for(int i=0;i<5;i++)
+        {            
+           recordList.add(i,new Ranking(currentPlayer,highestScore,levelType));
+        }
         
-        System.out.println();
+        for(int i=0;i<5;i++)
+        { 
+            
+                 System.out.println((i+1)+"\t"+currentPlayer+"\t\t"+highestScore+"\t"+levelType);
+        }
     }
 }

@@ -13,19 +13,19 @@ package Leaderboard;
 public class Ranking implements Comparable<Ranking> {
     private String playerName;
     private int playerScore;
-    private int levelId;
+    private String levelId;
 
     public Ranking() {
     }
 
-    public Ranking(String playerName, int playerScore, int levelId) {
+    public Ranking(String playerName, int playerScore, String levelId) {
         this.playerName = playerName;
         this.playerScore = playerScore;
         this.levelId = levelId;
     }
 
     
-    public int getLevelId() {
+    public String getLevelId() {
         return levelId;
     }
 
@@ -37,7 +37,7 @@ public class Ranking implements Comparable<Ranking> {
         return playerScore;
     }
 
-    public void setLevelId(int levelId) {
+    public void setLevelId(String levelId) {
         this.levelId = levelId;
     }
 
