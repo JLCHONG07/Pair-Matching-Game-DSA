@@ -68,7 +68,7 @@ public class Assignment {
         switch (select) {
             case 1: {
                 PromptPlayerInput();
-                    difficulty.noOfObj();
+                    difficulty.LevelDecision();
                 obj.randomObj(noOfGameObject);
                 break;
             }
@@ -101,7 +101,7 @@ public class Assignment {
             // go.clear();
             // again = true;
             
-                 difficulty.noOfObj();
+                 difficulty.LevelDecision();
                obj.randomObj(noOfGameObject);
             // countingPair=0;
         } else {

@@ -23,7 +23,7 @@ public class LVL {
     boolean valid = true;
     PromptPlayer player = new PromptPlayer();
 
-    public void noOfObj() {
+    public void LevelDecision() {
 
         Level lvl = new Level();
         ArrayQueue<Level> data = new ArrayQueue<>();
