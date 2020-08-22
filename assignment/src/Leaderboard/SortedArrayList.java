@@ -23,7 +23,7 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     }
     
     @Override
-    public void add(T aRecord)
+    public void add(int position,T aRecord)
     {
         int i = 0;
      while (i < length && aRecord.compareTo(recArr[i]) > 0) {
