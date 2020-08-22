@@ -84,6 +84,12 @@ public class Assignment {
         LVL difficulty = new LVL();
         Scanner scan = new Scanner(System.in);
         PromptPlayer player = new PromptPlayer();
+        
+        objNo = 0;
+        rounds = 1;
+        countingPair = 0;
+        gamePlayleft = true;
+        
         player.saveTotalResults(score);
         System.out.print("GAME OVER !\n");
         System.out.println("Play Again? (Y/N) : ");
@@ -91,10 +97,7 @@ public class Assignment {
         if (choice == 'Y' || choice == 'y') {
             // go.clear();
             // again = true;
-            objNo = 0;
-            rounds = 1;
-            countingPair = 0;
-            gamePlayleft = true;
+            
 
             obj.randomObj(difficulty.noOfObj());
             // countingPair=0;
