@@ -59,8 +59,6 @@ public class GamePlay {
         
         player.assignHighestScore();
         
-        System.out.println(currentLvlScore);
-        
         score.push(new PlayGame(currentRounds, currentLvlScore));
 
         System.out.println("Your Highest Scores : " + player.highestScore() + "\n");
@@ -150,7 +148,6 @@ public class GamePlay {
             if (currentScore > highestScore) {
                 highestScore = currentScore;
             }
-            System.out.println("Highest Score Updated : " + player.highestScore());
 
         } else {
             System.out.print("Result: Both object choosed are not Pair!\n\n");

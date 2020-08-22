@@ -1,13 +1,12 @@
 
 package Player;
 
-import static Level.LVL.currentLevel;
-import static Level.LVL.currentLvlScore;
+import static Level.LVL.*;
 import collections.LinkedList;
 import java.util.Scanner;
 
 public class PromptPlayer {
-    int playerNo = 1;
+    public static int playerNo = 1;
     Scanner playerInput = new Scanner(System.in);
     public static LinkedList<Player> playerLinkedList = new LinkedList<>();
     public static String currentPlayer;
@@ -23,10 +22,13 @@ public class PromptPlayer {
         
         if(playerNo > 99) {
             id = "P" + playerNo;
+            playerNo++;
         } else if (playerNo > 9) {
             id = "P0" + playerNo;
+            playerNo++;
         } else {
             id = "P00" + playerNo;
+            playerNo++;
         }
         
         currentId = id;
