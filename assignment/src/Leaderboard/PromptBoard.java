@@ -5,6 +5,9 @@
  */
 package Leaderboard;
 
+import Player.PromptPlayer;
+import static Player.PromptPlayer.*;
+
 /**
  *
  * @author USER
@@ -17,5 +20,12 @@ public class PromptBoard {
     public void displayBoard()
     {
         //display the board with players and scores
+        SortedArrayListInterface <Ranking> recordList = new SortedArrayList<Ranking>();
+        
+        //get user name and scores
+        winnerName=currentPlayer;
+        recordList.add(new Ranking(winnerName,50,2));
+        
+        System.out.println();
     }
 }
