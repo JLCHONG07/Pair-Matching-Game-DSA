@@ -54,9 +54,15 @@ public class Assignment {
         // game.randomObj(noOfGameObject);
         // Start Module
         Scanner selection = new Scanner(System.in);
-        System.out.println("1. Start Game \n2.Leaderboard \n3. Quit");
-        int select = selection.nextInt();
-        String currentId;
+        int select;
+        do{
+            System.out.println("1. Start Game \n2. Leaderboard \n3. Quit");
+            System.out.print("Select your choice : ");
+            select = selection.nextInt();
+            if(select >= 4 || select == 0) {
+                System.out.println("Invalid selection ! Please select again.\n");
+            }
+        }while(select >=4 || select == 0);
 
         switch (select) {
             case 1: {
@@ -69,12 +75,7 @@ public class Assignment {
                 break;
             }
             case 3: {
-                return;
-            }
-            default: {
-                System.out.println("Invalid Selection. The game will now exit");
                 System.exit(0);
-
             }
         }
     }
@@ -114,7 +115,7 @@ public class Assignment {
         Scanner playerInput = new Scanner(System.in);
 
         do {
-            System.out.println("+----------------+");
+            System.out.println("\n+----------------+");
             System.out.println("|1. New Game     |");
             System.out.println("|2. Load Game    |");
             System.out.println("|3. Back         |");
@@ -123,10 +124,10 @@ public class Assignment {
             System.out.println("Please enter your choice (1 ~ 3)");
             playerSelect = playerInput.nextInt();
 
-            if (playerSelect >= 4) {
+            if (playerSelect >= 4 || playerSelect == 0) {
                 System.out.println("Invalid selection! Please select again.");
             }
-        } while (playerSelect >= 4);
+        } while (playerSelect >= 4 || playerSelect == 0);
 
         switch (playerSelect) {
             case 1:
@@ -155,7 +156,7 @@ public class Assignment {
         
         if (selection==1)
         {      
-               MainMenu();
+            MainMenu();
         } 
     }
 }

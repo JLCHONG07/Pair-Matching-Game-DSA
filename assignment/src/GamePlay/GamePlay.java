@@ -46,6 +46,7 @@ public class GamePlay {
         char choice;
         int level;
         int totalScoresEarn = 0;
+        boolean isChecked = true;
 
         // int rounds=1;
         System.out.println(go.toString());
@@ -73,12 +74,12 @@ public class GamePlay {
         System.out.print("\n\nObj 1 :");
         
         do{
-            decision1 = scan.nextLine();
-            if(decision1.isEmpty()) {
-               System.out.print("\n\nPlease enter a number ! ");
-               System.out.print("\n\nPlease Enter Obj 1 Again :");
+            if(isChecked == false) {
+                System.out.print("\n\nEnter Obj 1 Again :");
             }
-        }while(decision1.isEmpty());
+            decision1 = scan.nextLine();
+            isChecked = inputCheck(decision1);
+        }while(isChecked == false);
 
         decisionConvert1 = Integer.parseInt(decision1);
         while (go.getEntry(decisionConvert1).getIsPairs() == true) {
@@ -95,12 +96,12 @@ public class GamePlay {
         System.out.print("\n\nObj 2 :");
         
         do{
-            decision2 = scan.nextLine();
-            if(decision2.isEmpty()) {
-               System.out.print("\n\nPlease enter a number ! ");
-               System.out.print("\n\nPlease Enter Obj 2 Again :");
+            if(isChecked == false) {
+                System.out.print("\n\nEnter Obj 2 Again :");
             }
-        }while(decision2.isEmpty());
+            decision2 = scan.nextLine();
+            isChecked = inputCheck(decision2);
+        }while(isChecked == false);
         
         decisionConvert2 = Integer.parseInt(decision2);
         
@@ -186,6 +187,45 @@ public class GamePlay {
             Again(totalScoresEarn);
 
         }
-
+    }
+    
+    public boolean inputCheck(String decision) {
+        boolean isBool = true;
+        int tempDecision;
+        if(decision.isEmpty()) {
+            System.out.print("\nPlease enter a valid input ! ");
+            System.out.print("\n\nPlease Enter Obj 2 Again :");
+        } else if(!decision.isEmpty()) {
+            if((decision.matches("^[a-zA-Z]*$"))) {
+                System.out.println("\nPlease enter number !");
+                isBool = false;
+            } else {
+                tempDecision = Integer.parseInt(decision);
+                switch(currentLevel) {
+                    case "L01":
+                        if(tempDecision > 9) {
+                            System.out.print("\nPlease enter valid choice !");
+                            isBool = false;
+                        }
+                        break;
+                    case "L02":
+                        if(tempDecision > 13) {
+                            System.out.print("\nPlease enter valid choice !");
+                            isBool = false;
+                        }
+                        break;
+                    case "L03":
+                        if(tempDecision > 17) {
+                            System.out.print("\nPlease enter valid choice !");
+                            isBool = false;
+                        }
+                        break;
+                    default:
+                        isBool = true;
+                        break;
+                }
+            }
+        }
+        return isBool;
     }
 }
