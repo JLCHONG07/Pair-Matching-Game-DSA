@@ -6,5 +6,6 @@ public interface LinkedListInterface<T> {
     public void replace(int index, T data);
     public T get(int pos);
     public void remove();
+    public boolean isEmpty();
     public int length();
 }

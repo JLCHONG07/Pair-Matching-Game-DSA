@@ -81,6 +81,14 @@ public class LinkedList<T> implements LinkedListInterface<T> {
     }
     
     @Override
+    public boolean isEmpty() {
+        if(head == null) {
+            return true;
+        }
+        return false;
+    }
+    
+    @Override
     public int length() {
         return size;
     }

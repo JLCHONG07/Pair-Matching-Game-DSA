@@ -97,7 +97,7 @@ public class Assignment {
             System.out.println("|3. Back         |");
             System.out.println("+----------------+");
 
-            System.out.println("Please enter your choice (1 ~ 3)");
+            System.out.print("Please enter your choice (1 ~ 3) : ");
             playerSelect = playerInput.nextInt();
 
             if (playerSelect >= 4 || playerSelect == 0) {

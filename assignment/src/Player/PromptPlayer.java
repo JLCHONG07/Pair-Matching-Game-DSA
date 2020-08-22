@@ -4,6 +4,7 @@ package Player;
 import static Level.LVL.*;
 import collections.LinkedList;
 import java.util.Scanner;
+import static assignment.Assignment.*;
 
 public class PromptPlayer {
     public static int playerNo = 1;
@@ -51,7 +52,12 @@ public class PromptPlayer {
     public void ExistingPlayer() {
         boolean proceed = false;
         System.out.println("Load Game");
-        System.out.println("=========");
+        System.out.println("=========\n");
+        if(playerLinkedList.isEmpty()) {
+            System.out.println("No player found !");
+            System.out.println("Return to previous selection");
+            PromptPlayerInput();
+        }
         do {
             System.out.print("Please enter your id : ");
             String playerId = playerInput.next();
