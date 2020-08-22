@@ -82,33 +82,7 @@ public class Assignment {
         }
     }
 
-    public static void Again(int score) {
-        GameObject obj = new GameObject();
-        LVL difficulty = new LVL();
-        Scanner scan = new Scanner(System.in);
-        PromptPlayer player = new PromptPlayer();
-        
-        objNo = 0;
-        rounds = 1;
-        countingPair = 0;
-        gamePlayleft = true;
-        
-        player.saveTotalResults(score);
-        System.out.print("GAME OVER !\n");
-        System.out.println("Play Again? (Y/N) : ");
-        char choice = scan.next().charAt(0);
-        if (choice == 'Y' || choice == 'y') {
-            // go.clear();
-            // again = true;
-            
-                 difficulty.LevelDecision();
-               obj.randomObj(noOfGameObject);
-            // countingPair=0;
-        } else {
-            MainMenu();
-        }
 
-    }
 
     public static void PromptPlayerInput() {
         int playerSelect;

@@ -7,10 +7,13 @@ package GamePlay;
 
 import GameObject.ArrayList;
 import GameObject.GameObj;
+import GameObject.GameObject;
 import static GameObject.GameObject.*;
+import Level.LVL;
 import static Level.LVL.*;
 import Player.PromptPlayer;
-import static assignment.Assignment.Again;
+
+import static assignment.Assignment.MainMenu;
 
 import java.util.Scanner;
 
@@ -184,6 +187,47 @@ public class GamePlay {
             Again(totalScoresEarn);
 
         }
+        pressAnyKeyToContinue();
+        
+    }
+    
+     private void pressAnyKeyToContinue()
+ { 
+        System.out.println("Press Enter key to continue...");
+        try
+        {
+            System.in.read();
+        }  
+        catch(Exception e)
+        {}  
+ }
+    
+        public void Again(int score) {
+        GameObject obj = new GameObject();
+        LVL difficulty = new LVL();
+        Scanner scan = new Scanner(System.in);
+        PromptPlayer player = new PromptPlayer();
+        
+        objNo = 0;
+        rounds = 1;
+        countingPair = 0;
+        gamePlayleft = true;
+        
+        player.saveTotalResults(score);
+        System.out.print("GAME OVER !\n");
+        System.out.println("Play Again? (Y/N) : ");
+        char choice = scan.next().charAt(0);
+        if (choice == 'Y' || choice == 'y') {
+            // go.clear();
+            // again = true;
+            
+                 difficulty.LevelDecision();
+               obj.randomObj(noOfGameObject);
+            // countingPair=0;
+        } else {
+            MainMenu();
+        }
+
     }
     
     public boolean inputCheck(String decision) {
