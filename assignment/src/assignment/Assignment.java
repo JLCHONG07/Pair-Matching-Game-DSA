@@ -19,6 +19,7 @@ import static GamePlay.GamePlay.rounds;
 import Level.LVL;
 
 import static GamePlay.GamePlay.totalRounds;
+import Leaderboard.PromptBoard;
 import Level.Level;
 import Player.Player;
 import Player.PromptPlayer;
@@ -135,5 +136,23 @@ public class Assignment {
                 MainMenu();
                 break;
         }
+    }
+    public static void PromptLBoard(){
+        PromptBoard board= new PromptBoard();
+        int selection;
+        
+        System.out.println("+-----------------------------------+\n");
+        System.out.println("\tLeaderBoard\n");
+        System.out.println("+-----------------------------------+\n");
+        System.out.println("Rank\tName\t\tScore\tLevel");
+        board.displayBoard();
+        System.out.println("Press 1 to return to main menu.\n");
+        Scanner scan=new Scanner(System.in);
+        selection=scan.nextInt();
+        
+        if (selection==1)
+        {      
+               MainMenu();
+        } 
     }
 }
