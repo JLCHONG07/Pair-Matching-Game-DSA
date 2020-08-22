@@ -10,7 +10,7 @@ package Leaderboard;
  *
  * @author USER
  */
-public class Ranking {
+public class Ranking implements Comparable<Ranking> {
     private String playerName;
     private int playerScore;
     private int levelId;
@@ -53,9 +53,12 @@ public class Ranking {
     public String toString() {
         return  playerName + "\t" + playerScore + "\t" + levelId +"\n";
     }
-    
-    
-    
-    
-    
+
+    @Override
+   public int compareTo(Ranking r) {
+		//0 = same
+            //not 0 = not same
+		return playerScore-r.playerScore;
+	}
+   
 }
