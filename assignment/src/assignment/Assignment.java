@@ -72,7 +72,7 @@ public class Assignment {
                     break;
                 }
                 case 2: {
-                    System.out.println("In progress!!");
+                    PromptLBoard();
                     break;
                 }
                 case 3: {

@@ -9,9 +9,13 @@ import GameObject.ArrayList;
 import GameObject.GameObj;
 import GameObject.GameObject;
 import static GameObject.GameObject.*;
+import Leaderboard.Ranking;
+import Leaderboard.SortedArrayList;
+import Leaderboard.SortedArrayListInterface;
 import Level.LVL;
 import static Level.LVL.*;
 import Player.PromptPlayer;
+import static Player.PromptPlayer.currentPlayer;
 
 import static assignment.Assignment.MainMenu;
 
@@ -34,10 +38,13 @@ public class GamePlay {
     int currentScore = 0;
     public static int rounds = 1;
     public static int countingPair = 0;
+    public static int totalScoresEarn =0;
     PromptPlayer player = new PromptPlayer();
     Scanner scan = new Scanner(System.in);
     // GameObject gameObject1=new GameObject();
-
+    public static SortedArrayListInterface<Ranking> recordList = new SortedArrayList<Ranking>();
+    private String levelType;
+    
     public void gamePlay(ArrayList<GameObj> go) {
 
         int decisionConvert1 = 0;
@@ -167,6 +174,7 @@ public class GamePlay {
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
             sum = 0;
+            recordList.add(new Ranking(currentPlayer, totalScoresEarn, currentLevel));
             Again(totalScoresEarn);
 
         } else if (countingPair == max) {
@@ -179,6 +187,7 @@ public class GamePlay {
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
             sum = 0;
+            recordList.add(new Ranking(currentPlayer, totalScoresEarn, currentLevel));
             Again(totalScoresEarn);
 
         }
@@ -205,7 +214,7 @@ public class GamePlay {
         rounds = 1;
         countingPair = 0;
         gamePlayleft = true;
-
+        totalScoresEarn=0;
         player.saveTotalResults(score);
         System.out.print("GAME OVER !\n");
         System.out.println("Play Again? (Y/N) : ");

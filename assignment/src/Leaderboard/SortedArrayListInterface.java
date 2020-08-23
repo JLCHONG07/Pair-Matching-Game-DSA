@@ -11,10 +11,17 @@ package Leaderboard;
  * @param <T>
  */
 public interface SortedArrayListInterface<T extends Comparable<T>> {
-    public void add(int position,T aRecord);
+   /*
+    public boolean add(T aRecord);
     public boolean remove(T aRecord);
     public boolean isEmpty();
     public int length();
-   
+   */
+      boolean add(T aRecord);
+     boolean remove(T aRecord);
+     boolean isEmpty();
+     int length();
+     boolean contains(T anEntry );
+
             
 }
