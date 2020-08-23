@@ -5,7 +5,7 @@
  */
 package assignment;
 
-import GameObject.GameObject;
+import GameObject.GameObjects;
 
 import Level.LVL;
 
