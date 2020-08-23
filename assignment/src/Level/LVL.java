@@ -21,6 +21,7 @@ public class LVL {
     public static int noOfGameObject;
     int levelSelect;
     boolean valid = true;
+    int checkInt = 0;
     PromptPlayer player = new PromptPlayer();
 
     public void LevelDecision() {
@@ -34,45 +35,42 @@ public class LVL {
             if (!data.isEmpty()) {
                 data.clear();
             }
-
-            do {
-                try {
-
-                    System.out.println("Select Level\n1. Easy \n2. Normal \n3. Hard");
-                    levelSelect = levelSelection.nextInt();
-                    valid = false;
-                } catch (Exception e) {
-                    System.err.println("Please input number only!!!");
-                    levelSelection.nextInt();
-                }
-
-            } while (valid = false);
-
-            switch (levelSelect) {
-                case 1: {
-                // noOfGameObject = 8;
-                    data.enqueue(new Level("L01", "Easy", 10, 8, 2));
-                    valid = true;
-                    break;
-                }
-                case 2: {
-              //noOfGameObject = 12;
-                    data.enqueue(new Level("L02", "Normal", 15, 12, 3));
-                    valid = true;
-                    break;
-                }
-                case 3: {
-                   // noOfGameObject = 16;
-                    data.enqueue(new Level("L03", "Hard", 20, 16, 4));
-                    valid = true;
-                    break;
-                }
-                default: {
-                    System.out.println("Invalid Input!!! Please Enter Again.");
-                    valid = false;
-                    break;
+            
+            System.out.println("Select Level\n1. Easy \n2. Normal \n3. Hard");
+            
+            if(levelSelection.hasNextInt()){
+                levelSelect = levelSelection.nextInt();
+                
+                switch (levelSelect) {
+                    case 1: {
+                        data.enqueue(new Level("L01", "Easy", 10, 8, 2));
+                        valid = true;
+                        break;
+                    }
+                    case 2: {
+                        data.enqueue(new Level("L02", "Normal", 15, 12, 3));
+                        valid = true;
+                        break;
+                    }
+                    case 3: {
+                        data.enqueue(new Level("L03", "Hard", 20, 16, 4));
+                        valid = true;
+                        break;
+                    }
+                    default: {
+                        System.out.println("Invalid Input!!! Please Enter Again.");
+                        valid = false;
+                        break;
+                    }
                 }
             }
+            else if(!levelSelection.hasNextInt()){
+                System.out.println("Please enter integer only!!!\n");
+                levelSelection.next();
+                valid = false;
+            }
+
+            
         } while (valid != true);
 
         currentLevel = data.getFront().getLevelId();

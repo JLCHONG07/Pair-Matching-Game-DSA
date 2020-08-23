@@ -56,36 +56,49 @@ public class Assignment {
         // Start Module
         Scanner selection = new Scanner(System.in);
         int select;
+        boolean valid1 = true;
+        
         do{
             System.out.println("1. Start Game \n2. Leaderboard \n3. Quit");
-            System.out.print("Select your choice : ");
+        
+            if(selection.hasNextInt()){
             select = selection.nextInt();
-            if(select >= 4 || select == 0) {
-                System.out.println("Invalid selection ! Please select again.\n");
-            }
-        }while(select >=4 || select == 0);
-
-        switch (select) {
-            case 1: {
-                PromptPlayerInput();
+                
+            switch (select) {
+                case 1: {
+                    PromptPlayerInput();
                     difficulty.LevelDecision();
-                obj.randomObj(noOfGameObject);
-                break;
+                    obj.randomObj(noOfGameObject);
+                    break;
+                }
+                case 2: {
+                    System.out.println("In progress!!");
+                    break;
+                }
+                case 3: {
+                    System.exit(0);
+                }
+                default: {
+                    System.out.println("Invalid Input!!! Please Enter Again.");
+                    valid1 = false;
+                    break;
+                }
+                }         
             }
-            case 2: {
-                System.out.println("In progress!!");
-                break;
+            else if(!selection.hasNextInt()){
+                System.out.println("Please enter integer only!!!\n");
+                selection.next();
+                valid1 = false;
             }
-            case 3: {
-                System.exit(0);
-            }
-        }
+        }while(valid1 != true);
+        
     }
 
 
 
     public static void PromptPlayerInput() {
         int playerSelect;
+        boolean valid2 = true;
         PromptPlayer player = new PromptPlayer();
 
         Scanner playerInput = new Scanner(System.in);
@@ -98,24 +111,41 @@ public class Assignment {
             System.out.println("+----------------+");
 
             System.out.print("Please enter your choice (1 ~ 3) : ");
-            playerSelect = playerInput.nextInt();
-
-            if (playerSelect >= 4 || playerSelect == 0) {
-                System.out.println("Invalid selection! Please select again.");
+            
+            if(playerInput.hasNextInt()){
+                playerSelect = playerInput.nextInt();
+                
+                switch (playerSelect) {
+                    case 1:{
+                        player.NewPlayer();
+                        break;
+                    }
+                        
+                    case 2:{
+                        player.ExistingPlayer();
+                        break;
+                    }
+                        
+                    case 3:{
+                        MainMenu();
+                        break;
+                    }
+                        
+                    default: {
+                        System.out.println("Invalid Input!!! Please Enter Again.");
+                        valid2 = false;
+                        break;
+                    }
+                }
             }
-        } while (playerSelect >= 4 || playerSelect == 0);
+            else if(!playerInput.hasNextInt()){
+                System.out.println("Please enter integer only!!!\n");
+                playerInput.next();
+                valid2 = false;
+            }
+        } while (valid2 != true);
 
-        switch (playerSelect) {
-            case 1:
-                player.NewPlayer();
-                break;
-            case 2:
-                player.ExistingPlayer();
-                break;
-            case 3:
-                MainMenu();
-                break;
-        }
+        
     }
     public static void PromptLBoard(){
         PromptBoard board= new PromptBoard();
