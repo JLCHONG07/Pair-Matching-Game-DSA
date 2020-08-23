@@ -6,9 +6,9 @@
 package GamePlay;
 
 import GameObject.ArrayList;
-import GameObject.GameObj;
 import GameObject.GameObject;
-import static GameObject.GameObject.*;
+import GameObject.GameObjects;
+import static GameObject.GameObjects.*;
 import Leaderboard.Ranking;
 import Leaderboard.SortedArrayList;
 import Leaderboard.SortedArrayListInterface;
@@ -38,13 +38,13 @@ public class GamePlay {
     int currentScore = 0;
     public static int rounds = 1;
     public static int countingPair = 0;
-    public static int totalScoresEarn =0;
+    public static int totalScoresEarn = 0;
     PromptPlayer player = new PromptPlayer();
     Scanner scan = new Scanner(System.in);
     public static SortedArrayListInterface<Ranking> recordList = new SortedArrayList<Ranking>();
     private String levelType;
-    
-    public void gamePlay(ArrayList<GameObj> go) {
+
+    public void gamePlay(ArrayList<GameObject> go) {
 
         int decisionConvert1 = 0;
         int decisionConvert2 = 0;
@@ -71,7 +71,7 @@ public class GamePlay {
 
         highestScore = player.highestScore();
         System.out.println("Your Highest Scores : " + highestScore + "\n");
-        System.out.println("Your Current Scores : " + currentScore+"\n");
+        System.out.println("Your Current Scores : " + currentScore + "\n");
         System.out.print("Round :" + rounds + "/" + score.pop().getRound());
 
         System.out.print("\n\nObjects You Have Paired : " + objPaired);
@@ -169,7 +169,7 @@ public class GamePlay {
         } else if (countingPair == max) {
             int bonus = 0;
             bonus = (totalRounds - rounds) * 10;
-            totalScoresEarn = bonus + currentScore;//or highestScore
+            totalScoresEarn = bonus + currentScore;// or highestScore
             System.out.print("Congratulation you have found all the pairs!\n");
             System.out.print("Current Scores is : " + currentScore + "\n");
             System.out.print("Your Bonus is :  " + bonus + "\n");
@@ -194,7 +194,7 @@ public class GamePlay {
     }
 
     public void Again(int score) {
-        GameObject obj = new GameObject();
+        GameObjects obj = new GameObjects();
         LVL difficulty = new LVL();
         Scanner scan = new Scanner(System.in);
         PromptPlayer player = new PromptPlayer();
@@ -202,7 +202,7 @@ public class GamePlay {
         rounds = 1;
         countingPair = 0;
         gamePlayleft = true;
-        totalScoresEarn=0;
+        totalScoresEarn = 0;
         player.saveTotalResults(score);
         System.out.print("GAME OVER !\n");
         System.out.println("Play Again? (Y/N) : ");
@@ -228,10 +228,10 @@ public class GamePlay {
                 isBool = false;
             } else {
                 tempDecision = Integer.parseInt(decision);
-                    if(tempDecision<1){
-                         System.out.print("\nPlease enter valid choice !");
-                            isBool = false;
-                            return isBool;
+                if (tempDecision < 1) {
+                    System.out.print("\nPlease enter valid choice !");
+                    isBool = false;
+                    return isBool;
                 }
                 switch (currentLevel) {
                     case "L01":

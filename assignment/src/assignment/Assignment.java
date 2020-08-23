@@ -34,7 +34,7 @@ public class Assignment {
         // Start Module
         // Display main menu
         // With three selections: Start , Leaderboard, Quit
-        GameObject obj = new GameObject();
+        GameObjects obj = new GameObjects();
         PromptPlayer player = new PromptPlayer();
         LVL difficulty = new LVL();
 
