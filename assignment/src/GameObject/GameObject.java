@@ -139,33 +139,33 @@ public class GameObject {
             System.out.println("\tPair Matching Game (Here are your objects to pair)");
             System.out.println("==================================================================");
             for (int i = 1; i <= noOfObj; i++) {
-                converter(i);
+              //  converter(i);
                 // display game object in orderly
                 // switch(level){
                 if (noOfObj == 16) {
                     if (i == 8 || i == 16) {
-                        System.out.print(convertName + "\t\n");// change to \n if done
+                        System.out.print("  "+go.getEntry(i).getDisplayName() + "\t\n");// change to \n if done
 
                     } else {
-                        System.out.print(convertName + "\t");
+                        System.out.print("  "+go.getEntry(i).getDisplayName() + "\t");
 
                     }
                 }
                 if (noOfObj == 12) {
                     if (i == 6 || i == 12) {
-                        System.out.print("\t  " + convertName + "\n");// change to \n if done
+                        System.out.print("\t  " + go.getEntry(i).getDisplayName() + "\n");// change to \n if done
 
                     } else {
-                        System.out.print("\t  " + convertName);
+                        System.out.print("\t  " + go.getEntry(i).getDisplayName());
 
                     }
                 }
                 if (noOfObj == 8) {
                     if (i == 4 || i == 8) {
-                        System.out.print("\t" + convertName + "\n");// change to \n if done
+                        System.out.print("\t" + go.getEntry(i).getDisplayName() + "\n");// change to \n if done
 
                     } else {
-                        System.out.print("\t" + convertName + "\t");
+                        System.out.print("\t" + go.getEntry(i).getDisplayName() + "\t");
 
                     }
                 }
@@ -178,16 +178,5 @@ public class GameObject {
         
     }
 
-    public void converter(int gameObjects) {
-        if (gameObjects < 17) {
-
-            // convert int to string
-            if (gameObjects < 10) {
-                convertName = zero + Integer.toString(gameObjects);
-
-            } else {
-                convertName = Integer.toString(gameObjects);
-            }
-        }
-    }
+   
 }

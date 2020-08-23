@@ -66,7 +66,7 @@ public class GamePlay {
 
         highestScore = player.highestScore();
         System.out.println("Your Highest Scores : " + highestScore + "\n");
-        System.out.println("Your Current Scores : " + currentScore);
+        System.out.println("Your Current Scores : " + currentScore+"\n");
         System.out.print("Round :" + rounds + "/" + score.pop().getRound());
 
         System.out.print("\n\nObjects You Have Paired : " + objPaired);
@@ -236,6 +236,11 @@ public class GamePlay {
                 isBool = false;
             } else {
                 tempDecision = Integer.parseInt(decision);
+                    if(tempDecision<1){
+                         System.out.print("\nPlease enter valid choice !");
+                            isBool = false;
+                            return isBool;
+                }
                 switch (currentLevel) {
                     case "L01":
                         if (tempDecision > 9) {
