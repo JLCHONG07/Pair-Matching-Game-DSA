@@ -6,13 +6,12 @@
 package assignment;
 
 import GameObject.ArrayList;
-import GameObject.GameObj;
+import GameObject.GameObject;
 import java.util.Comparator;
 
-import GameObject.GameObject;
-import static GameObject.GameObject.again;
-
-import static GameObject.GameObject.*;
+import GameObject.GameObjects;
+import static GameObject.GameObjects.again;
+import static GameObject.GameObjects.*;
 import static GamePlay.GamePlay.countingPair;
 import static GamePlay.GamePlay.rounds;
 
@@ -48,7 +47,7 @@ public class Assignment {
         // Start Module
         // Display main menu
         // With three selections: Start , Leaderboard, Quit
-        GameObject obj = new GameObject();
+        GameObjects obj = new GameObjects();
         PromptPlayer player = new PromptPlayer();
         LVL difficulty = new LVL();
 

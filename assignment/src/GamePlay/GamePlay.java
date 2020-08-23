@@ -6,9 +6,9 @@
 package GamePlay;
 
 import GameObject.ArrayList;
-import GameObject.GameObj;
 import GameObject.GameObject;
-import static GameObject.GameObject.*;
+import GameObject.GameObjects;
+import static GameObject.GameObjects.*;
 import Leaderboard.Ranking;
 import Leaderboard.SortedArrayList;
 import Leaderboard.SortedArrayListInterface;
@@ -41,11 +41,11 @@ public class GamePlay {
     public static int totalScoresEarn =0;
     PromptPlayer player = new PromptPlayer();
     Scanner scan = new Scanner(System.in);
-    // GameObject gameObject1=new GameObject();
+    // GameObjects gameObject1=new GameObjects();
     public static SortedArrayListInterface<Ranking> recordList = new SortedArrayList<Ranking>();
     private String levelType;
     
-    public void gamePlay(ArrayList<GameObj> go) {
+    public void gamePlay(ArrayList<GameObject> go) {
 
         int decisionConvert1 = 0;
         int decisionConvert2 = 0;
@@ -205,7 +205,7 @@ public class GamePlay {
     }
 
     public void Again(int score) {
-        GameObject obj = new GameObject();
+        GameObjects obj = new GameObjects();
         LVL difficulty = new LVL();
         Scanner scan = new Scanner(System.in);
         PromptPlayer player = new PromptPlayer();
