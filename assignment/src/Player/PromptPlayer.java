@@ -1,8 +1,11 @@
+/**
+ *
+ * @author GAHSENG
+ */
 
 package Player;
 
 import static Level.LVL.*;
-import collections.LinkedList;
 import java.util.Scanner;
 import static assignment.Assignment.*;
 
@@ -53,32 +56,34 @@ public class PromptPlayer {
         boolean proceed = false;
         System.out.println("Load Game");
         System.out.println("=========\n");
-        if(playerLinkedList.isEmpty()) {
-            System.out.println("No player found !");
-            System.out.println("Return to previous selection");
-            PromptPlayerInput();
-        }
         do {
-            System.out.print("Please enter your id : ");
-            String playerId = playerInput.next();
+            if(!playerLinkedList.isEmpty()) {
+               System.out.print("Please enter your id : ");
+                String playerId = playerInput.next();
 
-            if(playerId.length() > 4) {
-                proceed = false;
-            } else {
-                for(int index = 0; index < playerLinkedList.length(); index++) {
-                    if(playerLinkedList.get(index).getPlayerId().equals(playerId)) {
-                        currentId = playerLinkedList.get(index).getPlayerId();
-                        currentPlayer = playerLinkedList.get(index).getPlayerName();
-                        proceed = true;
-                    } else {
-                        proceed = false;
+                if(playerId.length() > 4) {
+                    proceed = false;
+                } else {
+                    for(int index = 0; index < playerLinkedList.length(); index++) {
+                        if(playerLinkedList.get(index).getPlayerId().equals(playerId)) {
+                            currentId = playerLinkedList.get(index).getPlayerId();
+                            currentPlayer = playerLinkedList.get(index).getPlayerName();
+                            proceed = true;
+                        } else {
+                            proceed = false;
+                        }
                     }
                 }
-            }
-            if(proceed == false) {
-                System.out.println("Invalid player id");
+                if(proceed == false) {
+                    System.out.println("Invalid player id");
+                } else {
+                    System.out.println("Valid player id");
+                }
             } else {
-                System.out.println("Valid player id");
+                System.out.println("No player found !");
+                System.out.println("Return to previous selection");
+                proceed = true;
+                PromptPlayerInput();
             }
         }while(proceed == false);
     }

@@ -1,4 +1,9 @@
-package collections;
+/**
+ *
+ * @author GAHSENG
+ */
+
+package Player;
 
 public class LinkedList<T> implements LinkedListInterface<T> {
     private Node head;

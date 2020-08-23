@@ -41,7 +41,6 @@ public class GamePlay {
     public static int totalScoresEarn =0;
     PromptPlayer player = new PromptPlayer();
     Scanner scan = new Scanner(System.in);
-    // GameObject gameObject1=new GameObject();
     public static SortedArrayListInterface<Ranking> recordList = new SortedArrayList<Ranking>();
     private String levelType;
     
@@ -58,7 +57,6 @@ public class GamePlay {
         int totalScoresEarn = 0;
         boolean isChecked = true;
 
-        // int rounds=1;
         System.out.println(go.toString());
 
         ScoreArrayStack<PlayGame> score = new ScoreArrayStack<>();
@@ -78,7 +76,6 @@ public class GamePlay {
 
         System.out.print("\n\nObjects You Have Paired : " + objPaired);
 
-        //System.out.print("\nObjects You Have Paired : " + objPaired);
         System.out.print("\n\nObj 1 :");
 
         do {
@@ -93,7 +90,6 @@ public class GamePlay {
         while (go.getEntry(decisionConvert1).getIsPairs() == true) {
             System.out.print("\n\nThis object has been added before! :");
             System.out.print("\n\nPlease Enter Obj 1 Again :");
-            // Scanner scan = new Scanner(System.in);
             decision1 = scan.nextLine();
 
             decisionConvert1 = Integer.parseInt(decision1);
@@ -121,7 +117,6 @@ public class GamePlay {
                 System.out.print("\n\nThis object is choosed in obj1 ! :");
                 System.out.print("\n\nPlease Enter Obj 2 Again :");
             }
-            // Scanner scan = new Scanner(System.in);
             decision2 = scan.nextLine();
 
             decisionConvert2 = Integer.parseInt(decision2);
@@ -144,16 +139,10 @@ public class GamePlay {
             score.push(new PlayGame(currentRounds, currentLvlScore));
             while (!score.isEmpty()) {
                 sum += score.pop().getScore();
-                System.out.println(sum);
                 currentScore = sum;
             }
             System.out.println("Current Score Updated : " + currentScore);
 
-            /*
-             * score.push(10); while (score.size() > 0) { sum += score.pop(); currentScore =
-             * sum; }
-     //        */
-            //    System.out.println("Current Score : " + currentScore);
             if (currentScore > highestScore) {
                 highestScore = currentScore;
                 player.saveTotalResults(highestScore);
@@ -180,7 +169,7 @@ public class GamePlay {
         } else if (countingPair == max) {
             int bonus = 0;
             bonus = (totalRounds - rounds) * 10;
-            totalScoresEarn = bonus + highestScore;//or highestScore
+            totalScoresEarn = bonus + currentScore;//or highestScore
             System.out.print("Congratulation you have found all the pairs!\n");
             System.out.print("Current Scores is : " + currentScore + "\n");
             System.out.print("Your Bonus is :  " + bonus + "\n");
@@ -210,7 +199,6 @@ public class GamePlay {
         Scanner scan = new Scanner(System.in);
         PromptPlayer player = new PromptPlayer();
 
-        //    objNo = 0;
         rounds = 1;
         countingPair = 0;
         gamePlayleft = true;
@@ -220,12 +208,8 @@ public class GamePlay {
         System.out.println("Play Again? (Y/N) : ");
         char choice = scan.next().charAt(0);
         if (choice == 'Y' || choice == 'y') {
-            // go.clear();
-            // again = true;
-
             difficulty.LevelDecision();
             obj.randomObj(noOfGameObject);
-            // countingPair=0;
         } else {
             MainMenu();
         }
@@ -237,7 +221,6 @@ public class GamePlay {
         int tempDecision;
         if (decision.isEmpty()) {
             System.out.print("\nPlease enter a valid input ! ");
-            //   System.out.print("\n\nPlease Enter Obj 2 Again :");
             isBool = false;
         } else {
             if ((decision.matches("^[a-zA-Z]*$"))) {

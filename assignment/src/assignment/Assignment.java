@@ -5,26 +5,13 @@
  */
 package assignment;
 
-import GameObject.ArrayList;
-import GameObject.GameObj;
-import java.util.Comparator;
-
 import GameObject.GameObject;
-import static GameObject.GameObject.again;
-
-import static GameObject.GameObject.*;
-import static GamePlay.GamePlay.countingPair;
-import static GamePlay.GamePlay.rounds;
 
 import Level.LVL;
 
-import static GamePlay.GamePlay.totalRounds;
 import Leaderboard.PromptBoard;
 import static Level.LVL.noOfGameObject;
-import Level.Level;
-import Player.Player;
 import Player.PromptPlayer;
-import collections.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -36,7 +23,6 @@ public class Assignment {
     /**
      * @param args the command line arguments
      */
- //   public static int noOfGameObject = 0;// change base on level
 
     public static void main(String[] args) {
         // Display main menu
@@ -52,7 +38,6 @@ public class Assignment {
         PromptPlayer player = new PromptPlayer();
         LVL difficulty = new LVL();
 
-        // game.randomObj(noOfGameObject);
         // Start Module
         Scanner selection = new Scanner(System.in);
         int select;

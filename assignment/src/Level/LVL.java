@@ -77,8 +77,5 @@ public class LVL {
         currentRounds = data.getFront().getRound();
         currentLvlScore = data.getFront().getPairScore();
         noOfGameObject=data.getFront().getNumofobj();
-        System.out.printf("%d", noOfGameObject);
-        // }
-  
     }
 }

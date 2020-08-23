@@ -1,4 +1,9 @@
-package collections;
+/**
+ *
+ * @author GAHSENG
+ */
+
+package Player;
 
 public interface LinkedListInterface<T> {
     public void add(T entry);

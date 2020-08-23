@@ -1,7 +1,10 @@
+/**
+ *
+ * @author GAHSENG
+ */
 
 package Player;
 
-import collections.LinkedList;
 import java.util.Objects;
 
 public class Player extends LinkedList<Player> {
