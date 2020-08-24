@@ -168,7 +168,7 @@ public class GamePlay {
 
         } else if (countingPair == max) {
             int bonus = 0;
-            bonus = (totalRounds - rounds) * 10;
+            bonus = (totalRounds - (rounds - 1)) * 10;
             totalScoresEarn = bonus + currentScore;// or highestScore
             System.out.print("Congratulation you have found all the pairs!\n");
             System.out.print("Current Scores is : " + currentScore + "\n");
