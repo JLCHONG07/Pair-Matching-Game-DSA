@@ -42,7 +42,7 @@ public class GamePlay {
     PromptPlayer player = new PromptPlayer();
     Scanner scan = new Scanner(System.in);
     public static SortedArrayListInterface<Ranking> recordList = new SortedArrayList<Ranking>();
-    private String levelType;
+    
 
     public void gamePlay(ArrayList<GameObject> go) {
 
@@ -52,8 +52,6 @@ public class GamePlay {
         String decision2 = null;
         String obj1Choosed;
         String obj2Choosed;
-        char choice;
-        int level;
         int totalScoresEarn = 0;
         boolean isChecked = true;
 
