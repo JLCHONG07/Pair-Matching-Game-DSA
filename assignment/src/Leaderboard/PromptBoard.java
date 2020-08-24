@@ -5,13 +5,16 @@
  */
 package Leaderboard;
 
+import static GamePlay.GamePlay.easyRecord;
+import static GamePlay.GamePlay.mediumRecord;
+import static GamePlay.GamePlay.hardRecord;
 import static GamePlay.GamePlay.recordList;
 import static Level.LVL.currentLevel;
 import static Player.PromptPlayer.*;
 
 /**
  *
- * @author USER
+ * @author GeeLoong
  */
 public class PromptBoard {
 
@@ -19,33 +22,51 @@ public class PromptBoard {
     int winnerScore;
     String levelType;
 
-    public void displayBoard() {
-        //display the board with players and scores
-        /*
-        SortedArrayListInterface<Ranking> recordList = new SortedArrayList<Ranking>();
-        SortedArrayListInterface<Ranking> easyBoard = new SortedArrayList<Ranking>();
-        SortedArrayListInterface<Ranking> mediumBoard = new SortedArrayList<Ranking>();
-        SortedArrayListInterface<Ranking> hardBoard = new SortedArrayList<Ranking>();
-*/
+    public void displayBoard(int level) {
 
         //get user name and scores
-        switch (currentLevel) {
-            case "L01": {
-                levelType = "Easy";
+        System.out.println("+-----------------------------------+\n");
+        System.out.println("\tLeaderBoard\n");
+        System.out.println("+-----------------------------------+\n");
+        System.out.println("Rank\tName\t\tScore\tLevel");
+        
+        switch(level)
+        {
+            case 1:
+            {
+                easyBoard();
                 break;
             }
-            case "L02": {
-                levelType = "Medium";
+            case 2:
+            {
+                mediumBoard();
                 break;
             }
-            case "L03": {
-                levelType = "Hard";
+            case 3:
+            {
+                hardBoard();
                 break;
             }
         }
-
        // recordList.add(new Ranking(currentPlayer, totalScoresEarn, levelType));
     //    System.out.print(recordList.length());
-        System.out.println(recordList.toString());
+    }
+    public void easyBoard()
+    {
+        System.out.println("=========================");
+        System.out.println(easyRecord.toString());
+        System.out.println("=========================");
+    }
+    public void mediumBoard()
+    {
+        System.out.println("=========================");
+        System.out.println(mediumRecord.toString());
+        System.out.println("=========================");
+    }
+    public void hardBoard()
+    {
+        System.out.println("=========================\n");
+        System.out.println(hardRecord.toString());
+        System.out.println("=========================");
     }
 }

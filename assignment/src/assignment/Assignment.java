@@ -135,14 +135,31 @@ public class Assignment {
     public static void PromptLBoard(){
         PromptBoard board= new PromptBoard();
         int selection;
-        
-        System.out.println("+-----------------------------------+\n");
-        System.out.println("\tLeaderBoard\n");
-        System.out.println("+-----------------------------------+\n");
-        System.out.println("Rank\tName\t\tScore\tLevel");
-        board.displayBoard();
-        System.out.println("Press 1 to return to main menu.\n");
+        int boardSelect;
         Scanner scan=new Scanner(System.in);
+        System.out.println("1.Easy\n2.Medium\n3.Hard\n");
+        boardSelect=scan.nextInt();
+        
+        switch(boardSelect)
+        {
+            case 1:
+            {
+                board.displayBoard(1);
+                break;
+            }
+            case 2:
+            {
+                board.displayBoard(2);
+                break;
+            }
+            case 3:
+            {
+                board.displayBoard(3);
+                break;
+            }
+        }
+        
+        System.out.println("Press 1 to return to main menu.\n");
         selection=scan.nextInt();
         
         if (selection==1)

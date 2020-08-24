@@ -8,7 +8,8 @@ package Leaderboard;
 
 /**
  *
- * @author USER
+ * @author GeeLoong
+ * 
  */
 public class Ranking implements Comparable<Ranking> {
     private String playerName;
@@ -23,8 +24,6 @@ public class Ranking implements Comparable<Ranking> {
         this.playerName = playerName;
         this.playerScore = playerScore;
         this.levelId = levelId;
-        count++;
-        setRank(count);
     }
 
     
@@ -51,28 +50,22 @@ public class Ranking implements Comparable<Ranking> {
     public void setPlayerScore(int playerScore) {
         this.playerScore = playerScore;
     }
-    public void setRank(int rank){
-        this.rank=rank;
-    
-    }
-    public int getRank(){
-        return this.rank;
-    
-    }
 
   
+    @Override
     public String toString() {
        
-            return  getRank()+"\t"+playerName + "\t\t" + playerScore + "\t" + levelId +"\n";
+            return  playerName + "\t\t" + playerScore + "\t" + levelId +"\n";
         
     }
-        
 
     @Override
    public int compareTo(Ranking r) {
+       
+       int compareScore=((Ranking)r).getPlayerScore();
 		//0 = same
             //not 0 = not same
-		return playerScore-r.playerScore;
+		return compareScore-this.playerScore;   //this will create record from highest to lowest score
 	}
    
 }

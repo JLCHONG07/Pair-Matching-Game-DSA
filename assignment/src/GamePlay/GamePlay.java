@@ -42,7 +42,9 @@ public class GamePlay {
     PromptPlayer player = new PromptPlayer();
     Scanner scan = new Scanner(System.in);
     public static SortedArrayListInterface<Ranking> recordList = new SortedArrayList<Ranking>();
-    
+    public static SortedArrayListInterface<Ranking> easyRecord = new SortedArrayList<Ranking>();
+    public static SortedArrayListInterface<Ranking> mediumRecord = new SortedArrayList<Ranking>();
+    public static SortedArrayListInterface<Ranking> hardRecord = new SortedArrayList<Ranking>();
 
     public void gamePlay(ArrayList<GameObject> go) {
 
@@ -111,14 +113,26 @@ public class GamePlay {
             if (go.getEntry(decisionConvert2).getIsPairs() == true) {
                 System.out.print("\n\nThis object has been added before! :");
                 System.out.print("\n\nPlease Enter Obj 2 Again :");
+                do {
+
+                    decision2 = scan.nextLine();
+                    isChecked = inputCheck(decision2);
+
+                } while (isChecked == false);
             } else {
                 System.out.print("\n\nThis object is choosed in obj1 ! :");
-                System.out.print("\n\nPlease Enter Obj 2 Again :");
-            }
-            decision2 = scan.nextLine();
 
-            decisionConvert2 = Integer.parseInt(decision2);
+                do {
+
+                    System.out.print("\n\nPlease Enter Obj 2 Again :");
+                    decision2 = scan.nextLine();
+                    isChecked = inputCheck(decision2);
+
+                } while (isChecked == false);
+            }
+
         }
+        decisionConvert2 = Integer.parseInt(decision2);
 
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert2).getDescription() + closeDot + "\n\n");
         obj2Choosed = go.getEntry(decisionConvert2).getObjID();
@@ -161,6 +175,7 @@ public class GamePlay {
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
             sum = 0;
+            levelTracker(totalScoresEarn);
             recordList.add(new Ranking(currentPlayer, totalScoresEarn, currentLevel));
             Again(totalScoresEarn);
 
@@ -174,6 +189,7 @@ public class GamePlay {
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
             sum = 0;
+            levelTracker(totalScoresEarn);
             recordList.add(new Ranking(currentPlayer, totalScoresEarn, currentLevel));
             Again(totalScoresEarn);
 
@@ -212,6 +228,23 @@ public class GamePlay {
             MainMenu();
         }
 
+    }
+
+    public void levelTracker(int scoreEarn) {
+        switch (currentLevel) {
+            case "L01": {
+                easyRecord.add(new Ranking(currentPlayer, scoreEarn, currentLevel));
+                break;
+            }
+            case "L02": {
+                mediumRecord.add(new Ranking(currentPlayer, scoreEarn, currentLevel));
+                break;
+            }
+            case "L03": {
+                hardRecord.add(new Ranking(currentPlayer, scoreEarn, currentLevel));
+                break;
+            }
+        }
     }
 
     public boolean inputCheck(String decision) {

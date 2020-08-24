@@ -7,7 +7,7 @@ package Leaderboard;
 
 /**
  *
- * @author USER
+ * @author GeeLoong
  * @param <T>
  */
 public interface SortedArrayListInterface<T extends Comparable<T>> {

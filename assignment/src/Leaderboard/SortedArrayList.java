@@ -11,84 +11,8 @@ package Leaderboard;
  * @param <T>
  */
 public class SortedArrayList<T extends Comparable<T>> implements SortedArrayListInterface<T> {
-    /*
-    private int length;
-    private T[] recArr;
-    private static int MAX_RECORD = 5;
-    
-        
-    @Override
-    public int length() {
-        return recArr.length;
-    }
-    
-    @Override
-    public boolean add(T newEntry) {
-    int i = 0;
-        while (i < length && newEntry.compareTo(recArr[i]) > 0) {
-      i++;
-    }
-    makeRoom(i + 1);
-    recArr[i] = newEntry;
-    length++;
-    return true;
-  }
-     
-    @Override
-     public boolean remove(T aRecord)
-     {
-         int i =0;
-	if(isEmpty()){     
-		return false;
-	}
-	while (i<length && aRecord.compareTo(recArr[i])>0){
-		i++;
-}
-            if(recArr[i].equals(aRecord)){
-		removeGap(i+1);
-		length--;
-            return true;
-	} 
-	return false;
 
-     }
-     
-     private void makeRoom(int newPosition) {
-    int newIndex = newPosition - 1;
-    int lastIndex = length - 1;
-
-    for (int i = lastIndex; i >= newIndex; i--) {
-      recArr[i + 1] = recArr[i];
-    }
-  }
-      public String toString() {
-        String outputStr = "";
-        for (int index = 0; index < length; ++index) {
-            outputStr += recArr[index] + "\n";
-        }
-
-        return outputStr;
-    }
-     
-     private boolean isRecordFull() {        //check whether max record existed
-    return length == recArr.length;
-  }
-     
-     private void removeGap(int givenPosition) {
-    int removedIndex = givenPosition - 1;
-    int lastIndex = length - 1;
-
-    for (int index = removedIndex; index < lastIndex; index++) {
-      recArr[index] = recArr[index + 1];
-    }
-  }
-
-    @Override
-    public boolean isEmpty() {
-        return length == 0;
-    }
-    */
-     private T[] array;
+  private T[] array;
   private int length;
   private static final int DEFAULT_CAPACITY = 25;
 
@@ -144,7 +68,7 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     for (int index = 0; index < length; ++index) {
       outputStr += array[index] + "\n";
     }
-
+    
     return outputStr;
   }
 
