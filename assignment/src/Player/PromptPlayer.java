@@ -132,6 +132,7 @@ public class PromptPlayer {
                 case "L01":
                     for(int index = 0; index < playerLinkedList.length(); index++) {
                         if(playerLinkedList.get(index).getPlayerId().equals(currentId)){
+                            System.out.println("Debug ID:"+currentId);
                             if(playerLinkedList.get(index).getEasylvlScore() < score) {
                                 playerLinkedList.get(index).setEasylvlScore(score);
                                 System.out.println(playerLinkedList.get(0).getEasylvlScore());
@@ -139,7 +140,7 @@ public class PromptPlayer {
                                 System.out.println("The previous score " + highestScore + " is higher than current score " + score);
                             }
                         } else {
-                            System.out.println("Invalid ID !");
+                    //        System.out.println("Invalid ID !");
                         }
                     }
                     
@@ -153,7 +154,7 @@ public class PromptPlayer {
                                 System.out.println("The previous score " + highestScore + " is higher than current score " + score);
                             }
                         } else {
-                            System.out.println("Invalid ID !");
+                         //   System.out.println("Invalid ID !");
                         }
                     }
                     break;
@@ -166,7 +167,7 @@ public class PromptPlayer {
                                 System.out.println("The previous score " + highestScore + " is higher than current " + score);
                             }
                         } else {
-                            System.out.println("Invalid ID !");
+                        //    System.out.println("Invalid ID !");
                         }
                     }
                     break;
