@@ -15,7 +15,7 @@ public class GameObject {
 
     private String gameObjId;
     private String description;
-    private String objName;
+    private String gameObjName;
     private String zero = "0";
     private boolean isPair = true;
 
@@ -36,7 +36,7 @@ public class GameObject {
     }
 
     public String getDisplayName() {
-        return this.objName;
+        return this.gameObjName;
     }
 
     public String getDescription() {
@@ -59,10 +59,10 @@ public class GameObject {
 
         // convert int to string
         if (gameObjects < 10) {
-            this.objName = zero + Integer.toString(gameObjects);
+            this.gameObjName = zero + Integer.toString(gameObjects);
 
         } else {
-            this.objName = Integer.toString(gameObjects);
+            this.gameObjName = Integer.toString(gameObjects);
         }
 
     }
