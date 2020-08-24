@@ -88,6 +88,7 @@ public class ArrayList<T> implements ArrListInterface<T> {
     }
 
     //get the array by following the position "givenPos"  variable that passed from driver with this method
+    @Override
     public T getEntry(int givenPos) {
         T object = null;
 
@@ -147,6 +148,7 @@ public class ArrayList<T> implements ArrListInterface<T> {
     }
 
     //added up all the array and return the ouput of my object
+    @Override
     public String toString() {
         String outPutGameObject = "";
         for (int size = 0; size < length; ++size) {

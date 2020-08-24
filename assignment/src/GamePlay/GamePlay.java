@@ -129,7 +129,7 @@ public class GamePlay {
 
             System.out.print("\nResults : Both object choosed are Pair!\n\n");
 
-            objPaired += decision1 + "\t" + decision2 + "\t";
+            objPaired += go.getEntry(decisionConvert1).getDisplayName() + "\t" + go.getEntry(decisionConvert2).getDisplayName() + "\t";
 
             countingPair++;
 

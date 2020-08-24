@@ -1,6 +1,5 @@
 package GameObject;
 
-import java.util.Iterator;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

@@ -8,7 +8,6 @@ package GameObject;
 import GamePlay.GamePlay;
 import Player.PromptPlayer;
 
-import java.util.Random;
 
 /**
  *

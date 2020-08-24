@@ -5,13 +5,9 @@
  */
 package GameObject;
 
-import GamePlay.GamePlay;
-import static GamePlay.GamePlay.countingPair;
+import GamePlay.GamePlay;   
 import Player.PromptPlayer;
-
-//mport static GamePlay.GamePlay.countingPair;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  *
