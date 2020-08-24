@@ -69,13 +69,10 @@ public class GameObject {
 
     }
 
-    /*
-     * public String getDescObj(){ return description; }
-     */
+  
     public String toString() {
 
         return id + description + getDisplayName() + getIsPairs() + "\n";
     }
 
-    // return name+description+"\n";
 }
