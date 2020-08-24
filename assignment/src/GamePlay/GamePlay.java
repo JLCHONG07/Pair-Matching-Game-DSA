@@ -235,19 +235,19 @@ public class GamePlay {
                 }
                 switch (currentLevel) {
                     case "L01":
-                        if (tempDecision > 9) {
+                        if (tempDecision >= 9) {
                             System.out.print("\nPlease enter valid choice !");
                             isBool = false;
                         }
                         break;
                     case "L02":
-                        if (tempDecision > 13) {
+                        if (tempDecision >= 13) {
                             System.out.print("\nPlease enter valid choice !");
                             isBool = false;
                         }
                         break;
                     case "L03":
-                        if (tempDecision > 17) {
+                        if (tempDecision >= 17) {
                             System.out.print("\nPlease enter valid choice !");
                             isBool = false;
                         }
