@@ -13,7 +13,7 @@ package GameObject;
  */
 public class GameObject {
 
-    private String id;
+    private String gameObjId;
     private String description;
     private String objName;
     private String zero = "0";
@@ -23,8 +23,8 @@ public class GameObject {
 
     }
 
-    public GameObject(String id, String desc, int objName, boolean isPair) {
-        this.id = id;
+    public GameObject(String gameObjId, String desc, int objName, boolean isPair) {
+        this.gameObjId = gameObjId;
         this.description = desc;
         this.isPair = isPair;
         converter(objName);
@@ -44,7 +44,7 @@ public class GameObject {
     }
 
     public String getObjID() {
-        return this.id;
+        return this.gameObjId;
     }
 
     public void setIsPairs(boolean isPairs) {
@@ -70,7 +70,7 @@ public class GameObject {
   
     public String toString() {
 
-        return id + description + getDisplayName() + getIsPairs() + "\n";
+        return gameObjId + description + getDisplayName() + getIsPairs() + "\n";
     }
 
 }
