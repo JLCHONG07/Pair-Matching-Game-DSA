@@ -16,6 +16,7 @@ import Level.LVL;
 import static Level.LVL.*;
 import Player.PromptPlayer;
 import static Player.PromptPlayer.currentPlayer;
+import static Player.PromptPlayer.highestScore;
 
 import static assignment.Assignment.MainMenu;
 
@@ -34,11 +35,15 @@ public class GamePlay {
     String objPaired = "";
     public static int totalRounds = 10;// changed base on level getRounds();
     int sum = 0;
-    int highestScore = 0;
+    // int highestScore = 0;
     int currentScore = 0;
+    int previousScore;
+    public static int finalScore;
     public static int rounds = 1;
     public static int countingPair = 0;
     public static int totalScoresEarn = 0;
+    public static int firstScore;
+    public static int gameAmount = 1;
     PromptPlayer player = new PromptPlayer();
     Scanner scan = new Scanner(System.in);
     public static SortedArrayListInterface<Ranking> recordList = new SortedArrayList<Ranking>();
@@ -144,7 +149,8 @@ public class GamePlay {
 
             System.out.print("\nResults : Both object choosed are Pair!\n\n");
 
-            objPaired += go.getEntry(decisionConvert1).getDisplayName() + "\t" + go.getEntry(decisionConvert2).getDisplayName() + "\t";
+            objPaired += go.getEntry(decisionConvert1).getDisplayName() + "\t"
+                    + go.getEntry(decisionConvert2).getDisplayName() + "\t";
 
             countingPair++;
 
@@ -178,8 +184,9 @@ public class GamePlay {
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
             sum = 0;
-            levelTracker(totalScoresEarn);
-            recordList.add(new Ranking(currentPlayer, totalScoresEarn, currentLevel));
+            if (totalScoresEarn > highestScore) {
+                levelTracker(totalScoresEarn);
+            }
             Again(totalScoresEarn);
 
         } else if (countingPair == max) {
@@ -192,8 +199,9 @@ public class GamePlay {
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
             sum = 0;
-            levelTracker(totalScoresEarn);
-            recordList.add(new Ranking(currentPlayer, totalScoresEarn, currentLevel));
+            if (totalScoresEarn > highestScore) {
+                levelTracker(totalScoresEarn);
+            }
             Again(totalScoresEarn);
 
         }
@@ -228,10 +236,9 @@ public class GamePlay {
             difficulty.LevelDecision();
             obj.randomObj(noOfGameObject);
         } else {
-            //levelTracker(highestScore);
+            // levelTracker(highestScore);
             MainMenu();
         }
-
     }
 
     public void levelTracker(int scoreEarn) {

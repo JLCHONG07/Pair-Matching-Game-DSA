@@ -14,6 +14,7 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
 
   private T[] array;
   private int length;
+  private int rank;
   private static final int DEFAULT_CAPACITY = 25;
 
   public SortedArrayList() {
@@ -66,7 +67,8 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
   public String toString() {
     String outputStr = "";
     for (int index = 0; index < length; ++index) {
-      outputStr += array[index] + "\n";
+        rank=index+1;
+      outputStr +=rank+"\t"+ array[index] + "\n";
     }
     
     return outputStr;

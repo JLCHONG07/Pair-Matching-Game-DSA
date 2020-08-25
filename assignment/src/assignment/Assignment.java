@@ -159,12 +159,22 @@ public class Assignment {
             }
         }
         
-        System.out.println("Press 1 to return to main menu.\n");
+        System.out.println("Press 1 to return to main menu.\nPress 2 to exit.");
         selection=scan.nextInt();
         
-        if (selection==1)
-        {      
-            MainMenu();
-        } 
+        switch (selection)
+        {
+            case 1:
+            {
+                   MainMenu();
+                   break;
+            }
+            case 2:
+            {
+                System.exit(0);
+                break;
+            }
+        }
+        
     }
 }

@@ -15,8 +15,6 @@ public class Ranking implements Comparable<Ranking> {
     private String playerName;
     private int playerScore;
     private String levelId;
-    private int count=0;
-    private int rank=0;
     public Ranking() {
     }
 
@@ -25,6 +23,8 @@ public class Ranking implements Comparable<Ranking> {
         this.playerScore = playerScore;
         this.levelId = levelId;
     }
+
+
 
     
     public String getLevelId() {
@@ -55,7 +55,7 @@ public class Ranking implements Comparable<Ranking> {
     @Override
     public String toString() {
        
-            return  playerName + "\t\t" + playerScore + "\t" + levelId +"\n";
+            return  playerName + "\t\t" + playerScore +"\n";
         
     }
 
