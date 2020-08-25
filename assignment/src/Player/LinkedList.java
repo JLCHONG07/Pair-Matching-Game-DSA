@@ -33,8 +33,8 @@ public class LinkedList<T> implements LinkedListInterface<T> {
         node.data = data;
         node.next = null;
         
-        if(head == null) {
-            head = node;
+        if(index == 0) {
+            addAtStart(data);
         } else {
             Node n = head;
             for(int i = 0; i < index; i++) {
@@ -73,12 +73,12 @@ public class LinkedList<T> implements LinkedListInterface<T> {
     }
     
     @Override
-    public T get(int pos) {
+    public T get(int index) {
         Node tempNode = head;
-        if(pos == 0) {
+        if(index == 0) {
             return head.data;
         } else {
-            for(int i = size; i > pos; i--) {
+            for(int i = size; i > index; i--) {
                 tempNode = head.next;
             }
             return tempNode.data;
@@ -98,13 +98,13 @@ public class LinkedList<T> implements LinkedListInterface<T> {
         return size;
     }
     
-    public void show() {
-        Node node = head;
-        while(node.next != null) {
-            System.out.println(node.data);
-            node = node.next;
-        }
-        System.out.println(node.data);
+    private void addAtStart(T data) {
+        Node node = new Node(data);
+        node.data = data;
+        node.next = null;
+        
+        node.next = head;
+        head = node;
     }
     
     private class Node {
