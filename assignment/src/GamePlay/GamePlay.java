@@ -112,7 +112,9 @@ public class GamePlay {
                 System.out.print("\n\nThis object has been added before! :");
                 System.out.print("\n\nPlease Enter Obj 2 Again :");
                 do {
-
+                    if (isChecked == false) {
+                        System.out.print("\n\nEnter Obj 2 Again :");
+                    }
                     decision2 = scan.nextLine();
                     isChecked = inputCheck(decision2);
 
@@ -122,6 +124,9 @@ public class GamePlay {
 
                 do {
 
+                    if (isChecked == false) {
+                        System.out.print("\n\nEnter Obj 2 Again :");
+                    }
                     System.out.print("\n\nPlease Enter Obj 2 Again :");
                     decision2 = scan.nextLine();
                     isChecked = inputCheck(decision2);
