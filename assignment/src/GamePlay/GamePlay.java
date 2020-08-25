@@ -65,11 +65,9 @@ public class GamePlay {
             score.clear();
         }
 
-        player.assignHighestScore();
-
         score.push(new PlayGame(currentRounds, currentLvlScore));
 
-        highestScore = player.highestScore();
+        highestScore = player.assignHighestScore();
         System.out.println("Your Highest Scores : " + highestScore + "\n");
         System.out.println("Your Current Scores : " + currentScore + "\n");
         System.out.print("Round :" + rounds + "/" + score.pop().getRound());
@@ -225,6 +223,7 @@ public class GamePlay {
             difficulty.LevelDecision();
             obj.randomObj(noOfGameObject);
         } else {
+            //levelTracker(highestScore);
             MainMenu();
         }
 
