@@ -25,10 +25,10 @@ public class PromptBoard {
     public void displayBoard(int level) {
 
         //get user name and scores
-        System.out.println("+-----------------------------------+\n");
-        System.out.println("\tLeaderBoard\n");
-        System.out.println("+-----------------------------------+\n");
-        System.out.println("Rank\tName\t\tScore\tLevel");
+        System.out.println("+-----------------------------------------+");
+        System.out.println("\t\tLeaderBoard");
+        System.out.println("+-----------------------------------------+");
+        System.out.println("Rank\tName\t\tScore");
         
         switch(level)
         {
@@ -53,20 +53,44 @@ public class PromptBoard {
     }
     public void easyBoard()
     {
-        System.out.println("=========================");
-        System.out.println(easyRecord.toString());
-        System.out.println("=========================");
+        System.out.println("==========================================");
+        if(!easyRecord.isEmpty())
+        {
+             System.out.println(easyRecord.toString());
+             System.out.println("==========================================");
+        }
+        else
+        {
+            System.out.println("No record yet......\n");
+            System.out.println("==========================================");
+        }
     }
     public void mediumBoard()
     {
-        System.out.println("=========================");
-        System.out.println(mediumRecord.toString());
-        System.out.println("=========================");
+        System.out.println("==========================================");
+        if(!mediumRecord.isEmpty())
+        {
+             System.out.println(mediumRecord.toString());
+             System.out.println("==========================================");
+        }
+        else
+        {
+            System.out.println("No record yet......");
+            System.out.println("==========================================");
+        }
     }
     public void hardBoard()
     {
-        System.out.println("=========================\n");
-        System.out.println(hardRecord.toString());
-        System.out.println("=========================");
+        System.out.println("==========================================");
+        if(!hardRecord.isEmpty())
+        {
+             System.out.println(hardRecord.toString());
+             System.out.println("==========================================");
+        }
+        else
+        {
+            System.out.println("No record yet......");
+            System.out.println("==========================================");
+        }
     }
 }
