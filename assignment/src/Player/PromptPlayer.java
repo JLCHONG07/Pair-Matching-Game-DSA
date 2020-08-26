@@ -45,8 +45,6 @@ public class PromptPlayer {
             }
         }
         
-        System.out.println(currentPlayer);
-        
         System.out.println("+-----------------------+");
         System.out.println("|" + "Your current id is " + currentId + "|");
         System.out.println("+-----------------------+");
