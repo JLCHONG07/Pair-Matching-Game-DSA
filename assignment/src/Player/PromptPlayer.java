@@ -17,14 +17,14 @@ public class PromptPlayer {
     public static String currentId;
     public static int highestScore = 0;
     String id;
-    
+
     public void NewPlayer() {
         System.out.println("New Game");
         System.out.println("========");
         System.out.print("Please enter your username : ");
         String playerName = playerInput.next();
-        
-        if(playerNo > 99) {
+
+        if (playerNo > 99) {
             id = "P" + playerNo;
             playerNo++;
         } else if (playerNo > 9) {
@@ -34,38 +34,41 @@ public class PromptPlayer {
             id = "P00" + playerNo;
             playerNo++;
         }
-        
+
+        highestScore = 0;
         currentId = id;
-        
+
         playerLinkedList.add(new Player(id, playerName, 0, 0, 0));
-        
-        playerLinkedList.display();
-        
         currentPlayer = playerName;
-        
+        /*
+         * for (int index = 0; index < playerLinkedList.length(); index++) { if
+         * (playerLinkedList.get(index).getPlayerId().equals(currentId)) { currentPlayer
+         * = playerLinkedList.get(index).getPlayerName(); } }
+         */
+
         System.out.println("+-----------------------+");
         System.out.println("|" + "Your current id is " + currentId + "|");
         System.out.println("+-----------------------+");
     }
-    
+
     public void ExistingPlayer() {
         boolean proceed = false;
         System.out.println("Load Game");
         System.out.println("=========\n");
         do {
-            if(!playerLinkedList.isEmpty()) {
+            if (!playerLinkedList.isEmpty()) {
                 System.out.print("Please enter your id : ");
                 String playerId = playerInput.next();
 
-                for(int index = 0; index < playerLinkedList.length(); index++) {
-                    if(playerLinkedList.get(index).getPlayerId().equals(playerId)) {
+                for (int index = 0; index < playerLinkedList.length(); index++) {
+                    if (playerLinkedList.get(index).getPlayerId().equals(playerId)) {
                         currentId = playerLinkedList.get(index).getPlayerId();
                         currentPlayer = playerLinkedList.get(index).getPlayerName();
                         proceed = true;
                     }
                 }
-                
-                if(proceed == false) {
+
+                if (proceed == false) {
                     System.out.println("Invalid player id");
                 } else {
                     System.out.println("Valid player id");
@@ -76,83 +79,88 @@ public class PromptPlayer {
                 proceed = true;
                 PromptPlayerInput();
             }
-        }while(proceed == false);
+        } while (proceed == false);
+        assignHighestScore();
     }
-    
+
     public String displayName() {
         return currentPlayer;
     }
-    
+
     public String displayCurrentID() {
         return currentId;
     }
-    
+
     public int highestScore() {
         return highestScore;
     }
-    
+
     public void assignHighestScore() {
-        switch(currentLevel) {
+        switch (currentLevel) {
             case "L01":
-                for(int index = 0; index < playerLinkedList.length(); index++) {
-                    if(playerLinkedList.get(index).getPlayerId().equals(currentId)) {
+                for (int index = 0; index < playerLinkedList.length(); index++) {
+                    if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
                         highestScore = playerLinkedList.get(index).getEasylvlScore();
                     }
+
                 }
                 break;
             case "L02":
-                for(int index = 0; index < playerLinkedList.length(); index++) {
-                    if(playerLinkedList.get(index).getPlayerId().equals(currentId)) {
+                for (int index = 0; index < playerLinkedList.length(); index++) {
+                    if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
                         highestScore = playerLinkedList.get(index).getMediumlvlScore();
                     }
                 }
                 break;
             case "L03":
-                for(int index = 0; index < playerLinkedList.length(); index++) {
-                    if(playerLinkedList.get(index).getPlayerId().equals(currentId)) {
+                for (int index = 0; index < playerLinkedList.length(); index++) {
+                    if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
                         highestScore = playerLinkedList.get(index).getHardlvlScore();
                     }
                 }
                 break;
         }
     }
-    
+
     public void saveTotalResults(int score) {
-        if(currentLevel != null) {
-            switch(currentLevel) {
+        if (currentLevel != null) {
+            switch (currentLevel) {
                 case "L01":
-                    for(int index = 0; index < playerLinkedList.length(); index++) {
-                        if(playerLinkedList.get(index).getPlayerId().equals(currentId)){
+                    for (int index = 0; index < playerLinkedList.length(); index++) {
+                        if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
                             System.out.println("Debug : " + playerLinkedList.get(index).getPlayerId());
                             System.out.println("Debug : " + playerLinkedList.get(index).getPlayerName());
                             System.out.println("Debug : " + playerLinkedList.get(index).getEasylvlScore());
-                            if(playerLinkedList.get(index).getEasylvlScore() <= score) {
+                            if (playerLinkedList.get(index).getEasylvlScore() <= score) {
                                 playerLinkedList.get(index).setEasylvlScore(score);
                             } else {
-                                System.out.println("The previous score " + highestScore + " is higher than current score " + score);
+                                System.out.println("The previous score " + highestScore
+                                        + " is higher than current score " + score);
                             }
                         }
                     }
-                    
+
                     break;
                 case "L02":
-                    for(int index = 0; index < playerLinkedList.length(); index++) {
-                        if(playerLinkedList.get(index).getPlayerId().equals(currentId)){
-                            if(playerLinkedList.get(index).getMediumlvlScore() <= score) {
+                    for (int index = 0; index < playerLinkedList.length(); index++) {
+                        if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
+                            if (playerLinkedList.get(index).getMediumlvlScore() <= score) {
                                 playerLinkedList.get(index).setMediumlvlScore(score);
                             } else {
-                                System.out.println("The previous score " + highestScore + " is higher than current score " + score);
+                                System.out.println("The previous score " + highestScore
+                                        + " is higher than current score " + score);
                             }
                         }
                     }
                     break;
                 case "L03":
-                    for(int index = 0; index < playerLinkedList.length(); index++) {
-                        if(playerLinkedList.get(index).getPlayerId().equals(currentId)){
-                            if(playerLinkedList.get(index).getHardlvlScore() <= score) {
+                    for (int index = 0; index < playerLinkedList.length(); index++) {
+                        if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
+                            if (playerLinkedList.get(index).getHardlvlScore() <= score) {
                                 playerLinkedList.get(index).setHardlvlScore(score);
                             } else {
-                                System.out.println("The previous score " + highestScore + " is higher than current " + score);
+                                System.out.println(
+                                        "The previous score " + highestScore + " is higher than current " + score);
                             }
                         }
                     }

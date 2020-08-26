@@ -62,16 +62,16 @@ public class GamePlay {
         ScoreArrayStack<GamePlayy> score = new ScoreArrayStack<>();
 
         totalRounds = currentRounds;
-        
+
         if (!score.isEmpty()) {
             score.clear();
         }
 
         score.push(new GamePlayy(currentRounds, currentLvlScore));
-        
-        player.assignHighestScore();
 
-        highestScore = player.highestScore();
+     // player.assignHighestScore();
+
+     //   highestScore = player.highestScore();
         System.out.println("Your Highest Scores : " + highestScore + "\n");
         System.out.println("Your Current Scores : " + currentScore + "\n");
         System.out.print("Round :" + rounds + "/" + score.pop().getRound());
@@ -121,9 +121,9 @@ public class GamePlay {
                     }
                     decision2 = scan.nextLine();
                     isChecked = inputCheck(decision2);
-                    
+
                 } while (isChecked == false);
-                  decisionConvert2 = Integer.parseInt(decision2);
+                decisionConvert2 = Integer.parseInt(decision2);
             } else {
                 System.out.print("\n\nThis object is choosed in obj1 ! :");
 
@@ -138,10 +138,9 @@ public class GamePlay {
 
                 } while (isChecked == false);
             }
-              decisionConvert2 = Integer.parseInt(decision2);
+            decisionConvert2 = Integer.parseInt(decision2);
 
         }
-      
 
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert2).getDescription() + closeDot + "\n\n");
         obj2Choosed = go.getEntry(decisionConvert2).getObjID();
@@ -220,33 +219,42 @@ public class GamePlay {
     }
 
     public void Again(int score) {
-       GameObjects obj = new GameObjects();
+        GameObjects obj = new GameObjects();
         LVL difficulty = new LVL();
         Scanner scan = new Scanner(System.in);
         PromptPlayer player = new PromptPlayer();
-        char choice;
+        boolean checkDecision = true;
+        String choice;
+
         rounds = 1;
         countingPair = 0;
         gamePlayleft = true;
         totalScoresEarn = 0;
         player.saveTotalResults(score);
         System.out.print("GAME OVER !\n");
-        System.out.println("Play Again? (Y/N) : ");
-        choice = scan.next().charAt(0);
-        do{
-          
-        if (choice == 'Y' || choice == 'y') {
-            difficulty.LevelDecision();
-            obj.randomObj(noOfGameObject);
-        }
-        else if(choice == 'N' || choice == 'n'){
-            MainMenu();
-        }
-        else{
-        System.out.println("Invalid Input! Enter again : ");
-        choice = scan.next().charAt(0);
-        }
-        }while(choice != 'Y' || choice != 'y'||choice != 'N' || choice != 'n');
+        do {
+            System.out.println("Play Again? (Y/N) : ");
+            choice = scan.nextLine();
+
+            if (choice.equals("Y") || choice.equals("y")) {
+                checkDecision = true;
+                if (checkDecision == true) {
+                    difficulty.LevelDecision();
+                    obj.randomObj(noOfGameObject);
+
+                }
+            } else if (choice.equals("N") || choice.equals("n")) {
+                checkDecision = true;
+                if (checkDecision == true) {
+                    MainMenu();
+                }
+            } else {
+                System.out.print("Invalid Input Please Enter Again!\n");
+                checkDecision = false;
+
+            }
+
+        } while (checkDecision == false);
     }
 
     public boolean inputCheck(String decision) {
@@ -294,4 +302,3 @@ public class GamePlay {
         return isBool;
     }
 }
-
