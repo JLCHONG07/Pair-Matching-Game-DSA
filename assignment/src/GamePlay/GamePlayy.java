@@ -9,12 +9,12 @@ package GamePlay;
  *
  * @author SHATHIS
  */
-public class PlayGame {
+public class GamePlayy {
 
     private int round;
     private int score;
 
-    public PlayGame(int round, int score) {
+    public GamePlayy(int round, int score) {
         this.round = round;
         this.score = score;
     }

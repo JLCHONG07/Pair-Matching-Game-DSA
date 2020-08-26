@@ -59,13 +59,13 @@ public class GamePlay {
 
         System.out.println(go.toString());
 
-        ScoreArrayStack<PlayGame> score = new ScoreArrayStack<>();
+        ScoreArrayStack<GamePlayy> score = new ScoreArrayStack<>();
 
         if (!score.isEmpty()) {
             score.clear();
         }
 
-        score.push(new PlayGame(currentRounds, currentLvlScore));
+        score.push(new GamePlayy(currentRounds, currentLvlScore));
 
         highestScore = player.highestScore();
         System.out.println("Your Highest Scores : " + highestScore + "\n");
@@ -154,7 +154,7 @@ public class GamePlay {
             go.getEntry(decisionConvert1).setIsPairs(true);
             go.getEntry(decisionConvert2).setIsPairs(true);
 
-            score.push(new PlayGame(currentRounds, currentLvlScore));
+            score.push(new GamePlayy(currentRounds, currentLvlScore));
             while (!score.isEmpty()) {
                 sum += score.pop().getScore();
                 currentScore = sum;
