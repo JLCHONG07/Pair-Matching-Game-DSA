@@ -17,11 +17,6 @@ import static Player.PromptPlayer.currentPlayer;
  */
 public class PromptBoard {
 
-    String winnerName;
-    int winnerScore;
-    String levelType;
-
-    //public static SortedArrayListInterface<Ranking> recordList = new SortedArrayList<Ranking>();
     public static SortedArrayListInterface<Ranking> easyRecord = new SortedArrayList<Ranking>();
     public static SortedArrayListInterface<Ranking> mediumRecord = new SortedArrayList<Ranking>();
     public static SortedArrayListInterface<Ranking> hardRecord = new SortedArrayList<Ranking>();
