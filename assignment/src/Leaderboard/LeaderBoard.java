@@ -11,14 +11,14 @@ package Leaderboard;
  * @author GeeLoong
  * 
  */
-public class Ranking implements Comparable<Ranking> {
+public class LeaderBoard implements Comparable<LeaderBoard> {
     private String playerName;
     private int playerScore;
     private String levelId;
-    public Ranking() {
+    public LeaderBoard() {
     }
 
-    public Ranking(String playerName, int playerScore, String levelId) {
+    public LeaderBoard(String playerName, int playerScore, String levelId) {
         this.playerName = playerName;
         this.playerScore = playerScore;
         this.levelId = levelId;
@@ -60,9 +60,9 @@ public class Ranking implements Comparable<Ranking> {
     }
 
     @Override
-   public int compareTo(Ranking r) {
+   public int compareTo(LeaderBoard r) {
        
-       int compareScore=((Ranking)r).getPlayerScore();
+       int compareScore=((LeaderBoard)r).getPlayerScore();
 		//0 = same
             //not 0 = not same
 		return compareScore-this.playerScore;//descending record score

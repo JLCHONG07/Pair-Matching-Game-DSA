@@ -17,22 +17,22 @@ import static Player.PromptPlayer.currentPlayer;
  */
 public class PromptBoard {
 
-    public static SortedArrayListInterface<Ranking> easyRecord = new SortedArrayList<Ranking>();
-    public static SortedArrayListInterface<Ranking> mediumRecord = new SortedArrayList<Ranking>();
-    public static SortedArrayListInterface<Ranking> hardRecord = new SortedArrayList<Ranking>();
+    public static SortedArrayListInterface<LeaderBoard> easyRecord = new SortedArrayList<LeaderBoard>();
+    public static SortedArrayListInterface<LeaderBoard> mediumRecord = new SortedArrayList<LeaderBoard>();
+    public static SortedArrayListInterface<LeaderBoard> hardRecord = new SortedArrayList<LeaderBoard>();
     
     public void levelTracker(int scoreEarn) {
         switch (currentLevel) {
             case "L01": {
-                easyRecord.add(new Ranking(currentPlayer,scoreEarn, currentLevel));
+                easyRecord.add(new LeaderBoard(currentPlayer,scoreEarn, currentLevel));
                 break;
             }
             case "L02": {
-                mediumRecord.add(new Ranking(currentPlayer, scoreEarn, currentLevel));
+                mediumRecord.add(new LeaderBoard(currentPlayer, scoreEarn, currentLevel));
                 break;
             }
             case "L03": {
-                hardRecord.add(new Ranking(currentPlayer, scoreEarn, currentLevel));
+                hardRecord.add(new LeaderBoard(currentPlayer, scoreEarn, currentLevel));
                 break;
             }
         }
