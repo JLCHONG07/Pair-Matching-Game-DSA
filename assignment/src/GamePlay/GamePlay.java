@@ -31,7 +31,7 @@ public class GamePlay {
     String closeDot = "'";
     String TisObj = "This object is ";
     String objPaired = "";
-    public static int totalRounds = 10;// changed base on level getRounds();
+    public static int totalRounds = 0;// changed base on level getRounds();
     int sum = 0;
     // int highestScore = 0;
     int currentScore = 0;
@@ -61,6 +61,8 @@ public class GamePlay {
 
         ScoreArrayStack<PlayGame> score = new ScoreArrayStack<>();
 
+        totalRounds = currentRounds;
+        
         if (!score.isEmpty()) {
             score.clear();
         }
