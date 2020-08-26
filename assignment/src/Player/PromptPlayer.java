@@ -67,9 +67,11 @@ public class PromptPlayer {
                         proceed = true;
                     }
                 }
-
+                
                 if (proceed == false) {
                     System.out.println("Invalid player id");
+                    proceed = true;
+                    PromptPlayerInput();
                 } else {
                     System.out.println("Valid player id");
                 }
