@@ -8,9 +8,6 @@ package Leaderboard;
 import static GamePlay.GamePlay.easyRecord;
 import static GamePlay.GamePlay.mediumRecord;
 import static GamePlay.GamePlay.hardRecord;
-import static GamePlay.GamePlay.recordList;
-import static Level.LVL.currentLevel;
-import static Player.PromptPlayer.*;
 
 /**
  *
