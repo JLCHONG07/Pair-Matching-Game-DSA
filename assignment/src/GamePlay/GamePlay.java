@@ -9,9 +9,6 @@ import GameObject.ArrayList;
 import GameObject.GameObject;
 import GameObject.GameObjects;
 import static GameObject.GameObjects.*;
-import Leaderboard.Ranking;
-import Leaderboard.SortedArrayList;
-import Leaderboard.SortedArrayListInterface;
 import Level.LVL;
 import static Level.LVL.*;
 import Player.PromptPlayer;
@@ -46,11 +43,8 @@ public class GamePlay {
     public static int firstScore;
     public static int gameAmount=1;
     PromptPlayer player = new PromptPlayer();
+    PromptBoard pb=new PromptBoard();
     Scanner scan = new Scanner(System.in);
-    public static SortedArrayListInterface<Ranking> recordList = new SortedArrayList<Ranking>();
-    public static SortedArrayListInterface<Ranking> easyRecord = new SortedArrayList<Ranking>();
-    public static SortedArrayListInterface<Ranking> mediumRecord = new SortedArrayList<Ranking>();
-    public static SortedArrayListInterface<Ranking> hardRecord = new SortedArrayList<Ranking>();
 
     public void gamePlay(ArrayList<GameObject> go) {
 
@@ -188,7 +182,7 @@ public class GamePlay {
             sum = 0;
             if(totalScoresEarn>highestScore)
             {
-                PromptBoard.levelTracker(totalScoresEarn);
+                pb.levelTracker(totalScoresEarn);
             }
             Again(totalScoresEarn);
 
@@ -204,7 +198,7 @@ public class GamePlay {
             sum = 0;   
             if(totalScoresEarn>highestScore)
             {
-                PromptBoard.levelTracker(totalScoresEarn);
+                pb.levelTracker(totalScoresEarn);
             }
             Again(totalScoresEarn);
 
@@ -240,7 +234,6 @@ public class GamePlay {
             difficulty.LevelDecision();
             obj.randomObj(noOfGameObject);
         } else {
-                //levelTracker(highestScore);
                 MainMenu();
             }
         }
