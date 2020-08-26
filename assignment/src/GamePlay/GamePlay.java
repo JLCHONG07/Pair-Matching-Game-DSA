@@ -59,7 +59,7 @@ public class GamePlay {
 
         System.out.println(go.toString());
 
-        ScoreArrayStack<PlayGame> score = new ScoreArrayStack<>();
+        ScoreArrayStack<GamePlayy> score = new ScoreArrayStack<>();
 
         totalRounds = currentRounds;
         
@@ -67,7 +67,7 @@ public class GamePlay {
             score.clear();
         }
 
-        score.push(new PlayGame(currentRounds, currentLvlScore));
+        score.push(new GamePlayy(currentRounds, currentLvlScore));
 
         highestScore = player.highestScore();
         System.out.println("Your Highest Scores : " + highestScore + "\n");
@@ -119,8 +119,9 @@ public class GamePlay {
                     }
                     decision2 = scan.nextLine();
                     isChecked = inputCheck(decision2);
-
+                    
                 } while (isChecked == false);
+                  decisionConvert2 = Integer.parseInt(decision2);
             } else {
                 System.out.print("\n\nThis object is choosed in obj1 ! :");
 
@@ -135,9 +136,10 @@ public class GamePlay {
 
                 } while (isChecked == false);
             }
+              decisionConvert2 = Integer.parseInt(decision2);
 
         }
-        decisionConvert2 = Integer.parseInt(decision2);
+      
 
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert2).getDescription() + closeDot + "\n\n");
         obj2Choosed = go.getEntry(decisionConvert2).getObjID();
@@ -154,7 +156,7 @@ public class GamePlay {
             go.getEntry(decisionConvert1).setIsPairs(true);
             go.getEntry(decisionConvert2).setIsPairs(true);
 
-            score.push(new PlayGame(currentRounds, currentLvlScore));
+            score.push(new GamePlayy(currentRounds, currentLvlScore));
             while (!score.isEmpty()) {
                 sum += score.pop().getScore();
                 currentScore = sum;
