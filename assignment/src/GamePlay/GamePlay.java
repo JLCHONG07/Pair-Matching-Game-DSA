@@ -230,9 +230,15 @@ public class GamePlay {
         if (choice == 'Y' || choice == 'y') {
             difficulty.LevelDecision();
             obj.randomObj(noOfGameObject);
-        } else {
+        } 
+        do{
+        Scanner scan2 = new Scanner(System.in);
+        System.out.print("Invalid input! Enter again : ");
+        char choice2 = scan2.next().charAt(0);   
+        if ((choice2 == 'N' || choice2 == 'n')) {
             MainMenu();
         }
+        }while(choice != 'N' || choice != 'n');
     }
 
     public boolean inputCheck(String decision) {
