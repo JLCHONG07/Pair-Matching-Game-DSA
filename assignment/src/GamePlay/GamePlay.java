@@ -117,8 +117,9 @@ public class GamePlay {
                     }
                     decision2 = scan.nextLine();
                     isChecked = inputCheck(decision2);
-
+                    
                 } while (isChecked == false);
+                  decisionConvert2 = Integer.parseInt(decision2);
             } else {
                 System.out.print("\n\nThis object is choosed in obj1 ! :");
 
@@ -133,9 +134,10 @@ public class GamePlay {
 
                 } while (isChecked == false);
             }
+              decisionConvert2 = Integer.parseInt(decision2);
 
         }
-        decisionConvert2 = Integer.parseInt(decision2);
+      
 
         System.out.print(openDot + TisObj + go.getEntry(decisionConvert2).getDescription() + closeDot + "\n\n");
         obj2Choosed = go.getEntry(decisionConvert2).getObjID();
