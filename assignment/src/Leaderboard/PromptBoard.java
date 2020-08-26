@@ -63,8 +63,6 @@ public class PromptBoard {
                 break;
             }
         }
-       // recordList.add(new Ranking(currentPlayer, totalScoresEarn, levelType));
-    //    System.out.print(recordList.length());
     }
     public void easyBoard()
     {
