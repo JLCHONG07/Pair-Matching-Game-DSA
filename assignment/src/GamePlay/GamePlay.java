@@ -68,6 +68,8 @@ public class GamePlay {
         }
 
         score.push(new GamePlayy(currentRounds, currentLvlScore));
+        
+        player.assignHighestScore();
 
         highestScore = player.highestScore();
         System.out.println("Your Highest Scores : " + highestScore + "\n");

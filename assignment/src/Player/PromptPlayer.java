@@ -130,10 +130,8 @@ public class PromptPlayer {
                 case "L01":
                     for(int index = 0; index < playerLinkedList.length(); index++) {
                         if(playerLinkedList.get(index).getPlayerId().equals(currentId)){
-                            System.out.println("Debug ID:"+currentId);
                             if(playerLinkedList.get(index).getEasylvlScore() < score) {
                                 playerLinkedList.get(index).setEasylvlScore(score);
-                                System.out.println(playerLinkedList.get(0).getEasylvlScore());
                             } else {
                                 System.out.println("The previous score " + highestScore + " is higher than current score " + score);
                             }
