@@ -46,6 +46,7 @@ public class Assignment {
         
         do{
             System.out.println("1. Start Game \n2. Leaderboard \n3. Quit");
+            System.out.print("Please enter your choice (1 ~ 3) : ");
         
             if(selection.hasNextInt()){
             select = selection.nextInt();
@@ -143,6 +144,7 @@ public class Assignment {
             System.out.println("+----------------+");
             System.out.println("1.Easy\n2.Medium\n3.Hard\n4.Back");
             System.out.println("+----------------+");
+            System.out.print("Please enter your choice (1 ~ 4) : ");
 
             if (scan.hasNextInt())
             {
@@ -188,6 +190,7 @@ public class Assignment {
         do
         {
             System.out.println("Press 1 to return to main menu.\nPress 2 to exit.");
+            System.out.print("Selection : ");
 
             if (scan.hasNextInt())
             {
