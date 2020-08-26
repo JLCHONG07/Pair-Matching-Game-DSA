@@ -235,8 +235,6 @@ public class GamePlay {
         }
     }
 
-    }
-
     public boolean inputCheck(String decision) {
         boolean isBool = true;
         int tempDecision;
@@ -282,3 +280,4 @@ public class GamePlay {
         return isBool;
     }
 }
+
