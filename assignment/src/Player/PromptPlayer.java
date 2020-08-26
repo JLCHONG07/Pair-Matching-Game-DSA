@@ -100,7 +100,7 @@ public class PromptPlayer {
         return highestScore;
     }
     
-    public int assignHighestScore() {
+    public void assignHighestScore() {
         switch(currentLevel) {
             case "L01":
                 for(int index = 0; index < playerLinkedList.length(); index++) {
@@ -124,7 +124,6 @@ public class PromptPlayer {
                 }
                 break;
         }
-        return highestScore;
     }
     
     public void saveTotalResults(int score) {
@@ -140,8 +139,6 @@ public class PromptPlayer {
                             } else {
                                 System.out.println("The previous score " + highestScore + " is higher than current score " + score);
                             }
-                        } else {
-                    //        System.out.println("Invalid ID !");
                         }
                     }
                     
@@ -154,8 +151,6 @@ public class PromptPlayer {
                             } else {
                                 System.out.println("The previous score " + highestScore + " is higher than current score " + score);
                             }
-                        } else {
-                         //   System.out.println("Invalid ID !");
                         }
                     }
                     break;
@@ -167,8 +162,6 @@ public class PromptPlayer {
                             } else {
                                 System.out.println("The previous score " + highestScore + " is higher than current " + score);
                             }
-                        } else {
-                        //    System.out.println("Invalid ID !");
                         }
                     }
                     break;

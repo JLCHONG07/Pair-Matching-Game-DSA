@@ -46,6 +46,20 @@ public class LinkedList<T> implements LinkedListInterface<T> {
     }
     
     @Override
+    public void addAtStart(T data) {
+        Node node = new Node(data);
+        node.data = data;
+        node.next = null;
+        
+        if(head != null) {
+            node.next = head;
+            head = node;
+        } else {
+            head = node;
+        }
+    }
+    
+    @Override
     public void remove() {
         while(head.next != null) {
             head.data = null;
@@ -86,6 +100,25 @@ public class LinkedList<T> implements LinkedListInterface<T> {
     }
     
     @Override
+    public boolean contains(T data) {
+        Node node = head;
+        boolean match = false;
+        
+        for(int i = 0; i < length(); i++) {
+            if(node.data == data) {
+                match = true;
+            }
+            node = node.next;
+        }
+        return match;
+    }
+    
+    @Override
+    public boolean isFull() {
+        return false;
+    }
+    
+    @Override
     public boolean isEmpty() {
         if(head == null) {
             return true;
@@ -98,13 +131,13 @@ public class LinkedList<T> implements LinkedListInterface<T> {
         return size;
     }
     
-    private void addAtStart(T data) {
-        Node node = new Node(data);
-        node.data = data;
-        node.next = null;
-        
-        node.next = head;
-        head = node;
+    @Override
+    public void display() {
+        Node node = head;
+        for(int i = 0; i < length(); i++) {
+            System.out.println(node.data);
+            node = node.next;
+        }
     }
     
     private class Node {
