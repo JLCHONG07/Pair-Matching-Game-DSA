@@ -220,11 +220,11 @@ public class GamePlay {
     }
 
     public void Again(int score) {
-        GameObjects obj = new GameObjects();
+       GameObjects obj = new GameObjects();
         LVL difficulty = new LVL();
         Scanner scan = new Scanner(System.in);
         PromptPlayer player = new PromptPlayer();
-
+        char choice;
         rounds = 1;
         countingPair = 0;
         gamePlayleft = true;
@@ -232,19 +232,21 @@ public class GamePlay {
         player.saveTotalResults(score);
         System.out.print("GAME OVER !\n");
         System.out.println("Play Again? (Y/N) : ");
-        char choice = scan.next().charAt(0);
+        choice = scan.next().charAt(0);
+        do{
+          
         if (choice == 'Y' || choice == 'y') {
             difficulty.LevelDecision();
             obj.randomObj(noOfGameObject);
-        } 
-        do{
-        Scanner scan2 = new Scanner(System.in);
-        System.out.print("Invalid input! Enter again : ");
-        char choice2 = scan2.next().charAt(0);   
-        if ((choice2 == 'N' || choice2 == 'n')) {
+        }
+        else if(choice == 'N' || choice == 'n'){
             MainMenu();
         }
-        }while(choice != 'N' || choice != 'n');
+        else{
+        System.out.println("Invalid Input! Enter again : ");
+        choice = scan.next().charAt(0);
+        }
+        }while(choice != 'Y' || choice != 'y'||choice != 'N' || choice != 'n');
     }
 
     public boolean inputCheck(String decision) {
