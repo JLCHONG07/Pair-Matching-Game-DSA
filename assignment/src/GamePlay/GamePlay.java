@@ -69,9 +69,9 @@ public class GamePlay {
 
         score.push(new GamePlayy(currentRounds, currentLvlScore));
 
-     // player.assignHighestScore();
+        player.assignHighestScore();
 
-     //   highestScore = player.highestScore();
+        //   highestScore = player.highestScore();
         System.out.println("Your Highest Scores : " + highestScore + "\n");
         System.out.println("Your Current Scores : " + currentScore + "\n");
         System.out.print("Round :" + rounds + "/" + score.pop().getRound());
@@ -91,123 +91,132 @@ public class GamePlay {
         decisionConvert1 = Integer.parseInt(decision1);
         while (go.getEntry(decisionConvert1).getIsPairs() == true) {
             System.out.print("\n\nThis object has been added before! :");
-            System.out.print("\n\nPlease Enter Obj 1 Again :");
-            decision1 = scan.nextLine();
+            do {
+                if (isChecked == false) {
+                    System.out.print("\n\nPlease Enter Obj 1 Again :");
+                }
+                decision1 = scan.nextLine();
 
+                isChecked = inputCheck(decision1);
+
+            } while (isChecked == false);
             decisionConvert1 = Integer.parseInt(decision1);
-        }
-        System.out.print(openDot + TisObj + go.getEntry(decisionConvert1).getDescription() + closeDot + "\n");
-        obj1Choosed = go.getEntry(decisionConvert1).getObjID();
+            System.out.print(openDot + TisObj + go.getEntry(decisionConvert1).getDescription() + closeDot + "\n");
+            obj1Choosed = go.getEntry(decisionConvert1).getObjID();
 
-        System.out.print("\n\nObj 2 :");
+            System.out.print("\n\nObj 2 :");
 
-        do {
-            if (isChecked == false) {
-                System.out.print("\n\nEnter Obj 2 Again :");
-            }
-            decision2 = scan.nextLine();
-            isChecked = inputCheck(decision2);
-        } while (isChecked == false);
+            do {
+                if (isChecked == false) {
+                    System.out.print("\n\nEnter Obj 2 Again :");
+                }
+                decision2 = scan.nextLine();
+                isChecked = inputCheck(decision2);
+            } while (isChecked == false);
 
-        decisionConvert2 = Integer.parseInt(decision2);
-
-        while (go.getEntry(decisionConvert2).getIsPairs() == true || decision2.equals(decision1)) {
-            if (go.getEntry(decisionConvert2).getIsPairs() == true) {
-                System.out.print("\n\nThis object has been added before! :");
-                System.out.print("\n\nPlease Enter Obj 2 Again :");
-                do {
-                    if (isChecked == false) {
-                        System.out.print("\n\nEnter Obj 2 Again :");
-                    }
-                    decision2 = scan.nextLine();
-                    isChecked = inputCheck(decision2);
-
-                } while (isChecked == false);
-                decisionConvert2 = Integer.parseInt(decision2);
-            } else {
-                System.out.print("\n\nThis object is choosed in obj1 ! :");
-
-                do {
-
-                    if (isChecked == false) {
-                        System.out.print("\n\nEnter Obj 2 Again :");
-                    }
-                    System.out.print("\n\nPlease Enter Obj 2 Again :");
-                    decision2 = scan.nextLine();
-                    isChecked = inputCheck(decision2);
-
-                } while (isChecked == false);
-            }
             decisionConvert2 = Integer.parseInt(decision2);
 
+            while (go.getEntry(decisionConvert2).getIsPairs() == true || decision2.equals(decision1)) {
+                if (go.getEntry(decisionConvert2).getIsPairs() == true) {
+                    System.out.print("\n\nThis object has been added before! :");
+                    System.out.print("\n\nPlease Enter Obj 2 Again :");
+                    do {
+                        if (isChecked == false) {
+                            System.out.print("\n\nEnter Obj 2 Again :");
+                        }
+                        decision2 = scan.nextLine();
+                        isChecked = inputCheck(decision2);
+
+                    } while (isChecked == false);
+                    decisionConvert2 = Integer.parseInt(decision2);
+                } else {
+                    System.out.print("\n\nThis object is choosed in obj1 ! :");
+
+                    do {
+
+                        if (isChecked == false) {
+                            System.out.print("\n\nEnter Obj 2 Again :");
+                        }
+                        System.out.print("\n\nPlease Enter Obj 2 Again :");
+                        decision2 = scan.nextLine();
+                        isChecked = inputCheck(decision2);
+
+                    } while (isChecked == false);
+                }
+                decisionConvert2 = Integer.parseInt(decision2);
+
+            }
+
+            System.out.print(openDot + TisObj + go.getEntry(decisionConvert2).getDescription() + closeDot + "\n\n");
+            obj2Choosed = go.getEntry(decisionConvert2).getObjID();
+            rounds++;
+            if (obj1Choosed.equals(obj2Choosed)) {
+
+                System.out.print("\nResults : Both object choosed are Pair!\n\n");
+
+                objPaired += go.getEntry(decisionConvert1).getDisplayName() + "\t"
+                        + go.getEntry(decisionConvert2).getDisplayName() + "\t";
+
+                countingPair++;
+
+                go.getEntry(decisionConvert1).setIsPairs(true);
+                go.getEntry(decisionConvert2).setIsPairs(true);
+
+                score.push(new GamePlayy(currentRounds, currentLvlScore));
+                while (!score.isEmpty()) {
+                    sum += score.pop().getScore();
+                    currentScore = sum;
+                }
+                System.out.println("Current Score Updated : " + currentScore);
+
+                if (currentScore > highestScore) {
+                    highestScore = currentScore;
+                    player.saveTotalResults(highestScore);
+                    System.out.println("Highest Score Updated : " + highestScore);
+                }
+
+            } else {
+                System.out.print("Result: Both object choosed are not Pair!\n\n");
+
+                System.out.println("\nCurrent Score Remainded : " + sum + "\n\n");
+
+            }
+            if (rounds > totalRounds) {
+                totalScoresEarn = currentScore;
+                System.out.print("You have found " + countingPair + " pairs of objects\n");
+                System.out.print("Current Scores is:" + currentScore + "\n");
+                System.out.print("Your Bonus is :  0" + "\n");
+                System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
+                gamePlayleft = false;
+                sum = 0;
+                if (totalScoresEarn > highestScore) {
+                    pb.levelTracker(totalScoresEarn);
+                }
+                Again(totalScoresEarn);
+
+            } else if (countingPair == max) {
+                int bonus = 0;
+                bonus = (totalRounds - (rounds - 1)) * 10;
+                totalScoresEarn = bonus + currentScore;// or highestScore
+                System.out.print("Congratulation you have found all the pairs!\n");
+                System.out.print("Current Scores is : " + currentScore + "\n");
+                System.out.print("Your Bonus is :  " + bonus + "\n");
+                System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
+                gamePlayleft = false;
+                sum = 0;
+                if (totalScoresEarn > highestScore) {
+                    pb.levelTracker(totalScoresEarn);
+                }
+                Again(totalScoresEarn);
+
+            }
+            pressAnyKeyToContinue();
+
         }
 
-        System.out.print(openDot + TisObj + go.getEntry(decisionConvert2).getDescription() + closeDot + "\n\n");
-        obj2Choosed = go.getEntry(decisionConvert2).getObjID();
-        rounds++;
-        if (obj1Choosed.equals(obj2Choosed)) {
+    
 
-            System.out.print("\nResults : Both object choosed are Pair!\n\n");
-
-            objPaired += go.getEntry(decisionConvert1).getDisplayName() + "\t"
-                    + go.getEntry(decisionConvert2).getDisplayName() + "\t";
-
-            countingPair++;
-
-            go.getEntry(decisionConvert1).setIsPairs(true);
-            go.getEntry(decisionConvert2).setIsPairs(true);
-
-            score.push(new GamePlayy(currentRounds, currentLvlScore));
-            while (!score.isEmpty()) {
-                sum += score.pop().getScore();
-                currentScore = sum;
-            }
-            System.out.println("Current Score Updated : " + currentScore);
-
-            if (currentScore > highestScore) {
-                highestScore = currentScore;
-                player.saveTotalResults(highestScore);
-                System.out.println("Highest Score Updated : " + highestScore);
-            }
-
-        } else {
-            System.out.print("Result: Both object choosed are not Pair!\n\n");
-
-            System.out.println("\nCurrent Score Remainded : " + sum + "\n\n");
-
-        }
-        if (rounds > totalRounds) {
-            totalScoresEarn = currentScore;
-            System.out.print("You have found " + countingPair + " pairs of objects\n");
-            System.out.print("Current Scores is:" + currentScore + "\n");
-            System.out.print("Your Bonus is :  0" + "\n");
-            System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
-            gamePlayleft = false;
-            sum = 0;
-            if (totalScoresEarn > highestScore) {
-                pb.levelTracker(totalScoresEarn);
-            }
-            Again(totalScoresEarn);
-
-        } else if (countingPair == max) {
-            int bonus = 0;
-            bonus = (totalRounds - (rounds - 1)) * 10;
-            totalScoresEarn = bonus + currentScore;// or highestScore
-            System.out.print("Congratulation you have found all the pairs!\n");
-            System.out.print("Current Scores is : " + currentScore + "\n");
-            System.out.print("Your Bonus is :  " + bonus + "\n");
-            System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
-            gamePlayleft = false;
-            sum = 0;
-            if (totalScoresEarn > highestScore) {
-                pb.levelTracker(totalScoresEarn);
-            }
-            Again(totalScoresEarn);
-
-        }
-        pressAnyKeyToContinue();
-
-    }
+    
 
     private void pressAnyKeyToContinue() {
         System.out.println("Press Enter key to continue...");
