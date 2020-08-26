@@ -90,9 +90,9 @@ public class LinkedList<T> implements LinkedListInterface<T> {
     public T get(int index) {
         Node tempNode = head;
         if(index == 0) {
-            return tempNode.data;
+            return head.data;
         } else {
-            while(tempNode.next != null) {
+            for(int i = size; i > index - 1; i--) {
                 tempNode = tempNode.next;
             }
             return tempNode.data;
