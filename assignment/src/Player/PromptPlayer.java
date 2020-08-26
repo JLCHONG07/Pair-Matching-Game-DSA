@@ -35,15 +35,18 @@ public class PromptPlayer {
             playerNo++;
         }
         
+        highestScore=0;
         currentId = id;
         
         playerLinkedList.add(new Player(id, playerName, 0, 0, 0));
-        
+        currentPlayer=playerName;
+        /*
         for (int index = 0; index < playerLinkedList.length(); index++) {
             if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
                 currentPlayer = playerLinkedList.get(index).getPlayerName();
             }
         }
+*/
         
         System.out.println("+-----------------------+");
         System.out.println("|" + "Your current id is " + currentId + "|");
@@ -84,6 +87,7 @@ public class PromptPlayer {
                 PromptPlayerInput();
             }
         }while(proceed == false);
+        assignHighestScore();
     }
     
     public String displayName() {
@@ -105,6 +109,7 @@ public class PromptPlayer {
                     if(playerLinkedList.get(index).getPlayerId().equals(currentId)) {
                         highestScore = playerLinkedList.get(index).getEasylvlScore();
                     }
+                    
                 }
                 break;
             case "L02":
