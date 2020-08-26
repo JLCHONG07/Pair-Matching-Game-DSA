@@ -55,7 +55,7 @@ public class Ranking implements Comparable<Ranking> {
     @Override
     public String toString() {
        
-            return  playerName + "\t\t" + playerScore +"\n";
+            return  playerName + "\t\t\t" + playerScore +"\n";
         
     }
 

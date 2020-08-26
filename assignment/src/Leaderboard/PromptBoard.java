@@ -28,7 +28,7 @@ public class PromptBoard {
         System.out.println("+-----------------------------------------+");
         System.out.println("\t\tLeaderBoard");
         System.out.println("+-----------------------------------------+");
-        System.out.println("Rank\tName\t\tScore");
+        System.out.println("Rank\tName\t\t\tScore");
         
         switch(level)
         {

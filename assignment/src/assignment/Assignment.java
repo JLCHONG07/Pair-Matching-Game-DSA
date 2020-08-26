@@ -27,6 +27,7 @@ public class Assignment {
     public static void main(String[] args) {
         // Display main menu
         // With three selections: Start , Leaderboard, Quit
+        MainDisplay();
         MainMenu();
     }
 
@@ -136,45 +137,95 @@ public class Assignment {
         PromptBoard board= new PromptBoard();
         int selection;
         int boardSelect;
+        boolean validSelection=true;
         Scanner scan=new Scanner(System.in);
-        System.out.println("1.Easy\n2.Medium\n3.Hard\n");
-        boardSelect=scan.nextInt();
+        do{
+            System.out.println("+----------------+");
+            System.out.println("1.Easy\n2.Medium\n3.Hard\n4.Back");
+            System.out.println("+----------------+");
+
+            if (scan.hasNextInt())
+            {
+                 boardSelect=scan.nextInt();
+                 switch(boardSelect)
+                {
+                    case 1:
+                    {
+                        board.displayBoard(1);
+                        break;
+                    }
+                    case 2:
+                    {
+                        board.displayBoard(2);
+                        break;
+                    }
+                    case 3:
+                    {
+                        board.displayBoard(3);
+                        break;
+                    }
+                    case 4:
+                    {
+                        MainMenu();
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("Invalid selection. Please reenter.\n");
+                        validSelection=false;
+                        break;
+                    }
+                }
+            }
+            else if(!scan.hasNextInt()){
+                System.out.println("Please enter integer only.\n");
+                scan.next();
+                validSelection = false;
+            }     
+        }while(validSelection!=true);       //validation
         
-        switch(boardSelect)
+        validSelection=true;
+        do
         {
-            case 1:
+            System.out.println("Press 1 to return to main menu.\nPress 2 to exit.");
+
+            if (scan.hasNextInt())
             {
-                board.displayBoard(1);
-                break;
+                selection=scan.nextInt();
+                switch (selection)
+                {
+                    case 1:
+                    {
+                           MainMenu();
+                           break;
+                    }
+                    case 2:
+                    {
+                        System.exit(0);
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("Invalid selection. Please Reenter.\n");
+                        validSelection=false;
+                    }
+                }
             }
-            case 2:
+            else if (!scan.hasNextInt())
             {
-                board.displayBoard(2);
-                break;
+                    System.out.println("Please enter integer only.\n");
+                    scan.next();
+                    validSelection=false;
             }
-            case 3:
-            {
-                board.displayBoard(3);
-                break;
-            }
-        }
-        
-        System.out.println("Press 1 to return to main menu.\nPress 2 to exit.");
-        selection=scan.nextInt();
-        
-        switch (selection)
-        {
-            case 1:
-            {
-                   MainMenu();
-                   break;
-            }
-            case 2:
-            {
-                System.exit(0);
-                break;
-            }
-        }
-        
+        }while(validSelection!=true);      
+    }
+    
+    public static void MainDisplay()
+    {
+        System.out.println("+---------------------------------------------+");
+        System.out.println("\t\tP  A  I  R ");
+        System.out.println("\t  M  A  T  C  H  I  N  G");
+        System.out.println("+---------------------------------------------+");
+        System.out.println("\t\t  Welcome!\n");
     }
 }
