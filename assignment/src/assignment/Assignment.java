@@ -102,6 +102,7 @@ public class Assignment {
             if(playerInput.hasNextInt()){
                 playerSelect = playerInput.nextInt();
                 
+                valid2 = true;
                 switch (playerSelect) {
                     case 1:{
                         player.NewPlayer();
@@ -124,13 +125,12 @@ public class Assignment {
                         break;
                     }
                 }
-            }
-            else if(!playerInput.hasNextInt()){
+            } else {
                 System.out.println("Please enter integer only!!!\n");
                 playerInput.next();
                 valid2 = false;
             }
-        } while (valid2 != true);
+        } while (valid2 == false);
 
         
     }
