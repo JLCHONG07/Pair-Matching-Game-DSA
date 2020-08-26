@@ -55,7 +55,7 @@ public class Ranking implements Comparable<Ranking> {
     @Override
     public String toString() {
        
-            return  playerName + "\t\t" + playerScore +"\n";
+            return  playerName + "\t\t\t" + playerScore +"\n";
         
     }
 
@@ -65,7 +65,7 @@ public class Ranking implements Comparable<Ranking> {
        int compareScore=((Ranking)r).getPlayerScore();
 		//0 = same
             //not 0 = not same
-		return compareScore-this.playerScore;   //this will create record from highest to lowest score
+		return compareScore-this.playerScore;//descending record score
 	}
    
 }

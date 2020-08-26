@@ -5,12 +5,11 @@
  */
 package Leaderboard;
 
-import static GamePlay.GamePlay.easyRecord;
-import static GamePlay.GamePlay.mediumRecord;
+/*import static GamePlay.GamePlay.easyRecord;
 import static GamePlay.GamePlay.hardRecord;
-import static GamePlay.GamePlay.recordList;
+import static GamePlay.GamePlay.mediumRecord;*/
 import static Level.LVL.currentLevel;
-import static Player.PromptPlayer.*;
+import static Player.PromptPlayer.currentPlayer;
 
 /**
  *
@@ -18,17 +17,33 @@ import static Player.PromptPlayer.*;
  */
 public class PromptBoard {
 
-    String winnerName;
-    int winnerScore;
-    String levelType;
-
+    public static SortedArrayListInterface<Ranking> easyRecord = new SortedArrayList<Ranking>();
+    public static SortedArrayListInterface<Ranking> mediumRecord = new SortedArrayList<Ranking>();
+    public static SortedArrayListInterface<Ranking> hardRecord = new SortedArrayList<Ranking>();
+    
+    public void levelTracker(int scoreEarn) {
+        switch (currentLevel) {
+            case "L01": {
+                easyRecord.add(new Ranking(currentPlayer,scoreEarn, currentLevel));
+                break;
+            }
+            case "L02": {
+                mediumRecord.add(new Ranking(currentPlayer, scoreEarn, currentLevel));
+                break;
+            }
+            case "L03": {
+                hardRecord.add(new Ranking(currentPlayer, scoreEarn, currentLevel));
+                break;
+            }
+        }
+    }
     public void displayBoard(int level) {
 
         //get user name and scores
         System.out.println("+-----------------------------------------+");
         System.out.println("\t\tLeaderBoard");
         System.out.println("+-----------------------------------------+");
-        System.out.println("Rank\tName\t\tScore");
+        System.out.println("Rank\tName\t\t\tScore");
         
         switch(level)
         {
@@ -48,8 +63,6 @@ public class PromptBoard {
                 break;
             }
         }
-       // recordList.add(new Ranking(currentPlayer, totalScoresEarn, levelType));
-    //    System.out.print(recordList.length());
     }
     public void easyBoard()
     {

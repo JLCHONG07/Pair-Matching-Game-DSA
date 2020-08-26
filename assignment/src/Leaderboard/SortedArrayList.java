@@ -7,7 +7,7 @@ package Leaderboard;
 
 /**
  *
- * @author USER
+ * @author GeeLoong
  * @param <T>
  */
 public class SortedArrayList<T extends Comparable<T>> implements SortedArrayListInterface<T> {
@@ -36,23 +36,19 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     length++;
     return true;
   }
-@Override
-  public boolean remove(T anEntry) {
-    throw new UnsupportedOperationException();
-  }
 
   public void clear() {
     length = 0;
   }
 @Override
   public boolean contains(T anEntry) {
-    boolean found = false;
-    for (int index = 0; !found && (index < length); index++) {
+    boolean foundRecord = false;
+    for (int index = 0; !foundRecord && (index < length); index++) {
       if (anEntry.equals(array[index])) {
-        found = true;
+        foundRecord = true;
       }
     }
-    return found;
+    return foundRecord;
   }
 @Override
   public int length() {
@@ -74,20 +70,6 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     return outputStr;
   }
 
-  private boolean isArrayFull() {
-    return length == array.length;
-  }
-
-  private void doubleArray() {
-    T[] oldList = array;
-    int oldSize = oldList.length;
-
-    array = (T[]) new Object[2 * oldSize];
-
-    for (int index = 0; index < oldSize; index++) {
-      array[index] = oldList[index];
-    }
-  }
 
   private void makeRoom(int newPosition) {
     int newIndex = newPosition - 1;
@@ -97,17 +79,5 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
       array[index + 1] = array[index];
     }
   }
-
-  private void removeGap(int givenPosition) {
-    int removedIndex = givenPosition - 1;
-    int lastIndex = length - 1;
-
-    for (int index = removedIndex; index < lastIndex; index++) {
-      array[index] = array[index + 1];
-    }
-  }
-
-   
-    
 
 }
