@@ -6,8 +6,10 @@
 package Leaderboard;
 
 import static GamePlay.GamePlay.easyRecord;
-import static GamePlay.GamePlay.mediumRecord;
 import static GamePlay.GamePlay.hardRecord;
+import static GamePlay.GamePlay.mediumRecord;
+import static Level.LVL.currentLevel;
+import static Player.PromptPlayer.currentPlayer;
 
 /**
  *
@@ -19,6 +21,22 @@ public class PromptBoard {
     int winnerScore;
     String levelType;
 
+    public static void levelTracker(int scoreEarn) {
+        switch (currentLevel) {
+            case "L01": {
+                easyRecord.add(new Ranking(currentPlayer,scoreEarn, currentLevel));
+                break;
+            }
+            case "L02": {
+                mediumRecord.add(new Ranking(currentPlayer, scoreEarn, currentLevel));
+                break;
+            }
+            case "L03": {
+                hardRecord.add(new Ranking(currentPlayer, scoreEarn, currentLevel));
+                break;
+            }
+        }
+    }
     public void displayBoard(int level) {
 
         //get user name and scores

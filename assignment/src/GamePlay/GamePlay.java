@@ -17,6 +17,7 @@ import static Level.LVL.*;
 import Player.PromptPlayer;
 import static Player.PromptPlayer.currentPlayer;
 import static Player.PromptPlayer.highestScore;
+import Leaderboard.PromptBoard;
 
 import static assignment.Assignment.MainMenu;
 
@@ -187,7 +188,7 @@ public class GamePlay {
             sum = 0;
             if(totalScoresEarn>highestScore)
             {
-                levelTracker(totalScoresEarn);
+                PromptBoard.levelTracker(totalScoresEarn);
             }
             Again(totalScoresEarn);
 
@@ -203,7 +204,7 @@ public class GamePlay {
             sum = 0;   
             if(totalScoresEarn>highestScore)
             {
-                levelTracker(totalScoresEarn);
+                PromptBoard.levelTracker(totalScoresEarn);
             }
             Again(totalScoresEarn);
 
@@ -246,22 +247,7 @@ public class GamePlay {
 
     
 
-    public void levelTracker(int scoreEarn) {
-        switch (currentLevel) {
-            case "L01": {
-                easyRecord.add(new Ranking(currentPlayer,scoreEarn, currentLevel));
-                break;
-            }
-            case "L02": {
-                mediumRecord.add(new Ranking(currentPlayer, scoreEarn, currentLevel));
-                break;
-            }
-            case "L03": {
-                hardRecord.add(new Ranking(currentPlayer, scoreEarn, currentLevel));
-                break;
-            }
-        }
-    }
+    
 
     public boolean inputCheck(String decision) {
         boolean isBool = true;
