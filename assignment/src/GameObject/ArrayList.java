@@ -20,7 +20,7 @@ public class ArrayList<T> implements ArrListInterface<T> {
 
     private int length;
     private T[] array;
-    private static int DEFAULT_CAPACITY = 5;
+    private static int DEFAULT_CAPACITY = 8;
 
     //ceate  the emty arrayList with Default capacity=5;
     public ArrayList() {
