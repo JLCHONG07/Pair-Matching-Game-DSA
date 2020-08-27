@@ -25,23 +25,23 @@ public class PromptBoard {
     public static SortedArrayListInterface<LeaderBoard> hardRecord = new SortedArrayList<LeaderBoard>();
 
     public void levelTracker() {
-        int totalScoreEarn = 0;
+          int totalScoreEarn = 0;
         String playerName;
         switch (currentLevel) {
             case "L01": {
 
                 if (!easyRecord.isEmpty()) {
 
-                    mediumRecord.clear();
+                    easyRecord.clear();
 
                 }
                 for (int index = 0; index < playerLinkedList.length(); index++) {
-                    if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
+            //        if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
 
                         totalScoreEarn = playerLinkedList.get(index).getEasylvlScore();
                         playerName = playerLinkedList.get(index).getPlayerName();
                         easyRecord.add(new LeaderBoard(playerName, totalScoreEarn, currentLevel));
-                    }
+                 //   }
 
                 }
 
@@ -55,12 +55,12 @@ public class PromptBoard {
 
                 }
                 for (int index = 0; index < playerLinkedList.length(); index++) {
-                    if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
+           //         if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
 
-                        totalScoreEarn = playerLinkedList.get(index).getEasylvlScore();
+                        totalScoreEarn = playerLinkedList.get(index).getMediumlvlScore();
                         playerName = playerLinkedList.get(index).getPlayerName();
                         mediumRecord.add(new LeaderBoard(playerName, totalScoreEarn, currentLevel));
-                    }
+               //     }
 
                 }
 
@@ -74,12 +74,12 @@ public class PromptBoard {
 
                 }
                 for (int index = 0; index < playerLinkedList.length(); index++) {
-                    if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
+               //     if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
 
-                        totalScoreEarn = playerLinkedList.get(index).getEasylvlScore();
+                        totalScoreEarn = playerLinkedList.get(index).getHardlvlScore();
                         playerName = playerLinkedList.get(index).getPlayerName();
-                        hardRecord.add(new LeaderBoard(currentPlayer, highestScore, currentLevel));
-                    }
+                        hardRecord.add(new LeaderBoard(playerName, totalScoreEarn, currentLevel));
+                 //   }
 
                 }
 
@@ -96,7 +96,7 @@ public class PromptBoard {
         System.out.println("+-----------------------------------------+");
         System.out.println("Rank\tName\t\t\tScore");
 
-        levelTracker();
+       // levelTracker();
         switch (level) {
             case 1: {
 

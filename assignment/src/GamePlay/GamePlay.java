@@ -241,6 +241,7 @@ public class GamePlay {
         gamePlayleft = true;
         totalScoresEarn = 0;
         player.saveTotalResults(score);
+       pb.levelTracker();
         System.out.print("GAME OVER !\n");
         do {
             System.out.println("Play Again? (Y/N) : ");
