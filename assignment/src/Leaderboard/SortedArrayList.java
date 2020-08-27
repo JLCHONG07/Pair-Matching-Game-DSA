@@ -36,7 +36,7 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     length++;
     return true;
   }
-
+@Override
   public void clear() {
     length = 0;
   }
