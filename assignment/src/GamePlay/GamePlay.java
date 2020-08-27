@@ -190,9 +190,11 @@ public class GamePlay {
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
             sum = 0;
-            if (totalScoresEarn > highestScore) {
+            /*
+            if (totalScoresEarn > highestScore ) {
                 pb.levelTracker(totalScoresEarn);
             }
+*/
             Again(totalScoresEarn);
 
         } else if (countingPair == max) {
@@ -205,9 +207,11 @@ public class GamePlay {
             System.out.print("Your Total Scores earned : " + totalScoresEarn + "\n");
             gamePlayleft = false;
             sum = 0;
+            /*
             if (totalScoresEarn > highestScore) {
                 pb.levelTracker(totalScoresEarn);
             }
+*/
             Again(totalScoresEarn);
 
         }
@@ -237,6 +241,7 @@ public class GamePlay {
         gamePlayleft = true;
         totalScoresEarn = 0;
         player.saveTotalResults(score);
+       pb.levelTracker();
         System.out.print("GAME OVER !\n");
         do {
             System.out.println("Play Again? (Y/N) : ");
