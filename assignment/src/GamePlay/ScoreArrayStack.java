@@ -28,35 +28,22 @@ public class ScoreArrayStack<E> implements ScoreArrayStackInterface<E> {
     @Override
     public void push(E value) {
     size++;
-    //if(size == ScoreArrayStack.length){
-      //  doubleArray();
-    //}
+
     if(size < ScoreArrayStack.length){
-       // doubleArray();
-        //ScoreArrayStack[size] = value;
         ScoreArrayStack[size] = value;
     }
-   // ScoreArrayStack[size] = value;
    
     }
 
     @Override
     public E pop() {
         E top = null;
-        /*if(!isEmpty()){
-            top = ScoreArrayStack[size];
-            ScoreArrayStack[size - 1] = null;
-        }*/
         
         if(!isEmpty()){
             top = ScoreArrayStack[size];
             ScoreArrayStack[size] = null;
             size--;
         }
-        //size--;
-       // int result = ScoreArrayStack[size - 1];
-       //scoreStack[size - 1] = 0; //clear out old value
-        
         return top;
     }
     
@@ -72,8 +59,6 @@ public class ScoreArrayStack<E> implements ScoreArrayStackInterface<E> {
         throw new ArrayIndexOutOfBoundsException();
         
         }
-        //int result = ScoreArrayStack[size - 1];
-        //scoreStack[size - 1] = 0; //clear out old value
         if(!isEmpty()){
         top = ScoreArrayStack[size];
         }
@@ -97,18 +82,6 @@ public class ScoreArrayStack<E> implements ScoreArrayStackInterface<E> {
         ScoreArrayStack = temArray;
     
     }
-    
-    /*private void doubleArray(){
-    int newStack = 2* ScoreArrayStack.length;
-    
-    int[] newArray = new int [newStack];
-    
-    for(int i = 0; i < ScoreArrayStack.length; i++){
-        newArray[i] = ScoreArrayStack[i];
-    }
-    ScoreArrayStack = newArray;
-    
-    }*/
 
     @Override
     public void clear() {
