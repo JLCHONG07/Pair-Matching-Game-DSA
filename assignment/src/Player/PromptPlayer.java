@@ -73,9 +73,9 @@ public class PromptPlayer {
                 }
             } else {
                 System.out.println("No player found !");
-                System.out.println("Return to previous selection");
+                System.out.println("Return to main menu\n");
                 proceed = true;
-                PromptPlayerInput();
+                MainMenu();
             }
         } while (proceed == false);
         assignHighestScore();
