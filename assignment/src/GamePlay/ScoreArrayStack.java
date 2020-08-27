@@ -71,17 +71,6 @@ public class ScoreArrayStack<E> implements ScoreArrayStackInterface<E> {
     public boolean isEmpty() {
         return size < 0;
     }
-    
-    private void doubleArray(){
-    E[] oldArray = ScoreArrayStack;
-        int temArrayLength = ScoreArrayStack.length;
-        E[] temArray = (E[]) new Object[temArrayLength * 2];
-        for (int i = 0; i < oldArray.length; i++) {
-            temArray[i] = ScoreArrayStack[i];
-        }
-        ScoreArrayStack = temArray;
-    
-    }
 
     @Override
     public void clear() {
