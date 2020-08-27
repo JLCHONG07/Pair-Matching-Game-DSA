@@ -39,12 +39,8 @@ public class PromptPlayer {
         currentId = id;
 
         playerLinkedList.add(new Player(id, playerName, 0, 0, 0));
+        
         currentPlayer = playerName;
-        /*
-         * for (int index = 0; index < playerLinkedList.length(); index++) { if
-         * (playerLinkedList.get(index).getPlayerId().equals(currentId)) { currentPlayer
-         * = playerLinkedList.get(index).getPlayerName(); } }
-         */
 
         System.out.println("+-----------------------+");
         System.out.println("|" + "Your current id is " + currentId + "|");
@@ -130,9 +126,6 @@ public class PromptPlayer {
                 case "L01":
                     for (int index = 0; index < playerLinkedList.length(); index++) {
                         if (playerLinkedList.get(index).getPlayerId().equals(currentId)) {
-                            System.out.println("Debug : " + playerLinkedList.get(index).getPlayerId());
-                            System.out.println("Debug : " + playerLinkedList.get(index).getPlayerName());
-                            System.out.println("Debug : " + playerLinkedList.get(index).getEasylvlScore());
                             if (playerLinkedList.get(index).getEasylvlScore() <= score) {
                                 playerLinkedList.get(index).setEasylvlScore(score);
                             } else {
