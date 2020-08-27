@@ -5,13 +5,7 @@
  */
 package Leaderboard;
 
-/*import static GamePlay.GamePlay.easyRecord;
-import static GamePlay.GamePlay.hardRecord;
-import static GamePlay.GamePlay.mediumRecord;*/
 import static Level.LVL.currentLevel;
-import static Player.PromptPlayer.currentId;
-import static Player.PromptPlayer.currentPlayer;
-import static Player.PromptPlayer.highestScore;
 import static Player.PromptPlayer.playerLinkedList;
 
 /**
@@ -96,7 +90,6 @@ public class PromptBoard {
         System.out.println("+-----------------------------------------+");
         System.out.println("Rank\tName\t\t\tScore");
 
-       // levelTracker();
         switch (level) {
             case 1: {
 
