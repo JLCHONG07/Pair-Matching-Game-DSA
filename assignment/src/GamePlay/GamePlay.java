@@ -33,7 +33,7 @@ public class GamePlay {
     String objPaired = "";
     public static int totalRounds = 0;// changed base on level getRounds();
     int sum = 0;
-    // int highestScore = 0;
+    int highestScore = 0;
     int currentScore = 0;
     int previousScore;
     public static int finalScore;
